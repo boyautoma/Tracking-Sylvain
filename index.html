@@ -4,53 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VividCraft — P&L Dashboard</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--coral:#E87461;--teal:#2BAA94;--peach:#F5B88C;--dark:#1a1a2e;--dark2:#16213e;--dark3:#1e2a4a;--white:#f0f0f0;--red:#ff6b6b;--green:#51cf66;--muted:#8892a4;--dimmed:#5a6478}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,var(--dark) 0%,#0f1628 100%);color:var(--white);font-family:'Inter',-apple-system,sans-serif;min-height:100vh;padding:24px 20px}
-.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:12px}
-.header h1{font-size:26px;font-weight:700;letter-spacing:-0.5px}
+.header h1{font-size:26px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px}
 .coral{color:var(--coral)}.teal{color:var(--teal)}
 .sub{color:var(--muted);font-weight:400;font-size:16px;margin-left:10px}
-.meta-info{font-size:11px;color:var(--dimmed);font-family:'JetBrains Mono',monospace;margin-top:4px}
+.meta-info{font-size:11px;color:var(--dimmed);font-family:'JetBrains Mono',monospace;margin-bottom:24px}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tab{background:transparent;color:var(--muted);border:1px solid var(--dark3);border-radius:8px;padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+.tab.active{background:var(--teal);color:var(--dark);border-color:var(--teal)}
 .date-bar{display:flex;align-items:center;gap:10px;margin-bottom:24px;flex-wrap:wrap}
 .date-bar label{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px}
-.date-bar input[type="date"]{background:var(--dark2);color:var(--white);border:1px solid var(--dark3);border-radius:8px;padding:8px 14px;font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;outline:none;transition:border-color .2s}
+.date-bar input[type="date"]{background:var(--dark2);color:var(--white);border:1px solid var(--dark3);border-radius:8px;padding:8px 14px;font-size:13px;font-family:'Inter',sans-serif;cursor:pointer;outline:none}
 .date-bar input[type="date"]:focus{border-color:var(--teal)}
 .date-bar input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.7);cursor:pointer}
 .sep{color:var(--dimmed);font-size:14px}
 .quick-btns{display:flex;gap:6px;margin-left:8px}
 .quick-btn{background:transparent;color:var(--dimmed);border:1px solid var(--dark3);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'JetBrains Mono',monospace}
 .quick-btn:hover,.quick-btn.active{background:var(--teal);color:var(--dark);border-color:var(--teal)}
-.view-toggle{display:flex;gap:6px;margin-bottom:20px}
-.view-btn{background:transparent;color:var(--dimmed);border:1px solid var(--dark3);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
-.view-btn.active{background:var(--dark3);color:var(--white)}
 .kpi-row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
 .kpi{background:var(--dark2);border-radius:12px;padding:20px 24px;border:1px solid var(--dark3);min-width:150px;flex:1}
 .kpi.sm{padding:14px 16px;min-width:120px}
 .kpi-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;font-family:'JetBrains Mono',monospace}
 .kpi-value{font-size:28px;font-weight:700;font-family:'Space Mono',monospace}
 .kpi.sm .kpi-value{font-size:20px}
-.chart-box{background:var(--dark2);border-radius:12px;padding:20px 16px;border:1px solid var(--dark3);margin-bottom:16px}
-.chart-title{margin:0 0 16px 8px;font-size:14px;color:var(--muted);font-weight:500}
+.tbl-box{background:var(--dark2);border-radius:12px;padding:20px 16px;border:1px solid var(--dark3);overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{padding:8px 12px;text-align:right;color:var(--dimmed);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--dark3)}
 td{padding:10px 12px;text-align:right}
 tr.total-row{border-top:2px solid rgba(43,170,148,.27)}
 tr.total-row td{padding:12px;font-weight:700}
 .footer{text-align:center;margin-top:24px;font-size:11px;color:#3a4458;font-family:'JetBrains Mono',monospace}
-@media(max-width:600px){.kpi{min-width:calc(50% - 8px);padding:14px 16px}.kpi-value{font-size:20px}.kpi.sm{min-width:calc(33% - 8px)}.kpi.sm .kpi-value{font-size:16px}body{padding:16px 12px}.quick-btns{margin-left:0;margin-top:4px}}
+@media(max-width:600px){.kpi{min-width:calc(50% - 8px);padding:14px 16px}.kpi-value{font-size:20px}.kpi.sm{min-width:calc(50% - 8px)}.kpi.sm .kpi-value{font-size:16px}body{padding:16px 12px}.quick-btns{margin-left:0;margin-top:4px}}
 </style>
 </head>
 <body>
-<div class="header"><div>
-<h1><span class="coral">Vivid</span><span class="teal">Craft</span><span class="sub">P&L Dashboard</span></h1>
+<div class="header">
+<h1><span class="coral">Vivid</span><span class="teal">Craft</span><span class="sub">P&L</span></h1>
+</div>
 <div class="meta-info" id="metaInfo"></div>
-</div></div>
 
-<div class="date-bar">
+<div class="tabs">
+<button class="tab active" data-tab="kpis">KPIs</button>
+<button class="tab" data-tab="breakdown">Breakdown</button>
+</div>
+
+<div id="dateBar" class="date-bar">
 <label>Du</label><input type="date" id="dateFrom">
 <span class="sep">→</span>
 <label>Au</label><input type="date" id="dateTo">
@@ -61,13 +63,8 @@ tr.total-row td{padding:12px;font-weight:700}
 </div>
 </div>
 
-<div class="view-toggle">
-<button class="view-btn active" data-view="kpis">KPIs</button>
-<button class="view-btn" data-view="daily">Tableau</button>
-</div>
-
 <div id="content"></div>
-<div class="footer">Mis à jour par Claude · Données hébergées sur GitHub Pages</div>
+<div class="footer">Mis à jour par Claude</div>
 
 <script>
 const DAILY=[
@@ -87,7 +84,7 @@ const DAILY=[
 ];
 const LAST_UPDATED="2026-04-09";
 
-let currentView="kpis",chart=null;
+let currentTab="kpis";
 const dateFrom=document.getElementById("dateFrom"),dateTo=document.getElementById("dateTo");
 dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date;
 dateFrom.min=DAILY[0].date;dateFrom.max=DAILY[DAILY.length-1].date;
@@ -97,16 +94,30 @@ document.getElementById("metaInfo").textContent="Dernière MAJ: "+new Date(LAST_
 function fmt(n,p="$"){if(n==null)return"—";const a=Math.abs(n);const f=a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}):a.toFixed(2);return(n<0?"-":"")+p+f}
 function getFiltered(){return DAILY.filter(d=>d.date>=dateFrom.value&&d.date<=dateTo.value)}
 function calcSummary(data){const r=data.reduce((a,d)=>a+d.revenue,0),o=data.reduce((a,d)=>a+d.orders,0),c=data.reduce((a,d)=>a+d.cogs,0),s=data.reduce((a,d)=>a+d.spend,0),pn=data.reduce((a,d)=>a+d.profitNet,0),f=r*0.029+o*0.30,pb=r-c-f;return{revenue:r,orders:o,aov:o>0?r/o:0,cogs:c,profitBeforeAds:pb,metaSpend:s,profitNet:pn,roasBlended:s>0?r/s:0,cpaBlended:o>0?s/o:0,marginNet:r>0?(pn/r)*100:0}}
-function render(){const d=getFiltered(),el=document.getElementById("content");currentView==="daily"?renderTable(el,d):renderKPIs(el,d)}
+
+function render(){
+const data=getFiltered(),el=document.getElementById("content");
+if(currentTab==="breakdown")renderTable(el,data);
+else renderKPIs(el,data);
+}
+
 function kpi(l,v,p="$",sx="",c,sm){const neg=typeof v==="number"&&v<0;const col=c||(neg?"var(--red)":"var(--green)");const cls=sm?"kpi sm":"kpi";const dsp=typeof v==="number"?fmt(v,p)+sx:v+sx;return'<div class="'+cls+'"><div class="kpi-label">'+l+'</div><div class="kpi-value" style="color:'+col+'">'+dsp+'</div></div>'}
-function renderKPIs(el,data){const s=calcSummary(data);el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)")+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row" style="margin-bottom:28px">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div><div class="chart-box"><h3 class="chart-title">Revenue vs Spend vs Profit Net</h3><canvas id="mainChart" height="280"></canvas></div>';renderChart(data)}
-function renderChart(data){if(chart)chart.destroy();const ctx=document.getElementById("mainChart");if(!ctx)return;chart=new Chart(ctx,{type:"bar",data:{labels:data.map(x=>x.label),datasets:[{type:"bar",label:"Revenue",data:data.map(x=>x.revenue),backgroundColor:"rgba(43,170,148,.7)",borderRadius:4,order:2},{type:"bar",label:"Spend",data:data.map(x=>x.spend),backgroundColor:"rgba(232,116,97,.6)",borderRadius:4,order:3},{type:"line",label:"Profit Net",data:data.map(x=>x.profitNet),borderColor:"#F5B88C",backgroundColor:"#F5B88C",pointRadius:4,pointBackgroundColor:"#F5B88C",borderWidth:2,tension:.3,order:1}]},options:{responsive:true,maintainAspectRatio:false,scales:{x:{ticks:{color:"#5a6478",font:{size:11}},grid:{color:"rgba(30,42,74,.5)"}},y:{ticks:{color:"#5a6478",font:{size:11},callback:v=>"$"+v},grid:{color:"rgba(30,42,74,.5)"}}},plugins:{legend:{labels:{color:"#8892a4",font:{size:11}}},tooltip:{backgroundColor:"#1a1a2e",borderColor:"#1e2a4a",borderWidth:1,titleColor:"#F5B88C",bodyColor:"#f0f0f0",callbacks:{label:c=>c.dataset.label+": $"+c.parsed.y.toFixed(2)}}}}})}
-function renderTable(el,data){const t=data.reduce((a,r)=>({orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+r.cogs,spend:a.spend+r.spend,profitNet:a.profitNet+r.profitNet}),{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});let rows=data.map(r=>{const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"—";const rc=roas!=="—"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--dimmed)";return'<tr><td style="color:var(--peach);font-family:JetBrains Mono,monospace;font-weight:500">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--teal)">'+fmt(r.revenue)+'</td><td style="color:var(--muted)">'+fmt(r.cogs)+'</td><td style="color:var(--coral)">'+fmt(r.spend)+'</td><td style="color:'+(r.profitNet>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(r.profitNet)+'</td><td style="color:'+rc+'">'+roas+(roas!=="—"?"x":"")+'</td></tr>'}).join("");el.innerHTML='<div class="chart-box" style="overflow-x:auto"><h3 class="chart-title">Détail journalier</h3><table><thead><tr><th>Date</th><th>Cmd</th><th>Revenue</th><th>COGS</th><th>Spend</th><th>Profit Net</th><th>ROAS</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="total-row"><td style="color:var(--peach)">TOTAL</td><td>'+t.orders+'</td><td style="color:var(--teal)">'+fmt(t.revenue)+'</td><td style="color:var(--muted)">'+fmt(t.cogs)+'</td><td style="color:var(--coral)">'+fmt(t.spend)+'</td><td style="color:'+(t.profitNet>=0?"var(--green)":"var(--red)")+'">'+fmt(t.profitNet)+'</td><td></td></tr></tfoot></table></div>'}
+
+function renderKPIs(el,data){
+const s=calcSummary(data);
+el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)")+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div>';
+}
+
+function renderTable(el,data){
+const t=data.reduce((a,r)=>({orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+r.cogs,spend:a.spend+r.spend,profitNet:a.profitNet+r.profitNet}),{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});
+let rows=data.map(r=>{const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"—";const rc=roas!=="—"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--dimmed)";return'<tr><td style="color:var(--peach);font-family:JetBrains Mono,monospace;font-weight:500">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--teal)">'+fmt(r.revenue)+'</td><td style="color:var(--muted)">'+fmt(r.cogs)+'</td><td style="color:var(--coral)">'+fmt(r.spend)+'</td><td style="color:'+(r.profitNet>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(r.profitNet)+'</td><td style="color:'+rc+'">'+roas+(roas!=="—"?"x":"")+'</td></tr>'}).join("");
+el.innerHTML='<div class="tbl-box"><table><thead><tr><th>Date</th><th>Cmd</th><th>Revenue</th><th>COGS</th><th>Spend</th><th>Profit Net</th><th>ROAS</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="total-row"><td style="color:var(--peach)">TOTAL</td><td>'+t.orders+'</td><td style="color:var(--teal)">'+fmt(t.revenue)+'</td><td style="color:var(--muted)">'+fmt(t.cogs)+'</td><td style="color:var(--coral)">'+fmt(t.spend)+'</td><td style="color:'+(t.profitNet>=0?"var(--green)":"var(--red)")+'">'+fmt(t.profitNet)+'</td><td></td></tr></tfoot></table></div>';
+}
 
 dateFrom.addEventListener("change",render);
 dateTo.addEventListener("change",render);
 document.querySelectorAll(".quick-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".quick-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");const r=b.dataset.range;if(r==="all"){dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date}else{const days=parseInt(r),last=DAILY[DAILY.length-1].date,from=new Date(last);from.setDate(from.getDate()-days+1);dateFrom.value=from.toISOString().split("T")[0];dateTo.value=last}render()})});
-document.querySelectorAll(".view-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".view-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentView=b.dataset.view;render()})});
+document.querySelectorAll(".tab").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentTab=b.dataset.tab;render()})});
 render();
 </script>
 </body>
