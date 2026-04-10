@@ -46,12 +46,10 @@ tr.total-row td{padding:12px;font-weight:700}
 <h1><span class="coral">Vivid</span><span class="teal">Craft</span><span class="sub">P&L</span></h1>
 </div>
 <div class="meta-info" id="metaInfo"></div>
-
 <div class="tabs">
 <button class="tab active" data-tab="kpis">KPIs</button>
 <button class="tab" data-tab="breakdown">Breakdown</button>
 </div>
-
 <div id="dateBar" class="date-bar">
 <label>Du</label><input type="date" id="dateFrom">
 <span class="sep">→</span>
@@ -62,7 +60,6 @@ tr.total-row td{padding:12px;font-weight:700}
 <button class="quick-btn active" data-range="all">Tout</button>
 </div>
 </div>
-
 <div id="content"></div>
 <div class="footer">Mis à jour par Claude</div>
 
@@ -80,9 +77,10 @@ const DAILY=[
 {date:"2026-04-06",label:"04/06",orders:7,revenue:438.97,cogs:168.61,spend:199.77,profitNet:55.76},
 {date:"2026-04-07",label:"04/07",orders:6,revenue:420.96,cogs:160.10,spend:304.73,profitNet:-57.88},
 {date:"2026-04-08",label:"04/08",orders:7,revenue:496.45,cogs:192.68,spend:236.62,profitNet:50.65},
-{date:"2026-04-09",label:"04/09",orders:1,revenue:54.99,cogs:15.01,spend:134.84,profitNet:-96.75}
+{date:"2026-04-09",label:"04/09",orders:1,revenue:54.99,cogs:15.01,spend:140.58,profitNet:-102.49},
+{date:"2026-04-10",label:"04/10",orders:9,revenue:569.37,cogs:156.51,spend:271.73,profitNet:121.92}
 ];
-const LAST_UPDATED="2026-04-09";
+const LAST_UPDATED="2026-04-10";
 
 let currentTab="kpis";
 const dateFrom=document.getElementById("dateFrom"),dateTo=document.getElementById("dateTo");
@@ -94,28 +92,11 @@ document.getElementById("metaInfo").textContent="Dernière MAJ: "+new Date(LAST_
 function fmt(n,p="$"){if(n==null)return"—";const a=Math.abs(n);const f=a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}):a.toFixed(2);return(n<0?"-":"")+p+f}
 function getFiltered(){return DAILY.filter(d=>d.date>=dateFrom.value&&d.date<=dateTo.value)}
 function calcSummary(data){const r=data.reduce((a,d)=>a+d.revenue,0),o=data.reduce((a,d)=>a+d.orders,0),c=data.reduce((a,d)=>a+d.cogs,0),s=data.reduce((a,d)=>a+d.spend,0),pn=data.reduce((a,d)=>a+d.profitNet,0),f=r*0.029+o*0.30,pb=r-c-f;return{revenue:r,orders:o,aov:o>0?r/o:0,cogs:c,profitBeforeAds:pb,metaSpend:s,profitNet:pn,roasBlended:s>0?r/s:0,cpaBlended:o>0?s/o:0,marginNet:r>0?(pn/r)*100:0}}
-
-function render(){
-const data=getFiltered(),el=document.getElementById("content");
-if(currentTab==="breakdown")renderTable(el,data);
-else renderKPIs(el,data);
-}
-
+function render(){const data=getFiltered(),el=document.getElementById("content");if(currentTab==="breakdown")renderTable(el,data);else renderKPIs(el,data)}
 function kpi(l,v,p="$",sx="",c,sm){const neg=typeof v==="number"&&v<0;const col=c||(neg?"var(--red)":"var(--green)");const cls=sm?"kpi sm":"kpi";const dsp=typeof v==="number"?fmt(v,p)+sx:v+sx;return'<div class="'+cls+'"><div class="kpi-label">'+l+'</div><div class="kpi-value" style="color:'+col+'">'+dsp+'</div></div>'}
-
-function renderKPIs(el,data){
-const s=calcSummary(data);
-el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)")+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div>';
-}
-
-function renderTable(el,data){
-const t=data.reduce((a,r)=>({orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+r.cogs,spend:a.spend+r.spend,profitNet:a.profitNet+r.profitNet}),{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});
-let rows=data.map(r=>{const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"—";const rc=roas!=="—"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--dimmed)";return'<tr><td style="color:var(--peach);font-family:JetBrains Mono,monospace;font-weight:500">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--teal)">'+fmt(r.revenue)+'</td><td style="color:var(--muted)">'+fmt(r.cogs)+'</td><td style="color:var(--coral)">'+fmt(r.spend)+'</td><td style="color:'+(r.profitNet>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(r.profitNet)+'</td><td style="color:'+rc+'">'+roas+(roas!=="—"?"x":"")+'</td></tr>'}).join("");
-el.innerHTML='<div class="tbl-box"><table><thead><tr><th>Date</th><th>Cmd</th><th>Revenue</th><th>COGS</th><th>Spend</th><th>Profit Net</th><th>ROAS</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="total-row"><td style="color:var(--peach)">TOTAL</td><td>'+t.orders+'</td><td style="color:var(--teal)">'+fmt(t.revenue)+'</td><td style="color:var(--muted)">'+fmt(t.cogs)+'</td><td style="color:var(--coral)">'+fmt(t.spend)+'</td><td style="color:'+(t.profitNet>=0?"var(--green)":"var(--red)")+'">'+fmt(t.profitNet)+'</td><td></td></tr></tfoot></table></div>';
-}
-
-dateFrom.addEventListener("change",render);
-dateTo.addEventListener("change",render);
+function renderKPIs(el,data){const s=calcSummary(data);el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)")+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div>'}
+function renderTable(el,data){const t=data.reduce((a,r)=>({orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+r.cogs,spend:a.spend+r.spend,profitNet:a.profitNet+r.profitNet}),{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});let rows=data.map(r=>{const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"—";const rc=roas!=="—"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--dimmed)";return'<tr><td style="color:var(--peach);font-family:JetBrains Mono,monospace;font-weight:500">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--teal)">'+fmt(r.revenue)+'</td><td style="color:var(--muted)">'+fmt(r.cogs)+'</td><td style="color:var(--coral)">'+fmt(r.spend)+'</td><td style="color:'+(r.profitNet>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(r.profitNet)+'</td><td style="color:'+rc+'">'+roas+(roas!=="—"?"x":"")+'</td></tr>'}).join("");el.innerHTML='<div class="tbl-box"><table><thead><tr><th>Date</th><th>Cmd</th><th>Revenue</th><th>COGS</th><th>Spend</th><th>Profit Net</th><th>ROAS</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="total-row"><td style="color:var(--peach)">TOTAL</td><td>'+t.orders+'</td><td style="color:var(--teal)">'+fmt(t.revenue)+'</td><td style="color:var(--muted)">'+fmt(t.cogs)+'</td><td style="color:var(--coral)">'+fmt(t.spend)+'</td><td style="color:'+(t.profitNet>=0?"var(--green)":"var(--red)")+'">'+fmt(t.profitNet)+'</td><td></td></tr></tfoot></table></div>'}
+dateFrom.addEventListener("change",render);dateTo.addEventListener("change",render);
 document.querySelectorAll(".quick-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".quick-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");const r=b.dataset.range;if(r==="all"){dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date}else{const days=parseInt(r),last=DAILY[DAILY.length-1].date,from=new Date(last);from.setDate(from.getDate()-days+1);dateFrom.value=from.toISOString().split("T")[0];dateTo.value=last}render()})});
 document.querySelectorAll(".tab").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentTab=b.dataset.tab;render()})});
 render();
