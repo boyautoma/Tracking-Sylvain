@@ -38,6 +38,19 @@ td{padding:10px 12px;text-align:right}
 tr.total-row{border-top:2px solid rgba(43,170,148,.27)}
 tr.total-row td{padding:12px;font-weight:700}
 .footer{text-align:center;margin-top:24px;font-size:11px;color:#3a4458;font-family:'JetBrains Mono',monospace}
+.settings-section{background:var(--dark2);border-radius:12px;padding:24px;border:1px solid var(--dark3);margin-bottom:16px}
+.settings-section h3{font-size:14px;font-weight:700;margin-bottom:16px;color:var(--peach);text-transform:uppercase;letter-spacing:1px;font-family:'JetBrains Mono',monospace}
+.settings-table{width:100%;border-collapse:collapse}
+.settings-table th{text-align:left;padding:8px 12px;color:var(--dimmed);font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--dark3)}
+.settings-table td{padding:8px 12px;border-bottom:1px solid var(--dark3)}
+.settings-table td:first-child{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal)}
+.settings-table td:nth-child(2){color:var(--muted);font-size:12px}
+.settings-table input{background:var(--dark);color:var(--white);border:1px solid var(--dark3);border-radius:6px;padding:6px 10px;font-size:13px;font-family:'Space Mono',monospace;width:90px;text-align:right;outline:none}
+.settings-table input:focus{border-color:var(--teal)}
+.btn-save{background:var(--teal);color:var(--dark);border:none;border-radius:8px;padding:10px 24px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:12px}
+.btn-save:hover{opacity:.85}
+.save-msg{color:var(--green);font-size:12px;margin-left:12px;font-family:'JetBrains Mono',monospace;opacity:0;transition:opacity .3s}
+.save-msg.show{opacity:1}
 @media(max-width:600px){.kpi{min-width:calc(50% - 8px);padding:14px 16px}.kpi-value{font-size:20px}.kpi.sm{min-width:calc(50% - 8px)}.kpi.sm .kpi-value{font-size:16px}body{padding:16px 12px}.quick-btns{margin-left:0;margin-top:4px}}
 </style>
 </head>
@@ -49,10 +62,11 @@ tr.total-row td{padding:12px;font-weight:700}
 <div class="tabs">
 <button class="tab active" data-tab="kpis">KPIs</button>
 <button class="tab" data-tab="breakdown">Breakdown</button>
+<button class="tab" data-tab="settings">Param&egrave;tres</button>
 </div>
 <div id="dateBar" class="date-bar">
 <label>Du</label><input type="date" id="dateFrom">
-<span class="sep">→</span>
+<span class="sep">&rarr;</span>
 <label>Au</label><input type="date" id="dateTo">
 <div class="quick-btns">
 <button class="quick-btn" data-range="3">3J</button>
@@ -61,41 +75,126 @@ tr.total-row td{padding:12px;font-weight:700}
 </div>
 </div>
 <div id="content"></div>
-<div class="footer">Mis à jour par Claude</div>
+<div class="footer">Mis &agrave; jour par Claude</div>
 
 <script>
 const DAILY=[
-{date:"2026-03-28",label:"03/28",orders:1,revenue:5.69,cogs:15.01,spend:0,profitNet:-9.79},
-{date:"2026-03-29",label:"03/29",orders:5,revenue:268.97,cogs:85.88,spend:134.05,profitNet:39.74},
-{date:"2026-03-30",label:"03/30",orders:2,revenue:81.50,cogs:23.28,spend:179.62,profitNet:-124.36},
-{date:"2026-03-31",label:"03/31",orders:1,revenue:49.50,cogs:15.01,spend:197.14,profitNet:-164.39},
-{date:"2026-04-01",label:"04/01",orders:5,revenue:341.96,cogs:127.76,spend:141.70,profitNet:61.08},
-{date:"2026-04-02",label:"04/02",orders:2,revenue:69.98,cogs:16.54,spend:167.43,profitNet:-116.62},
-{date:"2026-04-03",label:"04/03",orders:8,revenue:418.96,cogs:152.57,spend:207.61,profitNet:44.23},
-{date:"2026-04-04",label:"04/04",orders:9,revenue:519.45,cogs:191.89,spend:197.57,profitNet:112.23},
-{date:"2026-04-05",label:"04/05",orders:5,revenue:313.46,cogs:121.02,spend:284.27,profitNet:-102.42},
-{date:"2026-04-06",label:"04/06",orders:7,revenue:438.97,cogs:168.61,spend:199.77,profitNet:55.76},
-{date:"2026-04-07",label:"04/07",orders:6,revenue:420.96,cogs:160.10,spend:304.73,profitNet:-57.88},
-{date:"2026-04-08",label:"04/08",orders:7,revenue:496.45,cogs:192.68,spend:236.62,profitNet:50.65},
-{date:"2026-04-09",label:"04/09",orders:1,revenue:54.99,cogs:15.01,spend:140.58,profitNet:-102.49},
-{date:"2026-04-10",label:"04/10",orders:9,revenue:569.37,cogs:156.51,spend:271.73,profitNet:121.92}
+{date:"2026-03-28",label:"03/28",orders:1,revenue:5.69,spend:0,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}},
+{date:"2026-03-29",label:"03/29",orders:5,revenue:268.97,spend:134.05,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":3,"VC_MIXGUIDE":4,"VC_EBOOK":1}},
+{date:"2026-03-30",label:"03/30",orders:2,revenue:81.50,spend:179.62,items:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":2}},
+{date:"2026-03-31",label:"03/31",orders:1,revenue:49.50,spend:197.14,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}},
+{date:"2026-04-01",label:"04/01",orders:5,revenue:341.96,spend:141.70,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VC_FREESHIP":5,"VC_MIXGUIDE":5,"VC_EBOOK":3}},
+{date:"2026-04-02",label:"04/02",orders:2,revenue:69.98,spend:167.43,items:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":2,"VC_MIXGUIDE":2}},
+{date:"2026-04-03",label:"04/03",orders:8,revenue:418.96,spend:207.61,items:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VC_FREESHIP":5,"VC_MIXGUIDE":8,"VC_EBOOK":3}},
+{date:"2026-04-04",label:"04/04",orders:9,revenue:519.45,spend:197.57,items:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":2,"VC_FREESHIP":7,"VC_MIXGUIDE":9,"VC_EBOOK":4}},
+{date:"2026-04-05",label:"04/05",orders:5,revenue:313.46,spend:284.27,items:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":4,"VC_MIXGUIDE":5,"VC_EBOOK":3}},
+{date:"2026-04-06",label:"04/06",orders:7,revenue:438.97,spend:199.77,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":6,"VC_EBOOK":4}},
+{date:"2026-04-07",label:"04/07",orders:6,revenue:420.96,spend:304.73,items:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":0,"VC_MIXGUIDE":5,"VC_EBOOK":4,"VC_COLORBOOK_JAPAN":1}},
+{date:"2026-04-08",label:"04/08",orders:7,revenue:496.45,spend:236.62,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":5,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":6,"VC_EBOOK":5,"VC_ARTBOOK_STEPBYSTEP":1}},
+{date:"2026-04-09",label:"04/09",orders:1,revenue:54.99,spend:140.58,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1}},
+{date:"2026-04-10",label:"04/10",orders:16,revenue:1004.33,spend:271.73,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":8,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":5,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":3,"VC_MIXGUIDE":12,"VC_EBOOK":4,"VC_COLORBOOK_CORNERS":1,"VC_ARTBOOK_STEPBYSTEP":1}},
+{date:"2026-04-11",label:"04/11",orders:1,revenue:54.49,spend:0,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1}}
 ];
-const LAST_UPDATED="2026-04-10";
+
+const ALL_SKUS=[
+{sku:"VIVIDCRAFT_ACRYLICMARKER_24COLORS",name:"Acrylic Markers 24 Colors",defaultCost:6.50},
+{sku:"VIVIDCRAFT_ACRYLICMARKER_72COLORS",name:"Acrylic Markers 72 Colors",defaultCost:10.00},
+{sku:"VIVIDCRAFT_ACRYLICMARKER_168COLORS",name:"Acrylic Markers 168 Colors",defaultCost:18.00},
+{sku:"VC_GLITTERMARKER_24",name:"Glitter Markers 24 Colors",defaultCost:7.00},
+{sku:"VC_GLITTERMARKER_48",name:"Glitter Markers 48 Colors",defaultCost:12.00},
+{sku:"VC_GLITTERMARKER_96",name:"Glitter Markers 96 Colors",defaultCost:18.00},
+{sku:"VC_EBOOK",name:"Coloring eBook (digital)",defaultCost:0},
+{sku:"VC_MIXGUIDE",name:"Digital Color Mixing Guide",defaultCost:0},
+{sku:"VC_FREESHIP",name:"Free Shipping",defaultCost:5.00},
+{sku:"VC_COLORBOOK_JAPAN",name:"Cozy Japan Coloring Book",defaultCost:8.00},
+{sku:"VC_COLORBOOK_CORNERS",name:"Little Corners Coloring Book",defaultCost:8.00},
+{sku:"VC_ARTBOOK_STEPBYSTEP",name:"Step-by-Step Art Book",defaultCost:8.00}
+];
+
+const LAST_UPDATED="2026-04-11";
+const LS_KEY="vividcraft_sku_costs";
+
+function loadCosts(){
+  try{const s=localStorage.getItem(LS_KEY);if(s)return JSON.parse(s)}catch(e){}
+  const d={};ALL_SKUS.forEach(s=>d[s.sku]=s.defaultCost);return d;
+}
+function saveCosts(costs){localStorage.setItem(LS_KEY,JSON.stringify(costs))}
+let skuCosts=loadCosts();
+
+function calcCOGS(items){
+  let total=0;
+  for(const[sku,qty]of Object.entries(items)){
+    const cost=skuCosts[sku]||0;
+    total+=qty*cost;
+  }
+  return total;
+}
 
 let currentTab="kpis";
 const dateFrom=document.getElementById("dateFrom"),dateTo=document.getElementById("dateTo");
 dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date;
 dateFrom.min=DAILY[0].date;dateFrom.max=DAILY[DAILY.length-1].date;
 dateTo.min=DAILY[0].date;dateTo.max=DAILY[DAILY.length-1].date;
-document.getElementById("metaInfo").textContent="Dernière MAJ: "+new Date(LAST_UPDATED).toLocaleDateString("fr-FR");
+document.getElementById("metaInfo").textContent="Derni\u00e8re MAJ: "+new Date(LAST_UPDATED).toLocaleDateString("fr-FR");
 
-function fmt(n,p="$"){if(n==null)return"—";const a=Math.abs(n);const f=a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}):a.toFixed(2);return(n<0?"-":"")+p+f}
+function fmt(n,p="$"){if(n==null)return"\u2014";const a=Math.abs(n);const f=a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}):a.toFixed(2);return(n<0?"-":"")+p+f}
 function getFiltered(){return DAILY.filter(d=>d.date>=dateFrom.value&&d.date<=dateTo.value)}
-function calcSummary(data){const r=data.reduce((a,d)=>a+d.revenue,0),o=data.reduce((a,d)=>a+d.orders,0),c=data.reduce((a,d)=>a+d.cogs,0),s=data.reduce((a,d)=>a+d.spend,0),pn=data.reduce((a,d)=>a+d.profitNet,0),f=r*0.029+o*0.30,pb=r-c-f;return{revenue:r,orders:o,aov:o>0?r/o:0,cogs:c,profitBeforeAds:pb,metaSpend:s,profitNet:pn,roasBlended:s>0?r/s:0,cpaBlended:o>0?s/o:0,marginNet:r>0?(pn/r)*100:0}}
-function render(){const data=getFiltered(),el=document.getElementById("content");if(currentTab==="breakdown")renderTable(el,data);else renderKPIs(el,data)}
+
+function calcSummary(data){
+  const r=data.reduce((a,d)=>a+d.revenue,0);
+  const o=data.reduce((a,d)=>a+d.orders,0);
+  const c=data.reduce((a,d)=>a+calcCOGS(d.items),0);
+  const s=data.reduce((a,d)=>a+d.spend,0);
+  const f=r*0.029+o*0.30;
+  const pb=r-c-f;
+  const pn=r-c-f-s;
+  return{revenue:r,orders:o,aov:o>0?r/o:0,cogs:c,profitBeforeAds:pb,metaSpend:s,profitNet:pn,roasBlended:s>0?r/s:0,cpaBlended:o>0?s/o:0,marginNet:r>0?(pn/r)*100:0};
+}
+
+function render(){
+  const el=document.getElementById("content");
+  document.getElementById("dateBar").style.display=currentTab==="settings"?"none":"flex";
+  if(currentTab==="settings") renderSettings(el);
+  else if(currentTab==="breakdown") renderTable(el,getFiltered());
+  else renderKPIs(el,getFiltered());
+}
+
 function kpi(l,v,p="$",sx="",c,sm){const neg=typeof v==="number"&&v<0;const col=c||(neg?"var(--red)":"var(--green)");const cls=sm?"kpi sm":"kpi";const dsp=typeof v==="number"?fmt(v,p)+sx:v+sx;return'<div class="'+cls+'"><div class="kpi-label">'+l+'</div><div class="kpi-value" style="color:'+col+'">'+dsp+'</div></div>'}
-function renderKPIs(el,data){const s=calcSummary(data);el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)")+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div>'}
-function renderTable(el,data){const t=data.reduce((a,r)=>({orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+r.cogs,spend:a.spend+r.spend,profitNet:a.profitNet+r.profitNet}),{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});let rows=data.map(r=>{const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"—";const rc=roas!=="—"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--dimmed)";return'<tr><td style="color:var(--peach);font-family:JetBrains Mono,monospace;font-weight:500">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--teal)">'+fmt(r.revenue)+'</td><td style="color:var(--muted)">'+fmt(r.cogs)+'</td><td style="color:var(--coral)">'+fmt(r.spend)+'</td><td style="color:'+(r.profitNet>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(r.profitNet)+'</td><td style="color:'+rc+'">'+roas+(roas!=="—"?"x":"")+'</td></tr>'}).join("");el.innerHTML='<div class="tbl-box"><table><thead><tr><th>Date</th><th>Cmd</th><th>Revenue</th><th>COGS</th><th>Spend</th><th>Profit Net</th><th>ROAS</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="total-row"><td style="color:var(--peach)">TOTAL</td><td>'+t.orders+'</td><td style="color:var(--teal)">'+fmt(t.revenue)+'</td><td style="color:var(--muted)">'+fmt(t.cogs)+'</td><td style="color:var(--coral)">'+fmt(t.spend)+'</td><td style="color:'+(t.profitNet>=0?"var(--green)":"var(--red)")+'">'+fmt(t.profitNet)+'</td><td></td></tr></tfoot></table></div>'}
+
+function renderKPIs(el,data){
+  const s=calcSummary(data);
+  el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)")+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div>';
+}
+
+function renderTable(el,data){
+  let rows=data.map(r=>{
+    const cogs=calcCOGS(r.items);
+    const pn=r.revenue-cogs-(r.revenue*0.029+r.orders*0.30)-r.spend;
+    const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"\u2014";
+    const rc=roas!=="\u2014"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--dimmed)";
+    return'<tr><td style="color:var(--peach);font-family:JetBrains Mono,monospace;font-weight:500">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--teal)">'+fmt(r.revenue)+'</td><td style="color:var(--muted)">'+fmt(cogs)+'</td><td style="color:var(--coral)">'+fmt(r.spend)+'</td><td style="color:'+(pn>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(pn)+'</td><td style="color:'+rc+'">'+roas+(roas!=="\u2014"?"x":"")+'</td></tr>';
+  }).join("");
+  const t=data.reduce((a,r)=>{const cogs=calcCOGS(r.items);const pn=r.revenue-cogs-(r.revenue*0.029+r.orders*0.30)-r.spend;return{orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+cogs,spend:a.spend+r.spend,profitNet:a.profitNet+pn}},{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});
+  el.innerHTML='<div class="tbl-box"><table><thead><tr><th>Date</th><th>Cmd</th><th>Revenue</th><th>COGS</th><th>Spend</th><th>Profit Net</th><th>ROAS</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="total-row"><td style="color:var(--peach)">TOTAL</td><td>'+t.orders+'</td><td style="color:var(--teal)">'+fmt(t.revenue)+'</td><td style="color:var(--muted)">'+fmt(t.cogs)+'</td><td style="color:var(--coral)">'+fmt(t.spend)+'</td><td style="color:'+(t.profitNet>=0?"var(--green)":"var(--red)")+'">'+fmt(t.profitNet)+'</td><td></td></tr></tfoot></table></div>';
+}
+
+function renderSettings(el){
+  let rows=ALL_SKUS.map(s=>{
+    const val=skuCosts[s.sku]!=null?skuCosts[s.sku]:s.defaultCost;
+    return'<tr><td>'+s.sku+'</td><td>'+s.name+'</td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" value="'+val.toFixed(2)+'"></td></tr>';
+  }).join("");
+  el.innerHTML='<div class="settings-section"><h3>Co\u00fbt par SKU (COGS)</h3><p style="color:var(--muted);font-size:12px;margin-bottom:16px">D\u00e9finissez le co\u00fbt d\'achat unitaire pour chaque produit. Les KPIs et le breakdown seront recalcul\u00e9s automatiquement.</p><table class="settings-table"><thead><tr><th style="text-align:left">SKU</th><th style="text-align:left">Produit</th><th style="text-align:left">Co\u00fbt ($)</th></tr></thead><tbody>'+rows+'</tbody></table><div style="display:flex;align-items:center;margin-top:16px"><button class="btn-save" id="btnSave">Sauvegarder</button><span class="save-msg" id="saveMsg">\u2713 Sauvegard\u00e9</span></div></div>';
+  document.getElementById("btnSave").addEventListener("click",()=>{
+    document.querySelectorAll('.settings-table input[data-sku]').forEach(inp=>{
+      skuCosts[inp.dataset.sku]=parseFloat(inp.value)||0;
+    });
+    saveCosts(skuCosts);
+    const msg=document.getElementById("saveMsg");
+    msg.classList.add("show");
+    setTimeout(()=>msg.classList.remove("show"),2000);
+  });
+}
+
 dateFrom.addEventListener("change",render);dateTo.addEventListener("change",render);
 document.querySelectorAll(".quick-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".quick-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");const r=b.dataset.range;if(r==="all"){dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date}else{const days=parseInt(r),last=DAILY[DAILY.length-1].date,from=new Date(last);from.setDate(from.getDate()-days+1);dateFrom.value=from.toISOString().split("T")[0];dateTo.value=last}render()})});
 document.querySelectorAll(".tab").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentTab=b.dataset.tab;render()})});
