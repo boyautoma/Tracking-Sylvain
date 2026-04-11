@@ -12,16 +12,16 @@
     "shipping": 18.81
   },
   "VC_GLITTERMARKER_24": {
-    "product": 0,
-    "shipping": 0
+    "product": 2.47,
+    "shipping": 8.38
   },
   "VC_GLITTERMARKER_48": {
-    "product": 0,
-    "shipping": 0
+    "product": 4.65,
+    "shipping": 10.08
   },
   "VC_GLITTERMARKER_96": {
-    "product": 0,
-    "shipping": 0
+    "product": 9.04,
+    "shipping": 23.69
   },
   "VC_EBOOK": {
     "product": 0,
@@ -40,11 +40,11 @@
     "shipping": 0
   },
   "VC_COLORBOOK_CORNERS": {
-    "product": 0,
-    "shipping": 0
+    "product": 1.49,
+    "shipping": 7.38
   },
   "VC_ARTBOOK_STEPBYSTEP": {
-    "product": 0,
-    "shipping": 0
+    "product": 1.91,
+    "shipping": 8.42
   }
 }
