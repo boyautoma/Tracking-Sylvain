@@ -71,32 +71,30 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,sans
 .hero-row{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-bottom:16px}
 .hero-card{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .hero-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),#86efac)}
-.hero-badge{display:inline-flex;align-items:center;gap:5px;background:var(--green-light);color:var(--green-dark);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:.3px}
+.hero-badge{display:inline-flex;align-items:center;gap:5px;background:var(--green-light);color:var(--green-dark);font-size:13px;font-weight:600;padding:6px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:.3px}
 .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green)}
-.hero-value{font-size:36px;font-weight:700;color:var(--text);letter-spacing:-1px;margin-bottom:4px}
-.hero-sub{font-size:13px;color:var(--text-secondary);font-weight:500;margin-bottom:16px}
-.hero-chart{display:flex;align-items:flex-end;gap:4px;height:48px;margin-bottom:16px;padding:0 2px}
-.hero-bar{flex:1;border-radius:4px 4px 0 0;min-width:8px;transition:height .3s}
+.hero-value{font-size:48px;font-weight:700;color:var(--text);letter-spacing:-1.5px;margin-bottom:6px}
+.hero-sub{font-size:16px;color:var(--text-secondary);font-weight:500;margin-bottom:20px}
 .hero-footer{display:flex;gap:24px;padding-top:14px;border-top:1px solid var(--border)}
-.hero-footer-item{font-size:11px;color:var(--text-muted);font-weight:500}
-.hero-footer-item span{display:block;font-size:15px;font-weight:700;color:var(--text);margin-top:2px}
+.hero-footer-item{font-size:13px;color:var(--text-muted);font-weight:500}
+.hero-footer-item span{display:block;font-size:20px;font-weight:700;color:var(--text);margin-top:4px}
 
 /* ─── Right Panel Cards ─── */
 .right-panel{display:flex;flex-direction:column;gap:16px}
 .stat-card{background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);flex:1}
 .stat-card .sc-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:13px}
-.stat-card .sc-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;font-weight:500;margin-bottom:4px}
-.stat-card .sc-value{font-size:24px;font-weight:700;color:var(--text)}
-.stat-card .sc-detail{font-size:12px;color:var(--green);font-weight:600;margin-top:2px}
+.stat-card .sc-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;font-weight:500;margin-bottom:6px}
+.stat-card .sc-value{font-size:28px;font-weight:700;color:var(--text)}
+.stat-card .sc-detail{font-size:14px;color:var(--green);font-weight:600;margin-top:3px}
 .stat-card-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
 /* ─── Bottom Row Cards ─── */
 .bottom-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
 .metric-card{background:var(--white);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);border-left:3px solid transparent}
-.metric-card .mc-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;font-weight:500;margin-bottom:6px;display:flex;align-items:center;gap:5px}
-.metric-card .mc-label .mc-dot{width:6px;height:6px;border-radius:50%}
-.metric-card .mc-value{font-size:20px;font-weight:700;color:var(--text)}
-.metric-card .mc-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
+.metric-card .mc-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.metric-card .mc-label .mc-dot{width:7px;height:7px;border-radius:50%}
+.metric-card .mc-value{font-size:24px;font-weight:700;color:var(--text)}
+.metric-card .mc-sub{font-size:13px;color:var(--text-muted);margin-top:3px}
 
 /* ─── KPI generic (used by old kpi function) ─── */
 .kpi-row{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap}
@@ -138,12 +136,25 @@ tr.total-row td{padding:12px;font-weight:700;background:transparent}
   .sidebar.open{left:0}
   .hamburger{display:block}
   .overlay.show{display:block}
-  .main{padding:56px 16px 20px}
+  .main{padding:60px 14px 24px}
+  .main-header h2{font-size:20px}
   .hero-row{grid-template-columns:1fr}
+  .hero-value{font-size:36px}
+  .hero-card{padding:20px}
+  .hero-footer{flex-direction:column;gap:12px}
+  .hero-footer-item span{font-size:18px}
   .stat-card-row{grid-template-columns:1fr 1fr}
+  .stat-card .sc-value{font-size:22px}
   .bottom-row{grid-template-columns:1fr 1fr}
+  .metric-card{padding:14px}
+  .metric-card .mc-value{font-size:20px}
   .kpi{min-width:calc(50% - 8px)}
   .kpi-value{font-size:18px}
+  .period-select{width:100%}
+  .tbl-box{padding:12px 8px}
+  table{font-size:12px}
+  th,td{padding:8px 6px}
+  .login-card{width:calc(100vw - 32px);padding:32px 24px}
 }
 
 /* ─── Login ─── */
@@ -405,15 +416,6 @@ function render(){
 function renderKPIs(el,data){
   const s=calcSummary(data);
   const profitColor=s.profitNet>=0?'var(--green)':'var(--red)';
-  // Mini bar chart data
-  const last7=data.slice(-7);
-  const maxRev=Math.max(...last7.map(d=>d.revenue),1);
-  const bars=last7.map(d=>{
-    const pn=d.revenue-calcDayCOGS(d.cmds)-(d.revenue*0.029+d.orders*0.30)-d.spend;
-    const h=Math.max((d.revenue/maxRev)*100,4);
-    const col=pn>=0?'var(--green)':'var(--red-light)';
-    return'<div class="hero-bar" style="height:'+h+'%;background:'+col+';opacity:.6"></div>';
-  }).join('');
   const roasColor=s.roasBlended>=1.66?'var(--green)':'var(--red)';
   const beColor=s.roasBlended>=1.66?'var(--green-light)':'var(--yellow-light)';
   const beBorder=s.roasBlended>=1.66?'var(--green)':'var(--yellow)';
@@ -424,28 +426,26 @@ function renderKPIs(el,data){
       '<div class="hero-badge">NET PROFIT</div>'+
       '<div class="hero-value" style="color:'+profitColor+'">'+fmtShort(s.profitNet)+'</div>'+
       '<div class="hero-sub">Marge nette: '+s.marginNet.toFixed(1)+'%</div>'+
-      '<div class="hero-chart">'+bars+'</div>'+
       '<div class="hero-footer">'+
-        '<div class="hero-footer-item">SUPPLIER COSTS<span>'+fmtShort(s.cogs)+'</span></div>'+
-        '<div class="hero-footer-item">AD SPEND<span>'+fmtShort(s.metaSpend)+'</span></div>'+
+        '<div class="hero-footer-item">\ud83d\udce6 SUPPLIER COSTS<span>'+fmtShort(s.cogs)+'</span></div>'+
+        '<div class="hero-footer-item">\ud83d\udcb8 AD SPEND<span>'+fmtShort(s.metaSpend)+'</span></div>'+
       '</div>'+
     '</div>'+
     '<div class="right-panel">'+
       '<div class="stat-card">'+
-        '<div class="sc-icon" style="background:var(--green-light)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>'+
-        '<div class="sc-label">TOTAL REVENUE</div>'+
+        '<div class="sc-label">\ud83d\udcb5 TOTAL REVENUE</div>'+
         '<div class="sc-value">'+fmtShort(s.revenue)+'</div>'+
         '<div class="sc-detail">'+s.orders+' orders</div>'+
       '</div>'+
       '<div class="stat-card-row">'+
         '<div class="stat-card">'+
-          '<div class="sc-label">AVG ORDER</div>'+
-          '<div class="sc-value" style="font-size:20px">'+fmtShort(s.aov)+'</div>'+
-          '<div class="sc-detail" style="color:var(--text-muted);font-weight:400">From '+s.orders+' orders</div>'+
+          '<div class="sc-label">\ud83d\uded2 AVG ORDER</div>'+
+          '<div class="sc-value" style="font-size:24px">'+fmtShort(s.aov)+'</div>'+
+          '<div class="sc-detail" style="color:var(--text-muted);font-weight:400">'+s.orders+' orders</div>'+
         '</div>'+
         '<div class="stat-card">'+
-          '<div class="sc-label">CPA</div>'+
-          '<div class="sc-value" style="font-size:20px">'+fmtShort(s.cpaBlended)+'</div>'+
+          '<div class="sc-label">\ud83c\udfaf CPA</div>'+
+          '<div class="sc-value" style="font-size:24px">'+fmtShort(s.cpaBlended)+'</div>'+
           '<div class="sc-detail" style="color:var(--text-muted);font-weight:400">Blended</div>'+
         '</div>'+
       '</div>'+
@@ -453,22 +453,22 @@ function renderKPIs(el,data){
   '</div>'+
   '<div class="bottom-row">'+
     '<div class="metric-card" style="border-left-color:var(--orange)">'+
-      '<div class="mc-label"><span class="mc-dot" style="background:var(--orange)"></span>COGS</div>'+
+      '<div class="mc-label"><span class="mc-dot" style="background:var(--orange)"></span>\ud83d\udce6 COGS</div>'+
       '<div class="mc-value">'+fmtShort(s.cogs)+'</div>'+
       '<div class="mc-sub">'+(s.revenue>0?(s.cogs/s.revenue*100).toFixed(1):0)+'% of revenue</div>'+
     '</div>'+
     '<div class="metric-card" style="border-left-color:var(--blue)">'+
-      '<div class="mc-label"><span class="mc-dot" style="background:var(--blue)"></span>FEES</div>'+
+      '<div class="mc-label"><span class="mc-dot" style="background:var(--blue)"></span>\ud83c\udfe6 FEES</div>'+
       '<div class="mc-value">'+fmtShort(s.fees)+'</div>'+
       '<div class="mc-sub">'+(s.revenue>0?(s.fees/s.revenue*100).toFixed(1):0)+'% of revenue</div>'+
     '</div>'+
     '<div class="metric-card" style="border-left-color:var(--green)">'+
-      '<div class="mc-label"><span class="mc-dot" style="background:var(--green)"></span>ROAS</div>'+
+      '<div class="mc-label"><span class="mc-dot" style="background:var(--green)"></span>\ud83d\udcc8 ROAS</div>'+
       '<div class="mc-value" style="color:'+roasColor+'">'+s.roasBlended.toFixed(2)+'x</div>'+
       '<div class="mc-sub">Blended</div>'+
     '</div>'+
     '<div class="metric-card" style="border-left-color:'+beBorder+';background:'+beColor+'">'+
-      '<div class="mc-label"><span class="mc-dot" style="background:'+beBorder+'"></span>BREAKEVEN</div>'+
+      '<div class="mc-label"><span class="mc-dot" style="background:'+beBorder+'"></span>\u2696\ufe0f BREAKEVEN</div>'+
       '<div class="mc-value">1.66x</div>'+
       '<div class="mc-sub">ROAS: '+s.roasBlended.toFixed(2)+'x '+(s.roasBlended>=1.66?'\u2713':'\u2717')+'</div>'+
     '</div>'+
