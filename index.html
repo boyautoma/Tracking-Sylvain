@@ -225,6 +225,20 @@ const SKU_NAMES={
   "VC_ARTBOOK_STEPBYSTEP":"Step-by-Step Art Book"
 };
 
+let invoiceBatches=[];
+let invoiceIndex={};// orderId -> batch prices
+
+async function loadInvoices(){
+  try{
+    const res=await fetch(GH_RAW+'invoices.json?t='+Date.now());
+    if(res.ok){const data=await res.json();invoiceBatches=data.batches||[];
+      invoiceIndex={};
+      invoiceBatches.forEach(b=>{b.orders.forEach(id=>{invoiceIndex[id]=b.prices})});
+      console.log('Loaded invoices:',Object.keys(invoiceIndex).length,'orders covered');
+    }
+  }catch(e){}
+}
+
 async function loadCosts(){
   try{
     const res=await fetch(GH_RAW+'cogs.json?t='+Date.now());
@@ -255,20 +269,25 @@ async function saveCosts(costs){
 }
 let skuCosts={};
 
-// COGS per order = sum(product costs * qty) + max(shipping cost among all items)
-function calcOrderCOGS(items){
+// COGS per order: invoice prices > settings prices. Shipping always from settings.
+function calcOrderCOGS(cmd){
+  const items=cmd.items||cmd;// support old format (just items) and new format ({id, items})
+  const orderId=cmd.id||null;
+  const invoicePrices=orderId?invoiceIndex[orderId]:null;
   let prodTotal=0,maxShip=0;
   for(const[sku,qty]of Object.entries(items)){
-    const c=skuCosts[sku]||{product:0,shipping:0};
-    prodTotal+=qty*(c.product||0);
-    const ship=c.shipping||0;
+    // Product cost: invoice first, then settings
+    const prodCost=invoicePrices&&invoicePrices[sku]!=null?invoicePrices[sku]:(skuCosts[sku]||{}).product||0;
+    prodTotal+=qty*prodCost;
+    // Shipping: always from settings
+    const ship=(skuCosts[sku]||{}).shipping||0;
     if(ship>maxShip) maxShip=ship;
   }
   return prodTotal+maxShip;
 }
 // COGS for a day = sum of COGS per order
 function calcDayCOGS(cmds){
-  return cmds.reduce((t,order)=>t+calcOrderCOGS(order),0);
+  return cmds.reduce((t,cmd)=>t+calcOrderCOGS(cmd),0);
 }
 
 let currentView="kpis";
@@ -291,6 +310,7 @@ async function loadData(){
     DAILY=[];
   }
   skuCosts=await loadCosts();
+  await loadInvoices();
   await loadCogsSha();
   initDashboard();
 }
@@ -357,8 +377,9 @@ function renderProducts(el){
   const data=getFiltered().length?getFiltered():DAILY;
   const totals={};
   data.forEach(d=>{
-    d.cmds.forEach(order=>{
-      for(const[sku,qty]of Object.entries(order)){totals[sku]=(totals[sku]||0)+qty}
+    d.cmds.forEach(cmd=>{
+      const items=cmd.items||cmd;
+      for(const[sku,qty]of Object.entries(items)){totals[sku]=(totals[sku]||0)+qty}
     });
   });
   let rows=ALL_SKUS.map(s=>{
