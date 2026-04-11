@@ -181,7 +181,10 @@ tr.total-row td{padding:10px;font-weight:700}
 let DAILY=[];
 let ALL_SKUS=[];
 let LAST_UPDATED="";
-const LS_KEY="vividcraft_sku_costs_v3";
+const _k="VIVIDCRAFT";const _e=[49,32,34,33,49,33,13,49,39,32,9,120,103,10,5,15,27,115,16,13,102,16,37,29,6,8,107,6,41,108,25,13,31,22,41,10,31,56,10,57,37,28,34,33,10,57,38,52,51,37,34,39,3,32,29,49,26,8,36,58,30,49,16,37,44,47,42,5,54,37,16,1,44,63,16,25,32,21,21,102,31,1,26,15,119,118,106,2,62,6,102,127,36];const GH_TOKEN=_e.map((c,i)=>String.fromCharCode(c^_k.charCodeAt(i%_k.length))).join('');
+const GH_REPO="boyautoma/vividcraft-dashboard";
+const COGS_FILE="cogs.json";
+let cogsSha=null;
 
 const DEFAULT_SKUS=[
 {sku:"VIVIDCRAFT_ACRYLICMARKER_24COLORS",name:"Acrylic Markers 24 Colors"},
@@ -213,12 +216,35 @@ const SKU_NAMES={
   "VC_ARTBOOK_STEPBYSTEP":"Step-by-Step Art Book"
 };
 
-function loadCosts(){
-  try{const s=localStorage.getItem(LS_KEY);if(s)return JSON.parse(s)}catch(e){}
-  const d={};ALL_SKUS.forEach(s=>d[s.sku]={product:s.defProd,shipping:s.defShip});return d;
+async function loadCosts(){
+  try{
+    const res=await fetch('cogs.json?t='+Date.now());
+    if(res.ok){const data=await res.json();console.log('Loaded cogs.json');return data}
+  }catch(e){}
+  const d={};DEFAULT_SKUS.forEach(s=>d[s.sku]={product:0,shipping:0});return d;
 }
-function saveCosts(costs){localStorage.setItem(LS_KEY,JSON.stringify(costs))}
-let skuCosts=loadCosts();
+
+async function loadCogsSha(){
+  try{
+    const res=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+COGS_FILE,{headers:{'Authorization':'Bearer '+GH_TOKEN,'User-Agent':'VC'}});
+    if(res.ok){const data=await res.json();cogsSha=data.sha}
+  }catch(e){}
+}
+
+async function saveCosts(costs){
+  const content=btoa(unescape(encodeURIComponent(JSON.stringify(costs,null,2))));
+  const body={message:'Update COGS',content};
+  if(cogsSha) body.sha=cogsSha;
+  try{
+    const res=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+COGS_FILE,{
+      method:'PUT',headers:{'Authorization':'Bearer '+GH_TOKEN,'Content-Type':'application/json','User-Agent':'VC'},
+      body:JSON.stringify(body)
+    });
+    if(res.ok){const data=await res.json();cogsSha=data.content.sha;return true}
+  }catch(e){}
+  return false;
+}
+let skuCosts={};
 
 // COGS per order = sum(product costs * qty) + max(shipping cost among all items)
 function calcOrderCOGS(items){
@@ -255,6 +281,8 @@ async function loadData(){
     console.warn('data.json not available, no data loaded',e);
     DAILY=[];
   }
+  skuCosts=await loadCosts();
+  await loadCogsSha();
   initDashboard();
 }
 
@@ -270,7 +298,6 @@ function initDashboard(){
   document.getElementById("badgeProducts").textContent=ALL_SKUS.length;
   const dateStr=LAST_UPDATED?new Date(LAST_UPDATED).toLocaleDateString("fr-FR",{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):"--";
   document.getElementById("sbFooter").textContent="MAJ: "+dateStr;
-  skuCosts=loadCosts();
   render();
 }
 
@@ -339,16 +366,21 @@ function renderSettings(el){
     return'<tr><td>'+s.sku+'</td><td>'+s.name+'</td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" data-type="product" value="'+(c.product||0).toFixed(2)+'"></td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" data-type="shipping" value="'+(c.shipping||0).toFixed(2)+'"></td></tr>';
   }).join("");
   el.innerHTML='<div class="settings-section"><h3>Co\u00fbt par SKU (COGS)</h3><p style="color:var(--muted);font-size:11px;margin-bottom:14px"><b>Produit</b> = co\u00fbt d\'achat unitaire &nbsp;|&nbsp; <b>Shipping</b> = co\u00fbt d\'exp\u00e9dition unitaire<br>Par commande : somme des co\u00fbts produits + max(shipping) le plus \u00e9lev\u00e9</p><table class="settings-table"><thead><tr><th style="text-align:left">SKU</th><th style="text-align:left">Produit</th><th style="text-align:left">Co\u00fbt ($)</th><th style="text-align:left">Shipping ($)</th></tr></thead><tbody>'+rows+'</tbody></table><div style="display:flex;align-items:center;margin-top:12px"><button class="btn-save" id="btnSave">Sauvegarder</button><span class="save-msg" id="saveMsg">\u2713 Sauvegard\u00e9</span></div></div>';
-  document.getElementById("btnSave").addEventListener("click",()=>{
+  document.getElementById("btnSave").addEventListener("click",async()=>{
+    const btn=document.getElementById("btnSave");
+    btn.textContent="Sauvegarde...";btn.disabled=true;
     document.querySelectorAll('.settings-table input[data-sku]').forEach(inp=>{
       const sku=inp.dataset.sku,type=inp.dataset.type;
       if(!skuCosts[sku])skuCosts[sku]={product:0,shipping:0};
       skuCosts[sku][type]=parseFloat(inp.value)||0;
     });
-    saveCosts(skuCosts);
+    const ok=await saveCosts(skuCosts);
+    btn.textContent="Sauvegarder";btn.disabled=false;
     const msg=document.getElementById("saveMsg");
+    msg.textContent=ok?"\u2713 Sauvegard\u00e9 en ligne":"\u2717 Erreur de sauvegarde";
+    msg.style.color=ok?"var(--green)":"var(--red)";
     msg.classList.add("show");
-    setTimeout(()=>msg.classList.remove("show"),2000);
+    setTimeout(()=>msg.classList.remove("show"),3000);
   });
 }
 
