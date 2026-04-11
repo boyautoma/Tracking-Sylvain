@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-11T15:07:42.769Z",
+  "lastUpdated": "2026-04-11T15:14:51.728Z",
   "daily": [
     {
       "date": "2026-03-28",
@@ -20,7 +20,7 @@
       "label": "03/29",
       "orders": 5,
       "revenue": 268.97,
-      "spend": 0,
+      "spend": 134.05,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
@@ -52,7 +52,7 @@
       "label": "03/30",
       "orders": 2,
       "revenue": 81.5,
-      "spend": 0,
+      "spend": 179.62,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
@@ -70,7 +70,7 @@
       "label": "03/31",
       "orders": 1,
       "revenue": 49.5,
-      "spend": 0,
+      "spend": 197.14,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
@@ -84,7 +84,7 @@
       "label": "04/01",
       "orders": 5,
       "revenue": 341.96,
-      "spend": 0,
+      "spend": 141.7,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
@@ -121,7 +121,7 @@
       "label": "04/02",
       "orders": 2,
       "revenue": 69.98,
-      "spend": 0,
+      "spend": 167.43,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
@@ -138,7 +138,7 @@
       "label": "04/03",
       "orders": 8,
       "revenue": 418.96,
-      "spend": 0,
+      "spend": 207.61,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
@@ -187,7 +187,7 @@
       "label": "04/04",
       "orders": 9,
       "revenue": 519.45,
-      "spend": 0,
+      "spend": 197.57,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
@@ -243,7 +243,7 @@
       "label": "04/05",
       "orders": 5,
       "revenue": 313.46,
-      "spend": 0,
+      "spend": 284.27,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
@@ -279,7 +279,7 @@
       "label": "04/06",
       "orders": 7,
       "revenue": 438.97,
-      "spend": 0,
+      "spend": 199.77,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
@@ -320,7 +320,7 @@
       "label": "04/07",
       "orders": 6,
       "revenue": 420.96,
-      "spend": 0,
+      "spend": 304.73,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
@@ -357,7 +357,7 @@
       "label": "04/08",
       "orders": 7,
       "revenue": 496.45,
-      "spend": 0,
+      "spend": 236.62,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
@@ -399,7 +399,7 @@
       "label": "04/09",
       "orders": 1,
       "revenue": 54.99,
-      "spend": 0,
+      "spend": 140.58,
       "cmds": [
         {
           "VC_MIXGUIDE": 1,
@@ -412,7 +412,7 @@
       "label": "04/10",
       "orders": 16,
       "revenue": 1004.33,
-      "spend": 0,
+      "spend": 280.14,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
@@ -487,7 +487,7 @@
       "label": "04/11",
       "orders": 1,
       "revenue": 54.49,
-      "spend": 0,
+      "spend": 206.35,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
