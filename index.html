@@ -269,7 +269,7 @@ async function saveCosts(costs){
 }
 let skuCosts={};
 
-// COGS per order: invoice prices > settings prices. Shipping always from settings.
+// COGS per order: invoice prices (all-in) > settings (product + max shipping)
 function calcOrderCOGS(cmd){
   const items=cmd&&cmd.items?cmd.items:(typeof cmd==='object'&&!cmd.id?cmd:{});
   const orderId=cmd&&cmd.id?cmd.id:null;
@@ -277,10 +277,16 @@ function calcOrderCOGS(cmd){
   let prodTotal=0,maxShip=0;
   for(const[sku,qty]of Object.entries(items)){
     const q=Number(qty)||0;
-    const prodCost=invoicePrices&&invoicePrices[sku]!=null?Number(invoicePrices[sku]):Number((skuCosts[sku]||{}).product)||0;
-    prodTotal+=q*(prodCost||0);
-    const ship=Number((skuCosts[sku]||{}).shipping)||0;
-    if(ship>maxShip) maxShip=ship;
+    if(invoicePrices){
+      // Facture = prix tout inclus (produit + shipping), pas de shipping en plus
+      const cost=Number(invoicePrices[sku])||0;
+      prodTotal+=q*cost;
+    } else {
+      // Pas de facture = settings: produit + max(shipping)
+      prodTotal+=q*(Number((skuCosts[sku]||{}).product)||0);
+      const ship=Number((skuCosts[sku]||{}).shipping)||0;
+      if(ship>maxShip) maxShip=ship;
+    }
   }
   return (prodTotal+maxShip)||0;
 }
