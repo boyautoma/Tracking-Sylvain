@@ -167,41 +167,40 @@ tr.total-row td{padding:10px;font-weight:700}
 </div>
 
 <script>
-const DAILY=[
-{date:"2026-03-28",label:"03/28",orders:1,revenue:5.69,spend:0,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}]},
-{date:"2026-03-29",label:"03/29",orders:5,revenue:268.97,spend:134.05,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1}]},
-{date:"2026-03-30",label:"03/30",orders:2,revenue:81.50,spend:179.62,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}]},
-{date:"2026-03-31",label:"03/31",orders:1,revenue:49.50,spend:197.14,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}]},
-{date:"2026-04-01",label:"04/01",orders:5,revenue:341.96,spend:141.70,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}]},
-{date:"2026-04-02",label:"04/02",orders:2,revenue:69.98,spend:167.43,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1}]},
-{date:"2026-04-03",label:"04/03",orders:8,revenue:418.96,spend:207.61,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}]},
-{date:"2026-04-04",label:"04/04",orders:9,revenue:519.45,spend:197.57,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1}]},
-{date:"2026-04-05",label:"04/05",orders:5,revenue:313.46,spend:284.27,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1,"VC_FREESHIP":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1,"VC_FREESHIP":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}]},
-{date:"2026-04-06",label:"04/06",orders:7,revenue:438.97,spend:199.77,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1,"VC_FREESHIP":1}]},
-{date:"2026-04-07",label:"04/07",orders:6,revenue:420.96,spend:304.73,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VC_COLORBOOK_JAPAN":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1}]},
-{date:"2026-04-08",label:"04/08",orders:7,revenue:496.45,spend:236.62,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_ARTBOOK_STEPBYSTEP":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1}]},
-{date:"2026-04-09",label:"04/09",orders:1,revenue:54.99,spend:140.58,cmds:[{"VC_MIXGUIDE":1,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1}]},
-{date:"2026-04-10",label:"04/10",orders:16,revenue:1004.33,spend:271.73,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},{"VC_COLORBOOK_CORNERS":1,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_ARTBOOK_STEPBYSTEP":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VC_EBOOK":1,"VC_MIXGUIDE":1},{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1}]},
-{date:"2026-04-11",label:"04/11",orders:1,revenue:54.49,spend:0,cmds:[{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1}]}
-];
-
-const ALL_SKUS=[
-{sku:"VIVIDCRAFT_ACRYLICMARKER_24COLORS",name:"Acrylic Markers 24 Colors",defProd:0,defShip:0},
-{sku:"VIVIDCRAFT_ACRYLICMARKER_72COLORS",name:"Acrylic Markers 72 Colors",defProd:0,defShip:0},
-{sku:"VIVIDCRAFT_ACRYLICMARKER_168COLORS",name:"Acrylic Markers 168 Colors",defProd:0,defShip:0},
-{sku:"VC_GLITTERMARKER_24",name:"Glitter Markers 24 Colors",defProd:0,defShip:0},
-{sku:"VC_GLITTERMARKER_48",name:"Glitter Markers 48 Colors",defProd:0,defShip:0},
-{sku:"VC_GLITTERMARKER_96",name:"Glitter Markers 96 Colors",defProd:0,defShip:0},
-{sku:"VC_EBOOK",name:"Coloring eBook (digital)",defProd:0,defShip:0},
-{sku:"VC_MIXGUIDE",name:"Digital Color Mixing Guide",defProd:0,defShip:0},
-{sku:"VC_FREESHIP",name:"Free Shipping",defProd:0,defShip:0},
-{sku:"VC_COLORBOOK_JAPAN",name:"Cozy Japan Coloring Book",defProd:0,defShip:0},
-{sku:"VC_COLORBOOK_CORNERS",name:"Little Corners Coloring Book",defProd:0,defShip:0},
-{sku:"VC_ARTBOOK_STEPBYSTEP",name:"Step-by-Step Art Book",defProd:0,defShip:0}
-];
-
-const LAST_UPDATED="2026-04-11";
+let DAILY=[];
+let ALL_SKUS=[];
+let LAST_UPDATED="";
 const LS_KEY="vividcraft_sku_costs_v3";
+
+const DEFAULT_SKUS=[
+{sku:"VIVIDCRAFT_ACRYLICMARKER_24COLORS",name:"Acrylic Markers 24 Colors"},
+{sku:"VIVIDCRAFT_ACRYLICMARKER_72COLORS",name:"Acrylic Markers 72 Colors"},
+{sku:"VIVIDCRAFT_ACRYLICMARKER_168COLORS",name:"Acrylic Markers 168 Colors"},
+{sku:"VC_GLITTERMARKER_24",name:"Glitter Markers 24 Colors"},
+{sku:"VC_GLITTERMARKER_48",name:"Glitter Markers 48 Colors"},
+{sku:"VC_GLITTERMARKER_96",name:"Glitter Markers 96 Colors"},
+{sku:"VC_EBOOK",name:"Coloring eBook (digital)"},
+{sku:"VC_MIXGUIDE",name:"Digital Color Mixing Guide"},
+{sku:"VC_FREESHIP",name:"Free Shipping"},
+{sku:"VC_COLORBOOK_JAPAN",name:"Cozy Japan Coloring Book"},
+{sku:"VC_COLORBOOK_CORNERS",name:"Little Corners Coloring Book"},
+{sku:"VC_ARTBOOK_STEPBYSTEP",name:"Step-by-Step Art Book"}
+];
+
+const SKU_NAMES={
+  "VIVIDCRAFT_ACRYLICMARKER_24COLORS":"Acrylic Markers 24 Colors",
+  "VIVIDCRAFT_ACRYLICMARKER_72COLORS":"Acrylic Markers 72 Colors",
+  "VIVIDCRAFT_ACRYLICMARKER_168COLORS":"Acrylic Markers 168 Colors",
+  "VC_GLITTERMARKER_24":"Glitter Markers 24 Colors",
+  "VC_GLITTERMARKER_48":"Glitter Markers 48 Colors",
+  "VC_GLITTERMARKER_96":"Glitter Markers 96 Colors",
+  "VC_EBOOK":"Coloring eBook (digital)",
+  "VC_MIXGUIDE":"Digital Color Mixing Guide",
+  "VC_FREESHIP":"Free Shipping",
+  "VC_COLORBOOK_JAPAN":"Cozy Japan Coloring Book",
+  "VC_COLORBOOK_CORNERS":"Little Corners Coloring Book",
+  "VC_ARTBOOK_STEPBYSTEP":"Step-by-Step Art Book"
+};
 
 function loadCosts(){
   try{const s=localStorage.getItem(LS_KEY);if(s)return JSON.parse(s)}catch(e){}
@@ -228,14 +227,41 @@ function calcDayCOGS(cmds){
 
 let currentView="kpis";
 const dateFrom=document.getElementById("dateFrom"),dateTo=document.getElementById("dateTo");
-dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date;
-dateFrom.min=DAILY[0].date;dateFrom.max=DAILY[DAILY.length-1].date;
-dateTo.min=DAILY[0].date;dateTo.max=DAILY[DAILY.length-1].date;
 
-// Badges
-document.getElementById("badgeOrders").textContent=DAILY[DAILY.length-1].orders;
-document.getElementById("badgeProducts").textContent=ALL_SKUS.length;
-document.getElementById("sbFooter").textContent="MAJ: "+new Date(LAST_UPDATED).toLocaleDateString("fr-FR");
+async function loadData(){
+  document.getElementById("content").innerHTML='<div style="text-align:center;padding:60px;color:var(--muted)"><p style="font-size:14px">Chargement des donn\u00e9es...</p></div>';
+  try{
+    const res=await fetch('data.json?t='+Date.now());
+    if(!res.ok) throw new Error('no data.json');
+    const json=await res.json();
+    DAILY=json.daily||[];
+    LAST_UPDATED=json.lastUpdated||"";
+    // Build ALL_SKUS from seen SKUs + defaults
+    const skuSet=new Set((json.skusSeen||[]).concat(DEFAULT_SKUS.map(s=>s.sku)));
+    ALL_SKUS=[...skuSet].map(sku=>({sku,name:SKU_NAMES[sku]||sku}));
+    console.log('Loaded data.json:',DAILY.length,'days');
+  }catch(e){
+    console.warn('data.json not available, no data loaded',e);
+    DAILY=[];
+  }
+  initDashboard();
+}
+
+function initDashboard(){
+  if(DAILY.length){
+    dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date;
+    dateFrom.min=DAILY[0].date;dateFrom.max=DAILY[DAILY.length-1].date;
+    dateTo.min=DAILY[0].date;dateTo.max=DAILY[DAILY.length-1].date;
+    document.getElementById("badgeOrders").textContent=DAILY[DAILY.length-1].orders;
+  } else {
+    document.getElementById("badgeOrders").textContent="0";
+  }
+  document.getElementById("badgeProducts").textContent=ALL_SKUS.length;
+  const dateStr=LAST_UPDATED?new Date(LAST_UPDATED).toLocaleDateString("fr-FR",{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):"--";
+  document.getElementById("sbFooter").textContent="MAJ: "+dateStr;
+  skuCosts=loadCosts();
+  render();
+}
 
 const viewTitles={kpis:["Dashboard","Vue d'ensemble des KPIs"],breakdown:["Breakdown","D\u00e9tail jour par jour"],products:["Produits","Quantit\u00e9s vendues par SKU"],settings:["COGS","Co\u00fbt d'achat par SKU (solo / upsell)"]};
 
@@ -343,7 +369,7 @@ document.getElementById("overlay").addEventListener("click",()=>{
   document.getElementById("overlay").classList.remove("show");
 });
 
-render();
+loadData();
 </script>
 </body>
 </html>
