@@ -79,53 +79,57 @@ tr.total-row td{padding:12px;font-weight:700}
 
 <script>
 const DAILY=[
-{date:"2026-03-28",label:"03/28",orders:1,revenue:5.69,spend:0,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}},
-{date:"2026-03-29",label:"03/29",orders:5,revenue:268.97,spend:134.05,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":3,"VC_MIXGUIDE":4,"VC_EBOOK":1}},
-{date:"2026-03-30",label:"03/30",orders:2,revenue:81.50,spend:179.62,items:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":2}},
-{date:"2026-03-31",label:"03/31",orders:1,revenue:49.50,spend:197.14,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":1}},
-{date:"2026-04-01",label:"04/01",orders:5,revenue:341.96,spend:141.70,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VC_FREESHIP":5,"VC_MIXGUIDE":5,"VC_EBOOK":3}},
-{date:"2026-04-02",label:"04/02",orders:2,revenue:69.98,spend:167.43,items:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":2,"VC_MIXGUIDE":2}},
-{date:"2026-04-03",label:"04/03",orders:8,revenue:418.96,spend:207.61,items:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VC_FREESHIP":5,"VC_MIXGUIDE":8,"VC_EBOOK":3}},
-{date:"2026-04-04",label:"04/04",orders:9,revenue:519.45,spend:197.57,items:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":2,"VC_FREESHIP":7,"VC_MIXGUIDE":9,"VC_EBOOK":4}},
-{date:"2026-04-05",label:"04/05",orders:5,revenue:313.46,spend:284.27,items:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":4,"VC_MIXGUIDE":5,"VC_EBOOK":3}},
-{date:"2026-04-06",label:"04/06",orders:7,revenue:438.97,spend:199.77,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":1,"VC_MIXGUIDE":6,"VC_EBOOK":4}},
-{date:"2026-04-07",label:"04/07",orders:6,revenue:420.96,spend:304.73,items:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_FREESHIP":0,"VC_MIXGUIDE":5,"VC_EBOOK":4,"VC_COLORBOOK_JAPAN":1}},
-{date:"2026-04-08",label:"04/08",orders:7,revenue:496.45,spend:236.62,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":5,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VC_MIXGUIDE":6,"VC_EBOOK":5,"VC_ARTBOOK_STEPBYSTEP":1}},
-{date:"2026-04-09",label:"04/09",orders:1,revenue:54.99,spend:140.58,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1}},
-{date:"2026-04-10",label:"04/10",orders:16,revenue:1004.33,spend:271.73,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":8,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":5,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":3,"VC_MIXGUIDE":12,"VC_EBOOK":4,"VC_COLORBOOK_CORNERS":1,"VC_ARTBOOK_STEPBYSTEP":1}},
-{date:"2026-04-11",label:"04/11",orders:1,revenue:54.49,spend:0,items:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VC_MIXGUIDE":1}}
+{date:"2026-03-28",label:"03/28",orders:1,revenue:5.69,spend:0,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1},upsell:{"VC_FREESHIP":1,"VC_MIXGUIDE":1}},
+{date:"2026-03-29",label:"03/29",orders:5,revenue:268.97,spend:134.05,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},upsell:{"VC_FREESHIP":3,"VC_MIXGUIDE":4,"VC_EBOOK":1}},
+{date:"2026-03-30",label:"03/30",orders:2,revenue:81.50,spend:179.62,solo:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1},upsell:{"VC_MIXGUIDE":2,"VC_FREESHIP":1}},
+{date:"2026-03-31",label:"03/31",orders:1,revenue:49.50,spend:197.14,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1},upsell:{"VC_FREESHIP":1,"VC_MIXGUIDE":1}},
+{date:"2026-04-01",label:"04/01",orders:5,revenue:341.96,spend:141.70,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3},upsell:{"VC_FREESHIP":5,"VC_MIXGUIDE":5,"VC_EBOOK":3}},
+{date:"2026-04-02",label:"04/02",orders:2,revenue:69.98,spend:167.43,solo:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":2},upsell:{"VC_MIXGUIDE":2}},
+{date:"2026-04-03",label:"04/03",orders:8,revenue:418.96,spend:207.61,solo:{"VIVIDCRAFT_ACRYLICMARKER_24COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2},upsell:{"VC_MIXGUIDE":8,"VC_EBOOK":3,"VC_FREESHIP":5}},
+{date:"2026-04-04",label:"04/04",orders:9,revenue:519.45,spend:197.57,solo:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":2},upsell:{"VC_EBOOK":4,"VC_FREESHIP":7,"VC_MIXGUIDE":9}},
+{date:"2026-04-05",label:"04/05",orders:5,revenue:313.46,spend:284.27,solo:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":3,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},upsell:{"VC_EBOOK":3,"VC_MIXGUIDE":5,"VC_FREESHIP":4}},
+{date:"2026-04-06",label:"04/06",orders:7,revenue:438.97,spend:199.77,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":2,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},upsell:{"VC_MIXGUIDE":6,"VC_EBOOK":4,"VC_FREESHIP":1}},
+{date:"2026-04-07",label:"04/07",orders:6,revenue:420.96,spend:304.73,solo:{"VIVIDCRAFT_ACRYLICMARKER_168COLORS":4,"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1},upsell:{"VC_EBOOK":4,"VC_MIXGUIDE":5,"VC_COLORBOOK_JAPAN":1}},
+{date:"2026-04-08",label:"04/08",orders:7,revenue:496.45,spend:236.62,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":1,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":5},upsell:{"VC_MIXGUIDE":6,"VC_EBOOK":5,"VC_ARTBOOK_STEPBYSTEP":1}},
+{date:"2026-04-09",label:"04/09",orders:1,revenue:54.99,spend:140.58,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1},upsell:{"VC_MIXGUIDE":1}},
+{date:"2026-04-10",label:"04/10",orders:16,revenue:1004.33,spend:271.73,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":8,"VIVIDCRAFT_ACRYLICMARKER_168COLORS":5,"VIVIDCRAFT_ACRYLICMARKER_24COLORS":3},upsell:{"VC_MIXGUIDE":12,"VC_EBOOK":4,"VC_COLORBOOK_CORNERS":1,"VC_ARTBOOK_STEPBYSTEP":1}},
+{date:"2026-04-11",label:"04/11",orders:1,revenue:54.49,spend:0,solo:{"VIVIDCRAFT_ACRYLICMARKER_72COLORS":1},upsell:{"VC_MIXGUIDE":1}}
 ];
 
 const ALL_SKUS=[
-{sku:"VIVIDCRAFT_ACRYLICMARKER_24COLORS",name:"Acrylic Markers 24 Colors",defaultCost:6.50},
-{sku:"VIVIDCRAFT_ACRYLICMARKER_72COLORS",name:"Acrylic Markers 72 Colors",defaultCost:10.00},
-{sku:"VIVIDCRAFT_ACRYLICMARKER_168COLORS",name:"Acrylic Markers 168 Colors",defaultCost:18.00},
-{sku:"VC_GLITTERMARKER_24",name:"Glitter Markers 24 Colors",defaultCost:7.00},
-{sku:"VC_GLITTERMARKER_48",name:"Glitter Markers 48 Colors",defaultCost:12.00},
-{sku:"VC_GLITTERMARKER_96",name:"Glitter Markers 96 Colors",defaultCost:18.00},
-{sku:"VC_EBOOK",name:"Coloring eBook (digital)",defaultCost:0},
-{sku:"VC_MIXGUIDE",name:"Digital Color Mixing Guide",defaultCost:0},
-{sku:"VC_FREESHIP",name:"Free Shipping",defaultCost:5.00},
-{sku:"VC_COLORBOOK_JAPAN",name:"Cozy Japan Coloring Book",defaultCost:8.00},
-{sku:"VC_COLORBOOK_CORNERS",name:"Little Corners Coloring Book",defaultCost:8.00},
-{sku:"VC_ARTBOOK_STEPBYSTEP",name:"Step-by-Step Art Book",defaultCost:8.00}
+{sku:"VIVIDCRAFT_ACRYLICMARKER_24COLORS",name:"Acrylic Markers 24 Colors",defaultSolo:0,defaultUpsell:0},
+{sku:"VIVIDCRAFT_ACRYLICMARKER_72COLORS",name:"Acrylic Markers 72 Colors",defaultSolo:0,defaultUpsell:0},
+{sku:"VIVIDCRAFT_ACRYLICMARKER_168COLORS",name:"Acrylic Markers 168 Colors",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_GLITTERMARKER_24",name:"Glitter Markers 24 Colors",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_GLITTERMARKER_48",name:"Glitter Markers 48 Colors",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_GLITTERMARKER_96",name:"Glitter Markers 96 Colors",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_EBOOK",name:"Coloring eBook (digital)",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_MIXGUIDE",name:"Digital Color Mixing Guide",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_FREESHIP",name:"Free Shipping",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_COLORBOOK_JAPAN",name:"Cozy Japan Coloring Book",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_COLORBOOK_CORNERS",name:"Little Corners Coloring Book",defaultSolo:0,defaultUpsell:0},
+{sku:"VC_ARTBOOK_STEPBYSTEP",name:"Step-by-Step Art Book",defaultSolo:0,defaultUpsell:0}
 ];
 
 const LAST_UPDATED="2026-04-11";
-const LS_KEY="vividcraft_sku_costs";
+const LS_KEY="vividcraft_sku_costs_v2";
 
 function loadCosts(){
   try{const s=localStorage.getItem(LS_KEY);if(s)return JSON.parse(s)}catch(e){}
-  const d={};ALL_SKUS.forEach(s=>d[s.sku]=s.defaultCost);return d;
+  const d={};ALL_SKUS.forEach(s=>d[s.sku]={solo:s.defaultSolo,upsell:s.defaultUpsell});return d;
 }
 function saveCosts(costs){localStorage.setItem(LS_KEY,JSON.stringify(costs))}
 let skuCosts=loadCosts();
 
-function calcCOGS(items){
+function calcCOGS(solo,upsell){
   let total=0;
-  for(const[sku,qty]of Object.entries(items)){
-    const cost=skuCosts[sku]||0;
-    total+=qty*cost;
+  for(const[sku,qty]of Object.entries(solo)){
+    const c=skuCosts[sku]||{solo:0};
+    total+=qty*(c.solo||0);
+  }
+  for(const[sku,qty]of Object.entries(upsell)){
+    const c=skuCosts[sku]||{upsell:0};
+    total+=qty*(c.upsell||0);
   }
   return total;
 }
@@ -143,7 +147,7 @@ function getFiltered(){return DAILY.filter(d=>d.date>=dateFrom.value&&d.date<=da
 function calcSummary(data){
   const r=data.reduce((a,d)=>a+d.revenue,0);
   const o=data.reduce((a,d)=>a+d.orders,0);
-  const c=data.reduce((a,d)=>a+calcCOGS(d.items),0);
+  const c=data.reduce((a,d)=>a+calcCOGS(d.solo,d.upsell),0);
   const s=data.reduce((a,d)=>a+d.spend,0);
   const f=r*0.029+o*0.30;
   const pb=r-c-f;
@@ -168,25 +172,27 @@ function renderKPIs(el,data){
 
 function renderTable(el,data){
   let rows=data.map(r=>{
-    const cogs=calcCOGS(r.items);
+    const cogs=calcCOGS(r.solo,r.upsell);
     const pn=r.revenue-cogs-(r.revenue*0.029+r.orders*0.30)-r.spend;
     const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"\u2014";
     const rc=roas!=="\u2014"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--dimmed)";
     return'<tr><td style="color:var(--peach);font-family:JetBrains Mono,monospace;font-weight:500">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--teal)">'+fmt(r.revenue)+'</td><td style="color:var(--muted)">'+fmt(cogs)+'</td><td style="color:var(--coral)">'+fmt(r.spend)+'</td><td style="color:'+(pn>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(pn)+'</td><td style="color:'+rc+'">'+roas+(roas!=="\u2014"?"x":"")+'</td></tr>';
   }).join("");
-  const t=data.reduce((a,r)=>{const cogs=calcCOGS(r.items);const pn=r.revenue-cogs-(r.revenue*0.029+r.orders*0.30)-r.spend;return{orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+cogs,spend:a.spend+r.spend,profitNet:a.profitNet+pn}},{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});
+  const t=data.reduce((a,r)=>{const cogs=calcCOGS(r.solo,r.upsell);const pn=r.revenue-cogs-(r.revenue*0.029+r.orders*0.30)-r.spend;return{orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+cogs,spend:a.spend+r.spend,profitNet:a.profitNet+pn}},{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});
   el.innerHTML='<div class="tbl-box"><table><thead><tr><th>Date</th><th>Cmd</th><th>Revenue</th><th>COGS</th><th>Spend</th><th>Profit Net</th><th>ROAS</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr class="total-row"><td style="color:var(--peach)">TOTAL</td><td>'+t.orders+'</td><td style="color:var(--teal)">'+fmt(t.revenue)+'</td><td style="color:var(--muted)">'+fmt(t.cogs)+'</td><td style="color:var(--coral)">'+fmt(t.spend)+'</td><td style="color:'+(t.profitNet>=0?"var(--green)":"var(--red)")+'">'+fmt(t.profitNet)+'</td><td></td></tr></tfoot></table></div>';
 }
 
 function renderSettings(el){
   let rows=ALL_SKUS.map(s=>{
-    const val=skuCosts[s.sku]!=null?skuCosts[s.sku]:s.defaultCost;
-    return'<tr><td>'+s.sku+'</td><td>'+s.name+'</td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" value="'+val.toFixed(2)+'"></td></tr>';
+    const c=skuCosts[s.sku]||{solo:s.defaultSolo,upsell:s.defaultUpsell};
+    return'<tr><td>'+s.sku+'</td><td>'+s.name+'</td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" data-type="solo" value="'+(c.solo||0).toFixed(2)+'"></td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" data-type="upsell" value="'+(c.upsell||0).toFixed(2)+'"></td></tr>';
   }).join("");
-  el.innerHTML='<div class="settings-section"><h3>Co\u00fbt par SKU (COGS)</h3><p style="color:var(--muted);font-size:12px;margin-bottom:16px">D\u00e9finissez le co\u00fbt d\'achat unitaire pour chaque produit. Les KPIs et le breakdown seront recalcul\u00e9s automatiquement.</p><table class="settings-table"><thead><tr><th style="text-align:left">SKU</th><th style="text-align:left">Produit</th><th style="text-align:left">Co\u00fbt ($)</th></tr></thead><tbody>'+rows+'</tbody></table><div style="display:flex;align-items:center;margin-top:16px"><button class="btn-save" id="btnSave">Sauvegarder</button><span class="save-msg" id="saveMsg">\u2713 Sauvegard\u00e9</span></div></div>';
+  el.innerHTML='<div class="settings-section"><h3>Co\u00fbt par SKU (COGS)</h3><p style="color:var(--muted);font-size:12px;margin-bottom:16px">D\u00e9finissez le co\u00fbt d\'achat unitaire pour chaque produit.<br><b>Solo</b> = produit principal ou command\u00e9 seul &nbsp;|&nbsp; <b>Upsell</b> = ajout\u00e9 \u00e0 une commande avec des markers</p><table class="settings-table"><thead><tr><th style="text-align:left">SKU</th><th style="text-align:left">Produit</th><th style="text-align:left">Solo ($)</th><th style="text-align:left">Upsell ($)</th></tr></thead><tbody>'+rows+'</tbody></table><div style="display:flex;align-items:center;margin-top:16px"><button class="btn-save" id="btnSave">Sauvegarder</button><span class="save-msg" id="saveMsg">\u2713 Sauvegard\u00e9</span></div></div>';
   document.getElementById("btnSave").addEventListener("click",()=>{
     document.querySelectorAll('.settings-table input[data-sku]').forEach(inp=>{
-      skuCosts[inp.dataset.sku]=parseFloat(inp.value)||0;
+      const sku=inp.dataset.sku,type=inp.dataset.type;
+      if(!skuCosts[sku])skuCosts[sku]={solo:0,upsell:0};
+      skuCosts[sku][type]=parseFloat(inp.value)||0;
     });
     saveCosts(skuCosts);
     const msg=document.getElementById("saveMsg");
