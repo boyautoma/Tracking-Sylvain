@@ -53,8 +53,10 @@ body{background:var(--dark);color:var(--white);font-family:'Inter',-apple-system
 .date-bar input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.7);cursor:pointer}
 .sep{color:var(--dimmed);font-size:13px}
 .quick-btns{display:flex;gap:4px;margin-left:6px}
-.quick-btn{background:transparent;color:var(--dimmed);border:1px solid var(--dark3);border-radius:5px;padding:5px 10px;font-size:10px;font-weight:600;cursor:pointer;transition:all .15s;font-family:'JetBrains Mono',monospace}
-.quick-btn:hover,.quick-btn.active{background:var(--teal);color:var(--dark);border-color:var(--teal)}
+.period-select{background:var(--dark2);color:var(--white);border:1px solid var(--dark3);border-radius:6px;padding:7px 12px;font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238892a4' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+.period-select:focus{border-color:var(--teal)}
+.custom-dates{display:none;align-items:center;gap:10px;margin-top:8px}
+.custom-dates.show{display:flex}
 
 /* KPIs */
 .kpi-row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
@@ -167,14 +169,19 @@ tr.total-row td{padding:10px;font-weight:700}
       <span id="syncText"></span>
     </div>
     <div class="main-header" id="mainHeader"></div>
-    <div id="dateBar" class="date-bar">
-      <label>Du</label><input type="date" id="dateFrom">
-      <span class="sep">&rarr;</span>
-      <label>Au</label><input type="date" id="dateTo">
-      <div class="quick-btns">
-        <button class="quick-btn" data-range="3">3J</button>
-        <button class="quick-btn" data-range="7">7J</button>
-        <button class="quick-btn active" data-range="all">Tout</button>
+    <div id="dateBar" class="date-bar" style="flex-direction:column;align-items:flex-start">
+      <select class="period-select" id="periodSelect">
+        <option value="today">Aujourd'hui</option>
+        <option value="yesterday">Hier</option>
+        <option value="7">7 derniers jours</option>
+        <option value="30" selected>30 derniers jours</option>
+        <option value="all">Tout</option>
+        <option value="custom">Personnalis&eacute;...</option>
+      </select>
+      <div class="custom-dates" id="customDates">
+        <label>Du</label><input type="date" id="dateFrom">
+        <span class="sep">&rarr;</span>
+        <label>Au</label><input type="date" id="dateTo">
       </div>
     </div>
     <div id="content"></div>
@@ -294,10 +301,10 @@ async function loadData(){
 
 function initDashboard(){
   if(DAILY.length){
-    dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date;
     dateFrom.min=DAILY[0].date;dateFrom.max=DAILY[DAILY.length-1].date;
     dateTo.min=DAILY[0].date;dateTo.max=DAILY[DAILY.length-1].date;
     document.getElementById("badgeOrders").textContent=DAILY[DAILY.length-1].orders;
+    applyPeriod();
   } else {
     document.getElementById("badgeOrders").textContent="0";
   }
@@ -408,10 +415,25 @@ document.querySelectorAll(".sb-item[data-view]").forEach(item=>{
   });
 });
 
-// Date controls
+// Period select
+function todayEST(){return new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'})}
+function applyPeriod(){
+  const v=document.getElementById("periodSelect").value;
+  const custom=document.getElementById("customDates");
+  if(v==="custom"){custom.classList.add("show");return}
+  custom.classList.remove("show");
+  if(!DAILY.length)return;
+  const last=DAILY[DAILY.length-1].date;
+  const today=todayEST();
+  if(v==="today"){dateFrom.value=today;dateTo.value=today}
+  else if(v==="yesterday"){const y=new Date(today);y.setDate(y.getDate()-1);dateFrom.value=y.toISOString().split("T")[0];dateTo.value=dateFrom.value}
+  else if(v==="all"){dateFrom.value=DAILY[0].date;dateTo.value=last}
+  else{const days=parseInt(v),from=new Date(last);from.setDate(from.getDate()-days+1);dateFrom.value=from.toISOString().split("T")[0];dateTo.value=last}
+  render();
+}
+document.getElementById("periodSelect").addEventListener("change",applyPeriod);
 dateFrom.addEventListener("change",render);
 dateTo.addEventListener("change",render);
-document.querySelectorAll(".quick-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".quick-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");const r=b.dataset.range;if(r==="all"){dateFrom.value=DAILY[0].date;dateTo.value=DAILY[DAILY.length-1].date}else{const days=parseInt(r),last=DAILY[DAILY.length-1].date,from=new Date(last);from.setDate(from.getDate()-days+1);dateFrom.value=from.toISOString().split("T")[0];dateTo.value=last}render()})});
 
 // Mobile hamburger
 document.getElementById("hamburger").addEventListener("click",()=>{
