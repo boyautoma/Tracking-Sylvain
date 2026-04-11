@@ -164,10 +164,6 @@ tr.total-row td{padding:10px;font-weight:700}
   </aside>
 
   <main class="main">
-    <div id="syncBadge" style="display:none;margin-bottom:16px;padding:8px 14px;background:var(--dark2);border:1px solid var(--dark3);border-radius:8px;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);display:inline-flex;align-items:center;gap:6px;width:fit-content">
-      <span style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block"></span>
-      <span id="syncText"></span>
-    </div>
     <div class="main-header" id="mainHeader"></div>
     <div id="dateBar" class="date-bar" style="flex-direction:column;align-items:flex-start">
       <select class="period-select" id="periodSelect">
@@ -309,13 +305,8 @@ function initDashboard(){
     document.getElementById("badgeOrders").textContent="0";
   }
   document.getElementById("badgeProducts").textContent=ALL_SKUS.length;
-  const dateStr=LAST_UPDATED?new Date(LAST_UPDATED).toLocaleDateString("fr-FR",{timeZone:'America/New_York',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):"--";
-  document.getElementById("sbFooter").textContent="MAJ: "+dateStr;
-  if(LAST_UPDATED){
-    const badge=document.getElementById("syncBadge");
-    badge.style.display="inline-flex";
-    document.getElementById("syncText").textContent="Derni\u00e8re sync: "+dateStr+" (EST)";
-  }
+  const dateStr=LAST_UPDATED?new Date(LAST_UPDATED).toLocaleDateString("fr-FR",{timeZone:'Europe/Paris',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):"--";
+  document.getElementById("sbFooter").textContent="Sync: "+dateStr;
   render();
 }
 
