@@ -338,7 +338,7 @@ function initDashboard(){
 
 const viewTitles={kpis:["Dashboard","Vue d'ensemble des KPIs"],breakdown:["Breakdown","D\u00e9tail jour par jour"],products:["Produits","Quantit\u00e9s vendues par SKU"],settings:["COGS","Co\u00fbt d'achat par SKU (solo / upsell)"]};
 
-function fmt(n,p="$"){if(n==null)return"\u2014";const a=Math.abs(n);const f=a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}):a.toFixed(2);return(n<0?"-":"")+p+f}
+function fmt(n,p="$",int=false){if(n==null||isNaN(n))return"\u2014";const a=Math.abs(n);const f=int?Math.round(a).toString():a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}):a.toFixed(2);return(n<0?"-":"")+p+f}
 function getFiltered(){return DAILY.filter(d=>d.date>=dateFrom.value&&d.date<=dateTo.value)}
 
 function calcSummary(data){
@@ -360,11 +360,11 @@ function render(){
   else renderKPIs(el,getFiltered());
 }
 
-function kpi(l,v,p="$",sx="",c,sm){const neg=typeof v==="number"&&v<0;const col=c||(neg?"var(--red)":"var(--green)");const cls=sm?"kpi sm":"kpi";const dsp=typeof v==="number"?fmt(v,p)+sx:v+sx;return'<div class="'+cls+'"><div class="kpi-label">'+l+'</div><div class="kpi-value" style="color:'+col+'">'+dsp+'</div></div>'}
+function kpi(l,v,p="$",sx="",c,sm,int){const neg=typeof v==="number"&&v<0;const col=c||(neg?"var(--red)":"var(--green)");const cls=sm?"kpi sm":"kpi";const dsp=typeof v==="number"?fmt(v,p,int)+sx:v+sx;return'<div class="'+cls+'"><div class="kpi-label">'+l+'</div><div class="kpi-value" style="color:'+col+'">'+dsp+'</div></div>'}
 
 function renderKPIs(el,data){
   const s=calcSummary(data);
-  el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)")+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div>';
+  el.innerHTML='<div class="kpi-row">'+kpi("Revenue",s.revenue,"$","","var(--peach)")+kpi("Commandes",s.orders,"","","var(--white)",0,true)+kpi("AOV",s.aov,"$","","var(--teal)")+kpi("COGS",s.cogs,"$","","var(--muted)")+'</div><div class="kpi-row">'+kpi("Profit avant ads",s.profitBeforeAds,"$","","var(--green)")+kpi("Meta Spend",s.metaSpend,"$","","var(--coral)")+kpi("Profit NET",s.profitNet)+kpi("ROAS Blended",s.roasBlended,"","x",s.roasBlended>=1.66?"var(--green)":"var(--red)")+'</div><div class="kpi-row">'+kpi("CPA Blended",s.cpaBlended,"$","","var(--white)",1)+kpi("Marge nette",s.marginNet,"","%",null,1)+kpi("BE ROAS",1.66,"","x","var(--muted)",1)+'</div>';
 }
 
 function renderTable(el,data){
