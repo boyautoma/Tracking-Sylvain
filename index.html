@@ -271,23 +271,23 @@ let skuCosts={};
 
 // COGS per order: invoice prices > settings prices. Shipping always from settings.
 function calcOrderCOGS(cmd){
-  const items=cmd.items||cmd;// support old format (just items) and new format ({id, items})
-  const orderId=cmd.id||null;
+  const items=cmd&&cmd.items?cmd.items:(typeof cmd==='object'&&!cmd.id?cmd:{});
+  const orderId=cmd&&cmd.id?cmd.id:null;
   const invoicePrices=orderId?invoiceIndex[orderId]:null;
   let prodTotal=0,maxShip=0;
   for(const[sku,qty]of Object.entries(items)){
-    // Product cost: invoice first, then settings
-    const prodCost=invoicePrices&&invoicePrices[sku]!=null?invoicePrices[sku]:(skuCosts[sku]||{}).product||0;
-    prodTotal+=qty*prodCost;
-    // Shipping: always from settings
-    const ship=(skuCosts[sku]||{}).shipping||0;
+    const q=Number(qty)||0;
+    const prodCost=invoicePrices&&invoicePrices[sku]!=null?Number(invoicePrices[sku]):Number((skuCosts[sku]||{}).product)||0;
+    prodTotal+=q*(prodCost||0);
+    const ship=Number((skuCosts[sku]||{}).shipping)||0;
     if(ship>maxShip) maxShip=ship;
   }
-  return prodTotal+maxShip;
+  return (prodTotal+maxShip)||0;
 }
 // COGS for a day = sum of COGS per order
 function calcDayCOGS(cmds){
-  return cmds.reduce((t,cmd)=>t+calcOrderCOGS(cmd),0);
+  if(!cmds||!cmds.length)return 0;
+  return cmds.reduce((t,cmd)=>t+(calcOrderCOGS(cmd)||0),0);
 }
 
 let currentView="kpis";
@@ -336,8 +336,8 @@ function fmt(n,p="$"){if(n==null)return"\u2014";const a=Math.abs(n);const f=a>=1
 function getFiltered(){return DAILY.filter(d=>d.date>=dateFrom.value&&d.date<=dateTo.value)}
 
 function calcSummary(data){
-  const r=data.reduce((a,d)=>a+d.revenue,0),o=data.reduce((a,d)=>a+d.orders,0);
-  const c=data.reduce((a,d)=>a+calcDayCOGS(d.cmds),0),s=data.reduce((a,d)=>a+d.spend,0);
+  const r=data.reduce((a,d)=>a+(Number(d.revenue)||0),0),o=data.reduce((a,d)=>a+(Number(d.orders)||0),0);
+  const c=data.reduce((a,d)=>a+(calcDayCOGS(d.cmds)||0),0),s=data.reduce((a,d)=>a+(Number(d.spend)||0),0);
   const f=r*0.029+o*0.30,pb=r-c-f,pn=r-c-f-s;
   return{revenue:r,orders:o,aov:o>0?r/o:0,cogs:c,profitBeforeAds:pb,metaSpend:s,profitNet:pn,roasBlended:s>0?r/s:0,cpaBlended:o>0?s/o:0,marginNet:r>0?(pn/r)*100:0};
 }
