@@ -64,7 +64,7 @@ async function fetchShopifyOrders() {
       const sku = li.sku || titleToSku[li.title] || 'UNKNOWN';
       items[sku] = (items[sku] || 0) + li.quantity;
     });
-    byDate[date].cmds.push(items);
+    byDate[date].cmds.push({ id: o.name || o.order_number, items });
   });
 
   return byDate;
