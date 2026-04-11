@@ -53,10 +53,10 @@ async function fetchShopifyOrders() {
     'Step-by-Step Art Book with Practice Pages': 'VC_ARTBOOK_STEPBYSTEP'
   };
 
-  // Group by date, keep per-order items
+  // Group by date in EST (America/New_York), keep per-order items
   const byDate = {};
   allOrders.forEach(o => {
-    const date = o.created_at.slice(0, 10);
+    const date = new Date(o.created_at).toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
     if (!byDate[date]) byDate[date] = { revenue: 0, cmds: [] };
     byDate[date].revenue += parseFloat(o.total_price);
     const items = {};
