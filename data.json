@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-11T15:14:51.728Z",
+  "lastUpdated": "2026-04-11T16:23:57.726Z",
   "daily": [
     {
       "date": "2026-03-28",
@@ -412,7 +412,7 @@
       "label": "04/10",
       "orders": 16,
       "revenue": 1004.33,
-      "spend": 280.14,
+      "spend": 280.25,
       "cmds": [
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
@@ -485,10 +485,19 @@
     {
       "date": "2026-04-11",
       "label": "04/11",
-      "orders": 1,
-      "revenue": 54.49,
-      "spend": 206.35,
+      "orders": 3,
+      "revenue": 180.98,
+      "spend": 236.59,
       "cmds": [
+        {
+          "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
+          "VC_EBOOK": 1,
+          "VC_MIXGUIDE": 1
+        },
+        {
+          "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
+          "VC_MIXGUIDE": 1
+        },
         {
           "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
           "VC_MIXGUIDE": 1
