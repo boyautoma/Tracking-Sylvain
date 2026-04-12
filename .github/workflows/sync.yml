@@ -1,0 +1,26 @@
+name: Sync Dashboard Data
+on:
+  schedule:
+    - cron: '23 6 * * *'
+    - cron: '47 18 * * *'
+  workflow_dispatch: {}
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Sync Shopify + Meta data
+        run: node scripts/sync.cjs
+        env:
+          SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
+          SHOPIFY_DOMAIN: ${{ secrets.SHOPIFY_DOMAIN }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_AD_ACCOUNT_ID: ${{ secrets.META_AD_ACCOUNT_ID }}
+      - name: Commit and push data.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'auto-sync dashboard data'
+          file_pattern: 'data.json'
