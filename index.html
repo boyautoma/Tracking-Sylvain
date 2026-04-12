@@ -165,6 +165,7 @@ tr.total-row td{padding:12px;font-weight:700;background:transparent}
 }
 
 /* ─── Login ─── */
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 #loginScreen{background:var(--bg)}
 .login-card{background:var(--white);border-radius:20px;padding:48px 40px;width:380px;text-align:center;box-shadow:var(--shadow-md)}
 .login-card h2{font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px}
@@ -228,6 +229,12 @@ tr.total-row td{padding:12px;font-weight:700;background:transparent}
       </div>
     </div>
 
+    <div style="padding:0 16px 8px">
+      <button id="syncBtn" style="width:100%;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;font-size:12px;font-weight:600;color:var(--text-secondary);cursor:pointer;font-family:inherit;transition:all .15s" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+        Synchroniser
+      </button>
+    </div>
     <div class="sb-footer" id="sbFooter"></div>
   </aside>
 
@@ -651,6 +658,31 @@ function showApp(){
   document.getElementById('appMain').style.display='flex';
   loadData();
 }
+
+// Manual sync button
+document.getElementById('syncBtn').addEventListener('click',async()=>{
+  const btn=document.getElementById('syncBtn');
+  btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Sync en cours...';
+  btn.disabled=true;
+  try{
+    const res=await fetch('https://api.github.com/repos/'+GH_REPO+'/actions/workflows/sync.yml/dispatches',{
+      method:'POST',headers:{'Authorization':'Bearer '+GH_TOKEN,'Content-Type':'application/json','User-Agent':'VC'},
+      body:JSON.stringify({ref:GH_BRANCH})
+    });
+    if(res.ok||res.status===204){
+      btn.innerHTML='\u2713 Sync lanc\u00e9e!';btn.style.color='var(--green)';btn.style.borderColor='var(--green)';
+      setTimeout(()=>{btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Synchroniser';btn.disabled=false;btn.style.color='';btn.style.borderColor=''},5000);
+    } else {
+      const err=await res.json().catch(()=>({}));
+      btn.innerHTML='\u2717 Erreur';btn.style.color='var(--red)';
+      console.error('Sync error:',err);
+      setTimeout(()=>{btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Synchroniser';btn.disabled=false;btn.style.color='';btn.style.borderColor=''},3000);
+    }
+  }catch(e){
+    btn.innerHTML='\u2717 Erreur r\u00e9seau';btn.style.color='var(--red)';
+    setTimeout(()=>{btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Synchroniser';btn.disabled=false;btn.style.color='';btn.style.borderColor=''},3000);
+  }
+});
 
 document.getElementById('loginBtn').addEventListener('click',tryLogin);
 document.getElementById('loginPwd').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin()});
