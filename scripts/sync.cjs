@@ -53,10 +53,10 @@ async function fetchShopifyOrders() {
     'Step-by-Step Art Book with Practice Pages': 'VC_ARTBOOK_STEPBYSTEP'
   };
 
-  // Group by date in EST (America/New_York), keep per-order items
+  // Group by date in Europe/Amsterdam (same as Meta ad account) for spend alignment
   const byDate = {};
   allOrders.forEach(o => {
-    const date = new Date(o.created_at).toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+    const date = new Date(o.created_at).toLocaleDateString('en-CA', { timeZone: 'Europe/Amsterdam' });
     if (!byDate[date]) byDate[date] = { revenue: 0, cmds: [] };
     byDate[date].revenue += parseFloat(o.total_price);
     const items = {};
