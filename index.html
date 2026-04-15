@@ -6,6 +6,7 @@
 <title>VividCraft — P&L Dashboard</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <style>
 :root{
   --orange:#f97316;--orange-light:#fff7ed;--orange-border:#fdba74;
@@ -223,6 +224,10 @@ tr.total-row td{padding:12px;font-weight:700;background:transparent}
     <div class="sb-divider"></div>
 
     <div class="sb-section">
+      <div class="sb-item" data-view="invoices">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Factures
+      </div>
       <div class="sb-item" data-view="settings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
         Settings
@@ -402,7 +407,7 @@ function initDashboard(){
   render();
 }
 
-const viewTitles={kpis:["Overview",""],breakdown:["Breakdown",""],products:["Produits",""],settings:["Settings",""]};
+const viewTitles={kpis:["Overview",""],breakdown:["Breakdown",""],products:["Produits",""],invoices:["Factures",""],settings:["Settings",""]};
 
 function fmt(n,p="$",int=false){if(n==null||isNaN(n))return"\u2014";const a=Math.abs(n);const f=int?Math.round(a).toString():a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}):a.toFixed(2);return(n<0?"-":"")+p+f}
 function fmtShort(n,p="$"){if(n==null||isNaN(n))return"\u2014";const a=Math.abs(n);let f;if(a>=1000)f=a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0});else f=a.toFixed(2);return(n<0?"-":"")+p+f}
@@ -420,9 +425,10 @@ function render(){
   const hdr=document.getElementById("mainHeader");
   const t=viewTitles[currentView];
   hdr.innerHTML='<h2>'+t[0]+'</h2>';
-  document.getElementById("dateBar").style.display=(currentView==="settings"||currentView==="products")?"none":"flex";
+  document.getElementById("dateBar").style.display=(currentView==="settings"||currentView==="products"||currentView==="invoices")?"none":"flex";
   if(currentView==="settings") renderSettings(el);
   else if(currentView==="products") renderProducts(el);
+  else if(currentView==="invoices") renderInvoices(el);
   else if(currentView==="breakdown") renderTable(el,getFiltered());
   else renderKPIs(el,getFiltered());
 }
@@ -564,6 +570,231 @@ function renderProducts(el){
     return'<tr><td style="text-align:left">'+s.sku+'</td><td style="text-align:left">'+s.name+'</td><td style="text-align:right;font-weight:600">'+qty+'</td><td style="text-align:right">'+fmt(c.product)+'</td><td style="text-align:right">'+fmt(c.shipping)+'</td></tr>';
   }).join("");
   el.innerHTML='<div class="tbl-box"><table><thead><tr><th style="text-align:left">SKU</th><th style="text-align:left">Produit</th><th style="text-align:right">Qt\u00e9</th><th style="text-align:right">Co\u00fbt</th><th style="text-align:right">Shipping</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+}
+
+// ─── INVOICES ───
+let invoicesSha=null;
+
+async function loadInvoicesSha(){
+  try{
+    const res=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/invoices.json',{headers:{'Authorization':'Bearer '+GH_TOKEN,'User-Agent':'VC'}});
+    if(res.ok){const data=await res.json();invoicesSha=data.sha}
+  }catch(e){}
+}
+
+async function saveInvoices(data){
+  const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
+  const body={message:'Update invoices',content};
+  if(invoicesSha) body.sha=invoicesSha;
+  try{
+    const res=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/invoices.json',{
+      method:'PUT',headers:{'Authorization':'Bearer '+GH_TOKEN,'Content-Type':'application/json','User-Agent':'VC'},
+      body:JSON.stringify(body)
+    });
+    if(res.ok){const r=await res.json();invoicesSha=r.content.sha;return true}
+  }catch(e){}
+  return false;
+}
+
+// Parse an XLSX invoice file. Returns {invoice, date, orders, prices} or null.
+async function parseInvoiceFile(file){
+  const buf=await file.arrayBuffer();
+  const wb=XLSX.read(buf,{type:'array'});
+
+  // Get order IDs from order_ sheet
+  let orders=[];
+  if(wb.Sheets['order_']){
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets['order_'],{header:1});
+    const seen=new Set();
+    for(let i=1;i<rows.length;i++){
+      const row=rows[i];
+      if(!row||!row.length) continue;
+      // Look for VVD order number in any cell
+      for(const cell of row){
+        if(typeof cell==='string'){
+          const m=cell.match(/#?VVD\d+/);
+          if(m){seen.add('#'+m[0].replace('#',''));break}
+        }
+      }
+    }
+    orders=[...seen].sort();
+  }
+
+  // Get prices from SKU sheet
+  const prices={};
+  if(wb.Sheets['SKU']){
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets['SKU'],{header:1});
+    // Map product names/SKUs that appear as "53024..." numeric IDs to our SKUs
+    const idMap={
+      '53024612319570':'VC_MIXGUIDE',
+      '53024614187346':'VC_FREESHIP',
+      '53024626147666':'VC_EBOOK',
+      '53127660175698':'VC_COLORBOOK_JAPAN',
+      '53127648575826':'VC_COLORBOOK_CORNERS',
+      '53124452188498':'VC_ARTBOOK_STEPBYSTEP',
+      '53178770194770':'VC_GLITTERMARKER_24',
+      '53178770227538':'VC_GLITTERMARKER_48',
+      '53178770260306':'VC_GLITTERMARKER_96'
+    };
+    for(let i=1;i<rows.length;i++){
+      const row=rows[i];
+      if(!row||row.length<5) continue;
+      let sku=String(row[1]||'').trim();
+      const unitPrice=Number(row[4])||0;
+      if(!sku) continue;
+      // Remap numeric IDs to proper SKUs
+      if(idMap[sku]) sku=idMap[sku];
+      prices[sku]=unitPrice;
+    }
+  }
+
+  // Get invoice metadata
+  let invoiceNo='',invoiceDate='';
+  if(wb.Sheets['Invoice']){
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets['Invoice'],{header:1});
+    for(const row of rows){
+      if(!row) continue;
+      for(const cell of row){
+        if(typeof cell==='string'){
+          const mi=cell.match(/Invoice\s*No:\s*(\w+)/i);
+          if(mi) invoiceNo=mi[1];
+          const md=cell.match(/Date:\s*([\d./-]+)/i);
+          if(md){
+            // Convert DD.MM.YYYY to YYYY-MM-DD
+            const parts=md[1].split(/[./-]/);
+            if(parts.length===3) invoiceDate=parts[2]+'-'+parts[1].padStart(2,'0')+'-'+parts[0].padStart(2,'0');
+          }
+        }
+      }
+    }
+  }
+
+  if(!orders.length||!Object.keys(prices).length){
+    return {error:'Facture illisible : numeros de commande ou prix manquants'};
+  }
+
+  return {
+    invoice:invoiceNo||'INV-'+Date.now(),
+    date:invoiceDate||new Date().toISOString().slice(0,10),
+    orders,
+    prices,
+    filename:file.name
+  };
+}
+
+async function handleInvoiceFiles(files){
+  const status=document.getElementById('invoiceStatus');
+  if(!files.length){status.textContent='';return}
+  status.innerHTML='<span style="color:var(--text-muted)">Traitement de '+files.length+' fichier(s)...</span>';
+
+  // Load current invoices
+  let invoicesData={batches:[]};
+  try{
+    const res=await fetch(GH_RAW+'invoices.json?t='+Date.now());
+    if(res.ok) invoicesData=await res.json();
+  }catch(e){}
+  if(!invoicesData.batches) invoicesData.batches=[];
+
+  await loadInvoicesSha();
+
+  const results=[];
+  for(const file of files){
+    try{
+      const parsed=await parseInvoiceFile(file);
+      if(parsed.error){results.push({file:file.name,ok:false,msg:parsed.error});continue}
+      // Skip if invoice already exists
+      const existing=invoicesData.batches.find(b=>b.invoice===parsed.invoice);
+      if(existing){results.push({file:file.name,ok:false,msg:'Deja import\u00e9e ('+parsed.invoice+')'});continue}
+      invoicesData.batches.push({
+        invoice:parsed.invoice,
+        date:parsed.date,
+        orders:parsed.orders,
+        prices:parsed.prices
+      });
+      results.push({file:file.name,ok:true,msg:parsed.invoice+' : '+parsed.orders.length+' commandes'});
+    }catch(e){
+      results.push({file:file.name,ok:false,msg:'Erreur parsing'});
+    }
+  }
+
+  // Save to GitHub
+  const saved=await saveInvoices(invoicesData);
+  const html=results.map(r=>'<div style="padding:8px 0;border-bottom:1px solid var(--border-light);font-size:12px"><span style="color:'+(r.ok?'var(--green)':'var(--red)')+';font-weight:600">'+(r.ok?'\u2713':'\u2717')+'</span> <b>'+r.file+'</b> : '+r.msg+'</div>').join('');
+  status.innerHTML=(saved?'<div style="color:var(--green);font-weight:600;margin-bottom:10px">\u2713 '+results.filter(r=>r.ok).length+' facture(s) ajout\u00e9e(s) en ligne</div>':'<div style="color:var(--red);font-weight:600;margin-bottom:10px">\u2717 Erreur de sauvegarde</div>')+html;
+
+  // Reload invoices + re-render
+  await loadInvoices();
+  setTimeout(()=>{if(currentView==='invoices') renderInvoices(document.getElementById('content'))},2000);
+}
+
+function renderInvoices(el){
+  const batches=invoiceBatches||[];
+  const totalOrders=batches.reduce((a,b)=>a+b.orders.length,0);
+  let batchRows='';
+  if(batches.length){
+    batchRows=batches.map((b,i)=>{
+      const range=b.orders.length>1?b.orders[0]+' \u2192 '+b.orders[b.orders.length-1]:b.orders[0];
+      const priced=Object.entries(b.prices).filter(([sku,p])=>p>0).map(([sku,p])=>sku+' : $'+p.toFixed(2)).join(' \u00b7 ');
+      return '<tr>'+
+        '<td style="text-align:left;font-weight:600">'+b.invoice+'</td>'+
+        '<td style="text-align:left">'+(b.date||'--')+'</td>'+
+        '<td style="text-align:center">'+b.orders.length+'</td>'+
+        '<td style="text-align:left;font-size:11px;color:var(--text-muted)">'+range+'</td>'+
+        '<td style="text-align:left;font-size:11px;color:var(--text-muted)">'+(priced||'\u2014')+'</td>'+
+        '<td style="text-align:right"><button data-idx="'+i+'" class="inv-del" style="background:transparent;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:11px;color:var(--red);cursor:pointer;font-family:inherit">Supprimer</button></td>'+
+      '</tr>';
+    }).join('');
+  } else {
+    batchRows='<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-muted)">Aucune facture import\u00e9e</td></tr>';
+  }
+
+  el.innerHTML=
+    '<div class="settings-section">'+
+      '<h3>\ud83d\udcc4 Importer des factures fournisseur</h3>'+
+      '<p style="color:var(--text-muted);font-size:12px;margin-bottom:16px">Glissez vos fichiers XLSX (factures Nanning Xuchen) ou cliquez pour choisir. Les prix seront extraits automatiquement et appliqu\u00e9s aux commandes concern\u00e9es.</p>'+
+      '<div id="dropZone" style="border:2px dashed var(--border);border-radius:14px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg)">'+
+        '<div style="font-size:38px;margin-bottom:10px">\ud83d\udcc4</div>'+
+        '<div style="font-weight:600;margin-bottom:4px">Glissez vos factures ici</div>'+
+        '<div style="font-size:12px;color:var(--text-muted)">ou cliquez pour s\u00e9lectionner (XLSX uniquement)</div>'+
+        '<input type="file" id="fileInput" accept=".xlsx" multiple style="display:none">'+
+      '</div>'+
+      '<div id="invoiceStatus" style="margin-top:16px"></div>'+
+    '</div>'+
+    '<div class="settings-section">'+
+      '<h3>\ud83d\udcda Factures import\u00e9es <span style="font-weight:400;color:var(--text-muted);font-size:12px">('+batches.length+' factures, '+totalOrders+' commandes couvertes)</span></h3>'+
+      '<table class="settings-table">'+
+        '<thead><tr><th style="text-align:left">Facture</th><th style="text-align:left">Date</th><th style="text-align:center">Cmd</th><th style="text-align:left">Range</th><th style="text-align:left">Prix d\u00e9tect\u00e9s</th><th style="text-align:right"></th></tr></thead>'+
+        '<tbody>'+batchRows+'</tbody>'+
+      '</table>'+
+    '</div>';
+
+  // Wire up drop zone
+  const dz=document.getElementById('dropZone');
+  const fi=document.getElementById('fileInput');
+  dz.addEventListener('click',()=>fi.click());
+  fi.addEventListener('change',e=>handleInvoiceFiles([...e.target.files]));
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.style.borderColor='var(--orange)';dz.style.background='var(--orange-light)'});
+  dz.addEventListener('dragleave',()=>{dz.style.borderColor='var(--border)';dz.style.background='var(--bg)'});
+  dz.addEventListener('drop',e=>{
+    e.preventDefault();
+    dz.style.borderColor='var(--border)';dz.style.background='var(--bg)';
+    const files=[...e.dataTransfer.files].filter(f=>f.name.toLowerCase().endsWith('.xlsx'));
+    handleInvoiceFiles(files);
+  });
+
+  // Delete buttons
+  el.querySelectorAll('.inv-del').forEach(btn=>{
+    btn.addEventListener('click',async()=>{
+      if(!confirm('Supprimer cette facture ?'))return;
+      const idx=parseInt(btn.dataset.idx);
+      let data={batches:[]};
+      try{const r=await fetch(GH_RAW+'invoices.json?t='+Date.now());if(r.ok)data=await r.json()}catch(e){}
+      data.batches.splice(idx,1);
+      await loadInvoicesSha();
+      const ok=await saveInvoices(data);
+      if(ok){await loadInvoices();renderInvoices(el)}
+    });
+  });
 }
 
 function renderSettings(el){
