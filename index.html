@@ -648,25 +648,36 @@ async function parseInvoiceFile(file){
     }
   }
 
-  // Get invoice metadata
+  // Get invoice metadata - scan all sheets
   let invoiceNo='',invoiceDate='';
-  if(wb.Sheets['Invoice']){
-    const rows=XLSX.utils.sheet_to_json(wb.Sheets['Invoice'],{header:1});
+  for(const sheetName of wb.SheetNames){
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets[sheetName],{header:1});
     for(const row of rows){
       if(!row) continue;
       for(const cell of row){
-        if(typeof cell==='string'){
-          const mi=cell.match(/Invoice\s*No:\s*(\w+)/i);
-          if(mi) invoiceNo=mi[1];
-          const md=cell.match(/Date:\s*([\d./-]+)/i);
+        if(typeof cell!=='string') continue;
+        if(!invoiceNo){
+          const mi=cell.match(/Invoice\s*No[:\s]*([\w-]+)/i)||cell.match(/PD\d{8,}/);
+          if(mi) invoiceNo=mi[1]||mi[0];
+        }
+        if(!invoiceDate){
+          const md=cell.match(/Date[:\s]*([\d./-]+)/i);
           if(md){
-            // Convert DD.MM.YYYY to YYYY-MM-DD
             const parts=md[1].split(/[./-]/);
-            if(parts.length===3) invoiceDate=parts[2]+'-'+parts[1].padStart(2,'0')+'-'+parts[0].padStart(2,'0');
+            if(parts.length===3){
+              // Heuristic: if first part is year (4 digits), it's YYYY-MM-DD
+              if(parts[0].length===4) invoiceDate=parts[0]+'-'+parts[1].padStart(2,'0')+'-'+parts[2].padStart(2,'0');
+              else invoiceDate=parts[2]+'-'+parts[1].padStart(2,'0')+'-'+parts[0].padStart(2,'0');
+            }
           }
         }
       }
     }
+  }
+  // Try filename as fallback (e.g. "4.3 vividcraft 1030-1044" → PD20260403)
+  if(!invoiceNo){
+    const fn=file.name.match(/^(\d+)\.(\d+)\s*vividcraft/i);
+    if(fn) invoiceNo='PD2026'+fn[1].padStart(2,'0')+fn[2].padStart(2,'0');
   }
 
   if(!orders.length||!Object.keys(prices).length){
@@ -722,9 +733,14 @@ async function handleInvoiceFiles(files){
   const html=results.map(r=>'<div style="padding:8px 0;border-bottom:1px solid var(--border-light);font-size:12px"><span style="color:'+(r.ok?'var(--green)':'var(--red)')+';font-weight:600">'+(r.ok?'\u2713':'\u2717')+'</span> <b>'+r.file+'</b> : '+r.msg+'</div>').join('');
   status.innerHTML=(saved?'<div style="color:var(--green);font-weight:600;margin-bottom:10px">\u2713 '+results.filter(r=>r.ok).length+' facture(s) ajout\u00e9e(s) en ligne</div>':'<div style="color:var(--red);font-weight:600;margin-bottom:10px">\u2717 Erreur de sauvegarde</div>')+html;
 
-  // Reload invoices + re-render
-  await loadInvoices();
-  setTimeout(()=>{if(currentView==='invoices') renderInvoices(document.getElementById('content'))},2000);
+  // Update in-memory immediately (don't rely on GitHub raw cache)
+  if(saved){
+    invoiceBatches=invoicesData.batches||[];
+    invoiceIndex={};
+    invoiceBatches.forEach(b=>b.orders.forEach(id=>{invoiceIndex[id]=b.prices}));
+  }
+  // Re-render after showing status
+  setTimeout(()=>{if(currentView==='invoices') renderInvoices(document.getElementById('content'))},2500);
 }
 
 function renderInvoices(el){
@@ -787,12 +803,16 @@ function renderInvoices(el){
     btn.addEventListener('click',async()=>{
       if(!confirm('Supprimer cette facture ?'))return;
       const idx=parseInt(btn.dataset.idx);
-      let data={batches:[]};
-      try{const r=await fetch(GH_RAW+'invoices.json?t='+Date.now());if(r.ok)data=await r.json()}catch(e){}
+      const data={batches:[...invoiceBatches]};
       data.batches.splice(idx,1);
       await loadInvoicesSha();
       const ok=await saveInvoices(data);
-      if(ok){await loadInvoices();renderInvoices(el)}
+      if(ok){
+        invoiceBatches=data.batches;
+        invoiceIndex={};
+        invoiceBatches.forEach(b=>b.orders.forEach(id=>{invoiceIndex[id]=b.prices}));
+        renderInvoices(el);
+      }
     });
   });
 }
