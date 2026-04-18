@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-17T21:07:14.193Z",
+  "lastUpdated": "2026-04-18T09:07:15.815Z",
   "daily": [
     {
       "date": "2026-03-28",
@@ -970,7 +970,7 @@
       "label": "04/17",
       "orders": 1,
       "revenue": 54.49,
-      "spend": 75.42,
+      "spend": 77.53,
       "cmds": [
         {
           "id": "#VVD1131",
@@ -980,6 +980,14 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-04-18",
+      "label": "04/18",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 4.09,
+      "cmds": []
     }
   ],
   "skusSeen": [
