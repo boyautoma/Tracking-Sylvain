@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-22T15:57:05.771Z",
+  "lastUpdated": "2026-04-22T18:31:39.433Z",
   "daily": [
     {
       "date": "2026-03-28",
@@ -994,7 +994,7 @@
       "label": "04/21",
       "orders": 1,
       "revenue": 89.99,
-      "spend": 92.83,
+      "spend": 92.85,
       "cmds": [
         {
           "id": "#VVD1132",
@@ -1010,10 +1010,20 @@
     {
       "date": "2026-04-22",
       "label": "04/22",
-      "orders": 5,
-      "revenue": 401.39,
-      "spend": 216.73,
+      "orders": 6,
+      "revenue": 528.36,
+      "spend": 237.28,
       "cmds": [
+        {
+          "id": "#VVD1138",
+          "items": {
+            "VC_COLORBOOK_CORNERS": 1,
+            "VC_GLITTERMARKER_24": 1,
+            "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
+            "VC_ARTBOOK_STEPBYSTEP": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
         {
           "id": "#VVD1137",
           "items": {
