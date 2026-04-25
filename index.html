@@ -600,72 +600,82 @@ async function saveInvoices(data){
 async function parseInvoiceFile(file){
   const buf=await file.arrayBuffer();
   const wb=XLSX.read(buf,{type:'array'});
+  console.log('[Invoice] Sheets found:',wb.SheetNames);
 
-  // Get order IDs from order_ sheet
+  // Map product names/SKUs that appear as numeric IDs to our SKUs
+  const idMap={
+    '53024612319570':'VC_MIXGUIDE','53024614187346':'VC_FREESHIP','53024626147666':'VC_EBOOK',
+    '53127660175698':'VC_COLORBOOK_JAPAN','53127648575826':'VC_COLORBOOK_CORNERS',
+    '53124452188498':'VC_ARTBOOK_STEPBYSTEP','53178770194770':'VC_GLITTERMARKER_24',
+    '53178770227538':'VC_GLITTERMARKER_48','53178770260306':'VC_GLITTERMARKER_96'
+  };
+
+  // 1) Scan ALL sheets for VVD order numbers
   let orders=[];
-  if(wb.Sheets['order_']){
-    const rows=XLSX.utils.sheet_to_json(wb.Sheets['order_'],{header:1});
-    const seen=new Set();
-    for(let i=1;i<rows.length;i++){
-      const row=rows[i];
-      if(!row||!row.length) continue;
-      // Look for VVD order number in any cell
-      for(const cell of row){
-        if(typeof cell==='string'){
-          const m=cell.match(/#?VVD\d+/);
-          if(m){seen.add('#'+m[0].replace('#',''));break}
-        }
+  const seen=new Set();
+  for(const sn of wb.SheetNames){
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1,defval:''});
+    for(let i=0;i<rows.length;i++){
+      const row=rows[i]; if(!row) continue;
+      for(let c=0;c<row.length;c++){
+        const v=String(row[c]||'');
+        const m=v.match(/#?VVD(\d+)/);
+        if(m){seen.add('#VVD'+m[1]);break}
       }
     }
-    orders=[...seen].sort();
   }
+  orders=[...seen].sort();
+  console.log('[Invoice] Orders found:',orders.length,orders.slice(0,5));
 
-  // Get prices from SKU sheet
+  // 2) Get prices from SKU sheet — find it by name (SKU, sku, Sku...)
   const prices={};
-  if(wb.Sheets['SKU']){
-    const rows=XLSX.utils.sheet_to_json(wb.Sheets['SKU'],{header:1});
-    // Map product names/SKUs that appear as "53024..." numeric IDs to our SKUs
-    const idMap={
-      '53024612319570':'VC_MIXGUIDE',
-      '53024614187346':'VC_FREESHIP',
-      '53024626147666':'VC_EBOOK',
-      '53127660175698':'VC_COLORBOOK_JAPAN',
-      '53127648575826':'VC_COLORBOOK_CORNERS',
-      '53124452188498':'VC_ARTBOOK_STEPBYSTEP',
-      '53178770194770':'VC_GLITTERMARKER_24',
-      '53178770227538':'VC_GLITTERMARKER_48',
-      '53178770260306':'VC_GLITTERMARKER_96'
-    };
-    for(let i=1;i<rows.length;i++){
-      const row=rows[i];
-      if(!row||row.length<5) continue;
-      let sku=String(row[1]||'').trim();
-      const unitPrice=Number(row[4])||0;
+  const skuSheet=wb.SheetNames.find(s=>s.toLowerCase()==='sku');
+  if(skuSheet){
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets[skuSheet],{header:1,defval:''});
+    // Find header row: look for a row containing "sku" and "unit price" or "price"
+    let skuCol=-1,priceCol=-1,headerRow=-1;
+    for(let i=0;i<Math.min(5,rows.length);i++){
+      const row=rows[i]; if(!row) continue;
+      for(let c=0;c<row.length;c++){
+        const h=String(row[c]||'').toLowerCase().trim();
+        if(h==='sku'||h==='商品sku') skuCol=c;
+        if(h.includes('unit price')||h==='price'||h==='单价') priceCol=c;
+      }
+      if(skuCol>=0&&priceCol>=0){headerRow=i;break}
+    }
+    // Fallback: assume col 1=sku, col 4=unit price (standard layout)
+    if(skuCol<0) skuCol=1;
+    if(priceCol<0) priceCol=4;
+    if(headerRow<0) headerRow=0;
+    console.log('[Invoice] SKU sheet columns: sku='+skuCol+' price='+priceCol+' header='+headerRow);
+    for(let i=headerRow+1;i<rows.length;i++){
+      const row=rows[i]; if(!row) continue;
+      let sku=String(row[skuCol]||'').trim();
       if(!sku) continue;
-      // Remap numeric IDs to proper SKUs
       if(idMap[sku]) sku=idMap[sku];
+      const unitPrice=parseFloat(row[priceCol])||0;
       prices[sku]=unitPrice;
     }
   }
+  console.log('[Invoice] Prices found:',Object.keys(prices).length,JSON.stringify(prices));
 
-  // Get invoice metadata - scan all sheets
+  // 3) Get invoice metadata - scan all sheets
   let invoiceNo='',invoiceDate='';
   for(const sheetName of wb.SheetNames){
-    const rows=XLSX.utils.sheet_to_json(wb.Sheets[sheetName],{header:1});
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets[sheetName],{header:1,defval:''});
     for(const row of rows){
       if(!row) continue;
       for(const cell of row){
-        if(typeof cell!=='string') continue;
+        const s=String(cell||'');
         if(!invoiceNo){
-          const mi=cell.match(/Invoice\s*No[:\s]*([\w-]+)/i)||cell.match(/PD\d{8,}/);
+          const mi=s.match(/Invoice\s*No[:\s]*([\w-]+)/i)||s.match(/(PD\d{8,})/);
           if(mi) invoiceNo=mi[1]||mi[0];
         }
         if(!invoiceDate){
-          const md=cell.match(/Date[:\s]*([\d./-]+)/i);
+          const md=s.match(/Date[:\s]*([\d./-]+)/i);
           if(md){
             const parts=md[1].split(/[./-]/);
             if(parts.length===3){
-              // Heuristic: if first part is year (4 digits), it's YYYY-MM-DD
               if(parts[0].length===4) invoiceDate=parts[0]+'-'+parts[1].padStart(2,'0')+'-'+parts[2].padStart(2,'0');
               else invoiceDate=parts[2]+'-'+parts[1].padStart(2,'0')+'-'+parts[0].padStart(2,'0');
             }
@@ -674,14 +684,20 @@ async function parseInvoiceFile(file){
       }
     }
   }
-  // Try filename as fallback (e.g. "4.3 vividcraft 1030-1044" → PD20260403)
+  // Filename fallback (e.g. "4.23 vividcraft 1131-1138" → PD20260423)
   if(!invoiceNo){
     const fn=file.name.match(/^(\d+)\.(\d+)\s*vividcraft/i);
     if(fn) invoiceNo='PD2026'+fn[1].padStart(2,'0')+fn[2].padStart(2,'0');
   }
 
-  if(!orders.length||!Object.keys(prices).length){
-    return {error:'Facture illisible : numeros de commande ou prix manquants'};
+  if(!orders.length&&!Object.keys(prices).length){
+    return {error:'Facture illisible : aucun numéro VVD et aucun prix trouvé. Sheets: '+wb.SheetNames.join(', ')};
+  }
+  if(!orders.length){
+    return {error:'Numéros de commande VVD introuvables (prix OK: '+Object.keys(prices).length+' SKUs). Sheets: '+wb.SheetNames.join(', ')};
+  }
+  if(!Object.keys(prices).length){
+    return {error:'Prix introuvables dans le sheet SKU (commandes OK: '+orders.join(',')+').'};
   }
 
   return {
