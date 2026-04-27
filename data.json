@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-27T19:57:53.398Z",
+  "lastUpdated": "2026-04-27T21:04:40.611Z",
   "daily": [
     {
       "date": "2026-03-29",
@@ -1373,10 +1373,18 @@
     {
       "date": "2026-04-27",
       "label": "04/27",
-      "orders": 14,
-      "revenue": 1092.88,
-      "spend": 381.73,
+      "orders": 15,
+      "revenue": 1164.88,
+      "spend": 415.56,
       "cmds": [
+        {
+          "id": "#VVD1190",
+          "items": {
+            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
+            "VC_EBOOK": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
         {
           "id": "#VVD1189",
           "items": {
