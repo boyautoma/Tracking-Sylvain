@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-26T19:33:47.352Z",
+  "lastUpdated": "2026-04-27T01:33:42.114Z",
   "daily": [
     {
       "date": "2026-03-28",
@@ -1243,7 +1243,7 @@
       "label": "04/25",
       "orders": 9,
       "revenue": 683.17,
-      "spend": 262.52,
+      "spend": 262.59,
       "cmds": [
         {
           "id": "#VVD1167",
@@ -1316,10 +1316,18 @@
     {
       "date": "2026-04-26",
       "label": "04/26",
-      "orders": 7,
-      "revenue": 607.67,
-      "spend": 304.3,
+      "orders": 8,
+      "revenue": 677.66,
+      "spend": 340.61,
       "cmds": [
+        {
+          "id": "#VVD1175",
+          "items": {
+            "VC_GLITTERMARKER_96": 1,
+            "VC_EBOOK": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
         {
           "id": "#VVD1174",
           "items": {
@@ -1378,6 +1386,14 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-04-27",
+      "label": "04/27",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 14.65,
+      "cmds": []
     }
   ],
   "skusSeen": [
