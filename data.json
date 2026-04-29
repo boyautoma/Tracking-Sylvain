@@ -1,25 +1,17 @@
 {
-  "lastUpdated": "2026-04-29T13:37:49.711Z",
+  "lastUpdated": "2026-04-29T20:02:57.623Z",
   "daily": [
     {
       "date": "2026-03-30",
       "label": "03/30",
-      "orders": 2,
-      "revenue": 81.5,
+      "orders": 1,
+      "revenue": 32,
       "spend": 179.62,
       "cmds": [
         {
           "id": "#VVD1036",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1035",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
-            "VC_FREESHIP": 1,
             "VC_MIXGUIDE": 1
           }
         }
@@ -1328,7 +1320,7 @@
       "label": "04/27",
       "orders": 15,
       "revenue": 1164.88,
-      "spend": 457.15,
+      "spend": 457.17,
       "cmds": [
         {
           "id": "#VVD1190",
@@ -1454,7 +1446,7 @@
       "label": "04/28",
       "orders": 21,
       "revenue": 1697.35,
-      "spend": 462.84,
+      "spend": 462.91,
       "cmds": [
         {
           "id": "#VVD1211",
@@ -1624,10 +1616,35 @@
     {
       "date": "2026-04-29",
       "label": "04/29",
-      "orders": 7,
-      "revenue": 595.27,
-      "spend": 232.71,
+      "orders": 10,
+      "revenue": 889.29,
+      "spend": 342.06,
       "cmds": [
+        {
+          "id": "#VVD1221",
+          "items": {
+            "VC_GLITTERMARKER_48": 1,
+            "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
+        {
+          "id": "#VVD1220",
+          "items": {
+            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
+            "VC_EBOOK": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
+        {
+          "id": "#VVD1219",
+          "items": {
+            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
+            "VC_GLITTERMARKER_96": 1,
+            "VC_EBOOK": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
         {
           "id": "#VVD1218",
           "items": {
