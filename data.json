@@ -1,22 +1,13 @@
 {
-  "lastUpdated": "2026-05-04T15:33:04.681Z",
+  "lastUpdated": "2026-05-04T20:05:56.921Z",
   "daily": [
     {
       "date": "2026-04-04",
       "label": "04/04",
-      "orders": 1,
-      "revenue": 49.5,
+      "orders": 0,
+      "revenue": 0,
       "spend": 197.57,
-      "cmds": [
-        {
-          "id": "#VVD1056",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
-            "VC_FREESHIP": 1,
-            "VC_MIXGUIDE": 1
-          }
-        }
-      ]
+      "cmds": []
     },
     {
       "date": "2026-04-05",
@@ -1777,10 +1768,16 @@
     {
       "date": "2026-05-04",
       "label": "05/04",
-      "orders": 5,
-      "revenue": 362.15,
+      "orders": 6,
+      "revenue": 417.14,
       "spend": 0,
       "cmds": [
+        {
+          "id": "#VVD1258",
+          "items": {
+            "VC_GLITTERMARKER_48": 1
+          }
+        },
         {
           "id": "#VVD1257",
           "items": {
