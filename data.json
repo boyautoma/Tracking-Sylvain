@@ -1,19 +1,11 @@
 {
-  "lastUpdated": "2026-05-04T20:05:56.921Z",
+  "lastUpdated": "2026-05-05T08:29:44.596Z",
   "daily": [
-    {
-      "date": "2026-04-04",
-      "label": "04/04",
-      "orders": 0,
-      "revenue": 0,
-      "spend": 197.57,
-      "cmds": []
-    },
     {
       "date": "2026-04-05",
       "label": "04/05",
-      "orders": 7,
-      "revenue": 437.96,
+      "orders": 2,
+      "revenue": 106.98,
       "spend": 284.27,
       "cmds": [
         {
@@ -28,49 +20,6 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
-            "VC_FREESHIP": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1061",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
-            "VC_EBOOK": 1,
-            "VC_FREESHIP": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1060",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
-            "VC_EBOOK": 1,
-            "VC_FREESHIP": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1059",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
-            "VC_FREESHIP": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1058",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
-            "VC_EBOOK": 1,
-            "VC_FREESHIP": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1057",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_FREESHIP": 1,
             "VC_MIXGUIDE": 1
           }
@@ -1817,6 +1766,46 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-05-05",
+      "label": "05/05",
+      "orders": 4,
+      "revenue": 333.43,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#VVD1262",
+          "items": {
+            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
+            "VC_GLITTERMARKER_24": 1,
+            "VC_EBOOK": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
+        {
+          "id": "#VVD1261",
+          "items": {
+            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
+            "VC_MIXGUIDE": 1
+          }
+        },
+        {
+          "id": "#VVD1260",
+          "items": {
+            "UNKNOWN": 1
+          }
+        },
+        {
+          "id": "#VVD1259",
+          "items": {
+            "VC_COLORBOOK_JAPAN": 1,
+            "VC_COLORBOOK_CORNERS": 1,
+            "VC_ARTBOOK_STEPBYSTEP": 1,
+            "VC_GLITTERMARKER_48": 1
           }
         }
       ]
