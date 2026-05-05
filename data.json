@@ -1,11 +1,59 @@
 {
-  "lastUpdated": "2026-05-05T10:24:56.502Z",
+  "lastUpdated": "2026-05-05T16:52:03.460Z",
   "daily": [
+    {
+      "date": "2026-03-30",
+      "label": "03/30",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 179.62,
+      "cmds": []
+    },
+    {
+      "date": "2026-03-31",
+      "label": "03/31",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 197.14,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-01",
+      "label": "04/01",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 141.7,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-02",
+      "label": "04/02",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 167.43,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-03",
+      "label": "04/03",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 207.61,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-04",
+      "label": "04/04",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 197.57,
+      "cmds": []
+    },
     {
       "date": "2026-04-05",
       "label": "04/05",
-      "orders": 5,
-      "revenue": 313.46,
+      "orders": 3,
+      "revenue": 206.48,
       "spend": 284.27,
       "cmds": [
         {
@@ -27,22 +75,6 @@
         },
         {
           "id": "#VVD1064",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
-            "VC_EBOOK": 1,
-            "VC_FREESHIP": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1063",
-          "items": {
-            "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
-            "VC_MIXGUIDE": 1
-          }
-        },
-        {
-          "id": "#VVD1062",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
@@ -645,6 +677,14 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-04-18",
+      "label": "04/18",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 4.68,
+      "cmds": []
     },
     {
       "date": "2026-04-21",
@@ -1719,7 +1759,7 @@
       "label": "05/04",
       "orders": 8,
       "revenue": 585.59,
-      "spend": 284.48,
+      "spend": 285.25,
       "cmds": [
         {
           "id": "#VVD1261",
@@ -1789,7 +1829,7 @@
       "label": "05/05",
       "orders": 1,
       "revenue": 101.98,
-      "spend": 55.75,
+      "spend": 124.28,
       "cmds": [
         {
           "id": "#VVD1262",
