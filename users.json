@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "passwordHash": "13c2a9264b5c7bad593cb023ccfa5be9c0f03a15bd4406463828e9f166efd187",
+      "role": "admin",
+      "shops": [
+        "vividcraft",
+        "lymphlite"
+      ]
+    }
+  ]
+}
