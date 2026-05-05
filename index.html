@@ -143,7 +143,7 @@ tr.total-row td{padding:12px;font-weight:700;background:transparent}
 .save-msg.show{opacity:1}
 
 /* ─── Users Management ─── */
-.user-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.user-form{display:grid;grid-template-columns:1fr 1fr auto auto auto;gap:12px;align-items:end;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 .user-form input,.user-form select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:13px;font-family:inherit;outline:none}
 .user-form input:focus,.user-form select:focus{border-color:var(--accent)}
 .user-form label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:4px;display:block}
@@ -296,7 +296,7 @@ let DAILY=[];
 let ALL_SKUS=[];
 let LAST_UPDATED="";
 const _k="VIVIDCRAFT";const _e=[49,32,34,33,49,33,13,49,39,32,9,120,103,10,5,15,27,115,16,13,102,16,37,29,6,8,107,6,41,108,25,13,31,22,41,10,31,56,10,57,37,28,34,33,10,57,38,52,51,37,34,39,3,32,29,49,26,8,36,58,30,49,16,37,44,47,42,5,54,37,16,1,44,63,16,25,32,21,21,102,31,1,26,15,119,118,106,2,62,6,102,127,36];const GH_TOKEN=_e.map((c,i)=>String.fromCharCode(c^_k.charCodeAt(i%_k.length))).join('');
-const GH_REPO="boyautoma/vividcraft-dashboard";
+const GH_REPO="boyautoma/Tracking-Sylvain";
 const GH_BRANCH="gh-pages";
 const GH_RAW="https://raw.githubusercontent.com/"+GH_REPO+"/"+GH_BRANCH+"/";
 
@@ -1127,13 +1127,14 @@ async function renderUsers(el){
         '<thead><tr><th style="text-align:left">Utilisateur</th><th style="text-align:left">Rôle</th><th style="text-align:left">Shops</th><th style="text-align:right"></th></tr></thead>'+
         '<tbody>'+userRows+'</tbody>'+
       '</table>'+
+      '<h3 style="margin-top:24px">Ajouter un utilisateur</h3>'+
       '<div class="user-form" id="addUserForm">'+
         '<div><label>Nom d\'utilisateur</label><input type="text" id="newUsername" placeholder="username"></div>'+
         '<div><label>Mot de passe</label><input type="password" id="newPassword" placeholder="password"></div>'+
         '<div><label>Rôle</label><select id="newRole"><option value="user">User</option><option value="admin">Admin</option></select></div>'+
-        '<div><button class="btn-save" id="btnAddUser" style="margin-top:0">Ajouter</button></div>'+
+        '<div><label>Shops</label><div class="shop-checks" style="margin-top:0">'+shopCheckboxes+'</div></div>'+
+        '<div><button class="btn-save" id="btnAddUser" style="margin-top:16px">Ajouter</button></div>'+
       '</div>'+
-      '<div class="shop-checks" style="margin-top:8px"><span style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-right:8px">Shops:</span>'+shopCheckboxes+'</div>'+
       '<div style="display:flex;align-items:center;margin-top:16px"><button class="btn-save" id="btnSaveUsers">Sauvegarder les modifications</button><span class="save-msg" id="saveMsgUsers"></span></div>'+
     '</div>';
 
