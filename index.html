@@ -803,7 +803,10 @@ function renderTable(el,data){
     const cogs=calcDayCOGS(r.cmds);
     const pn=r.revenue-cogs-(r.revenue*0.029+r.orders*0.30)-r.spend;
     const roas=r.spend>0?(r.revenue/r.spend).toFixed(2):"—";
-    const rc=roas!=="—"?(parseFloat(roas)>=1.66?"var(--green)":"var(--red)"):"var(--text-muted)";
+    const dayFees=r.revenue*0.029+r.orders*0.30;
+    const dayCostR=r.revenue>0?(cogs+dayFees)/r.revenue:0;
+    const dayBE=dayCostR<1?1/(1-dayCostR):99;
+    const rc=roas!=="—"?(parseFloat(roas)>=dayBE?"var(--green)":"var(--red)"):"var(--text-muted)";
     return'<tr><td style="text-align:left;font-weight:600;color:var(--text)">'+r.label+'</td><td>'+r.orders+'</td><td style="color:var(--green-dark)">'+fmt(r.revenue)+'</td><td>'+fmt(cogs)+'</td><td style="color:var(--accent)">'+fmt(r.spend)+'</td><td style="color:'+(pn>=0?"var(--green)":"var(--red)")+';font-weight:600">'+fmt(pn)+'</td><td style="color:'+rc+';font-weight:600">'+roas+(roas!=="—"?"x":"")+'</td></tr>';
   }).join("");
   const t=data.reduce((a,r)=>{const cogs=calcDayCOGS(r.cmds);const pn=r.revenue-cogs-(r.revenue*0.029+r.orders*0.30)-r.spend;return{orders:a.orders+r.orders,revenue:a.revenue+r.revenue,cogs:a.cogs+cogs,spend:a.spend+r.spend,profitNet:a.profitNet+pn}},{orders:0,revenue:0,cogs:0,spend:0,profitNet:0});
