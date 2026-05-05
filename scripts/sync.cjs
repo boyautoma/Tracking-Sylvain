@@ -7,6 +7,18 @@ const META_ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 const META_AD_ACCOUNT_ID = process.env.META_AD_ACCOUNT_ID;
 const DAYS_BACK = 30;
 
+// Frozen spend from old Meta ad account (pre-04/30) — immutable
+const FROZEN_SPEND = {
+  '2026-03-30':179.62,'2026-03-31':197.14,'2026-04-01':141.70,'2026-04-02':167.43,
+  '2026-04-03':207.61,'2026-04-04':197.57,'2026-04-05':284.27,'2026-04-06':199.77,
+  '2026-04-07':304.73,'2026-04-08':236.62,'2026-04-09':140.58,'2026-04-10':280.61,
+  '2026-04-11':371.95,'2026-04-12':267.01,'2026-04-13':119.16,'2026-04-14':117.73,
+  '2026-04-15':135.29,'2026-04-16':205.31,'2026-04-17':77.62,'2026-04-18':4.68,
+  '2026-04-21':92.85,'2026-04-22':254.08,'2026-04-23':234.47,'2026-04-24':311.04,
+  '2026-04-25':262.59,'2026-04-26':341.80,'2026-04-27':457.17,'2026-04-28':462.91,
+  '2026-04-29':369.91
+};
+
 function httpGet(url, headers = {}) {
   return new Promise((resolve, reject) => {
     const parsedUrl = new URL(url);
@@ -106,18 +118,19 @@ async function main() {
   const shopifyData = await fetchShopifyOrders();
   const metaSpend = await fetchMetaSpend();
 
-  // Merge into DAILY format
-  const allDates = new Set([...Object.keys(shopifyData), ...Object.keys(metaSpend)]);
+  // Merge into DAILY format — frozen spend always wins, then Meta API, then 0
+  const allDates = new Set([...Object.keys(shopifyData), ...Object.keys(metaSpend), ...Object.keys(FROZEN_SPEND)]);
   const sorted = [...allDates].sort();
 
   const daily = sorted.map(date => {
     const shop = shopifyData[date] || { revenue: 0, cmds: [] };
+    const spend = FROZEN_SPEND[date] !== undefined ? FROZEN_SPEND[date] : (metaSpend[date] || 0);
     return {
       date,
       label: date.slice(5).replace('-', '/'),
       orders: shop.cmds.length,
       revenue: Math.round(shop.revenue * 100) / 100,
-      spend: metaSpend[date] || 0,
+      spend,
       cmds: shop.cmds
     };
   });
