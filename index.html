@@ -447,11 +447,7 @@ function showApp(){
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('appMain').style.display='flex';
 
-  // Show admin section
-  if(currentUser.role==='admin'){
-    document.getElementById('adminSection').style.display='block';
-    document.getElementById('adminDivider').style.display='block';
-  }
+  // Admin section stays hidden in shop views — only visible in _admin mode
 
   // Setup shop selector
   setupShopSelector();
@@ -479,17 +475,61 @@ function setupShopSelector(){
     opt.textContent=SHOPS[key].name;
     sel.appendChild(opt);
   });
+  // Admin gets an "Admin" option
+  if(currentUser.role==='admin'){
+    const sep=document.createElement('option');
+    sep.disabled=true;sep.textContent='──────────';
+    sel.appendChild(sep);
+    const adm=document.createElement('option');
+    adm.value='_admin';
+    adm.textContent='⚙️ Admin';
+    sel.appendChild(adm);
+  }
   sel.value=currentShop;
   sel.addEventListener('change',()=>{switchShop(sel.value)});
 
-  if(userShops.length<=1) sel.style.display='none';
-  else sel.style.display='block';
+  sel.style.display='block';
 }
 
 function switchShop(shopKey){
+  if(shopKey==='_admin'){
+    // Switch to admin mode
+    currentShop='_admin';
+    document.getElementById('shopSelect').value='_admin';
+    document.documentElement.style.setProperty('--accent','#64748b');
+    document.documentElement.style.setProperty('--accent-light','#f1f5f9');
+    document.documentElement.style.setProperty('--accent-border','#cbd5e1');
+    document.title='Admin — P&L Dashboard';
+    document.getElementById('sbDot').textContent='⚙';
+    document.getElementById('sbName').textContent='Administration';
+    // Hide shop nav, show admin views
+    document.querySelectorAll('.sb-item[data-view]').forEach(i=>{
+      const v=i.dataset.view;
+      i.style.display=(v==='users')?'flex':'none';
+    });
+    document.getElementById('adminDivider').style.display='none';
+    // Auto-navigate to users
+    document.querySelectorAll('.sb-item').forEach(x=>x.classList.remove('active'));
+    document.getElementById('navUsers').classList.add('active');
+    currentView='users';
+    render();
+    return;
+  }
   currentShop=shopKey;
   document.getElementById('shopSelect').value=shopKey;
   applyTheme(shopKey);
+  // Restore shop nav items, hide admin section
+  document.querySelectorAll('.sb-item[data-view]').forEach(i=>{
+    const v=i.dataset.view;
+    if(v==='users') i.style.display='none';
+    else i.style.display='flex';
+  });
+  document.getElementById('adminDivider').style.display='none';
+  document.getElementById('adminSection').style.display='none';
+  // Reset to dashboard
+  document.querySelectorAll('.sb-item').forEach(x=>x.classList.remove('active'));
+  document.querySelector('.sb-item[data-view="kpis"]').classList.add('active');
+  currentView='kpis';
   loadShopData();
 }
 
@@ -619,7 +659,7 @@ function initDashboard(){
   render();
 }
 
-const viewTitles={kpis:["Overview",""],breakdown:["Breakdown",""],products:["Produits",""],invoices:["Factures",""],settings:["Settings",""],users:["Utilisateurs",""]};
+const viewTitles={kpis:["Overview",""],breakdown:["Breakdown",""],products:["Produits",""],invoices:["Factures",""],settings:["Settings",""],users:["Administration",""]};
 
 function fmt(n,p="$",int=false){if(n==null||isNaN(n))return"—";const a=Math.abs(n);const f=int?Math.round(a).toString():a>=1000?a.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}):a.toFixed(2);return(n<0?"-":"")+p+f}
 function fmtShort(n,p="$"){if(n==null||isNaN(n))return"—";const a=Math.abs(n);let f;if(a>=1000)f=a.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0});else f=a.toFixed(2);return(n<0?"-":"")+p+f}
