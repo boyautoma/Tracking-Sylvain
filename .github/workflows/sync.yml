@@ -6,20 +6,19 @@ on:
     - cron: '47 18 * * *'
   workflow_dispatch: {}
 
-permissions:
-  contents: write
-
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
 
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Sync Shopify + Meta data
+      - name: Sync VividCraft (Shopify + Meta)
         run: node scripts/sync.cjs
         env:
           SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
@@ -27,8 +26,16 @@ jobs:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
           META_AD_ACCOUNT_ID: ${{ secrets.META_AD_ACCOUNT_ID }}
 
-      - name: Commit and push data.json
+      - name: Sync Lymphlite (Shopify + Meta)
+        run: node scripts/sync-lymphlite.cjs
+        env:
+          LYMPHLITE_SHOPIFY_TOKEN: ${{ secrets.LYMPHLITE_SHOPIFY_TOKEN }}
+          LYMPHLITE_SHOPIFY_DOMAIN: ${{ secrets.LYMPHLITE_SHOPIFY_DOMAIN }}
+          LYMPHLITE_META_ACCESS_TOKEN: ${{ secrets.LYMPHLITE_META_ACCESS_TOKEN }}
+          LYMPHLITE_META_AD_ACCOUNT_ID: ${{ secrets.LYMPHLITE_META_AD_ACCOUNT_ID }}
+
+      - name: Commit and push data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'auto-sync dashboard data'
-          file_pattern: 'data.json'
+          file_pattern: 'data.json lymphlite-data.json'
