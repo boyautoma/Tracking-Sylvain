@@ -56,7 +56,7 @@ async function fetchShopifyOrders() {
   // Group by date in Europe/Amsterdam (same as Meta ad account) for spend alignment
   const byDate = {};
   allOrders.forEach(o => {
-    const date = new Date(o.created_at).toLocaleDateString('en-CA', { timeZone: 'Europe/Amsterdam' });
+    const date = new Date(o.created_at).toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
     if (!byDate[date]) byDate[date] = { revenue: 0, cmds: [] };
     byDate[date].revenue += parseFloat(o.total_price);
     const items = {};
