@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-05T17:12:08.955Z",
+  "lastUpdated": "2026-05-05T18:51:47.257Z",
   "daily": [
     {
       "date": "2026-04-05",
@@ -238,7 +238,7 @@
       "label": "05/04",
       "orders": 0,
       "revenue": 0,
-      "spend": 374.11,
+      "spend": 374.16,
       "cmds": []
     },
     {
@@ -246,7 +246,7 @@
       "label": "05/05",
       "orders": 0,
       "revenue": 0,
-      "spend": 213.62,
+      "spend": 257.26,
       "cmds": []
     }
   ],
