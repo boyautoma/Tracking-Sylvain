@@ -27,11 +27,17 @@ function httpGet(url, headers = {}) {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {
-        try { resolve(JSON.parse(data)); }
+        try { resolve({ body: JSON.parse(data), headers: res.headers }); }
         catch (e) { reject(new Error(`JSON parse error: ${data.slice(0, 200)}`)); }
       });
     }).on('error', reject);
   });
+}
+
+function parseLinkNext(linkHeader) {
+  if (!linkHeader) return null;
+  const match = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
+  return match ? match[1] : null;
 }
 
 function dateStr(d) { return d.toISOString().split('T')[0]; }
@@ -45,12 +51,11 @@ async function fetchShopifyOrders() {
   let url = `https://${SHOPIFY_DOMAIN}/admin/api/2024-10/orders.json?created_at_min=${sinceStr}&status=any&limit=250`;
 
   while (url) {
-    console.log(`Fetching Shopify orders...`);
+    console.log(`Fetching Shopify orders... (${allOrders.length} so far)`);
     const res = await httpGet(url, { 'X-Shopify-Access-Token': SHOPIFY_TOKEN });
-    if (res.errors) throw new Error(`Shopify error: ${JSON.stringify(res.errors)}`);
-    allOrders = allOrders.concat(res.orders || []);
-    // Pagination via Link header not available in simple https.get, but 250 limit should cover 30 days
-    url = null;
+    if (res.body.errors) throw new Error(`Shopify error: ${JSON.stringify(res.body.errors)}`);
+    allOrders = allOrders.concat(res.body.orders || []);
+    url = parseLinkNext(res.headers.link);
   }
 
   console.log(`Fetched ${allOrders.length} Shopify orders`);
@@ -98,13 +103,13 @@ async function fetchMetaSpend() {
   console.log('Fetching Meta spend...');
   const res = await httpGet(url);
 
-  if (res.error) {
-    console.error(`Meta API error: ${res.error.message}`);
+  if (res.body.error) {
+    console.error(`Meta API error: ${res.body.error.message}`);
     return {};
   }
 
   const spendByDate = {};
-  (res.data || []).forEach(row => {
+  (res.body.data || []).forEach(row => {
     spendByDate[row.date_start] = parseFloat(row.spend) || 0;
   });
 
