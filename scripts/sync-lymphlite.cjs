@@ -96,7 +96,10 @@ async function fetchMetaSpend() {
 async function main() {
   console.log('Starting Lymphlite sync...');
 
-  const shopifyData = await fetchShopifyOrders();
+  let shopifyData = {};
+  try { shopifyData = await fetchShopifyOrders(); }
+  catch (e) { console.log('Shopify fetch failed (non-blocking):', e.message); }
+
   const metaSpend = await fetchMetaSpend();
 
   const allDates = new Set([...Object.keys(shopifyData), ...Object.keys(metaSpend)]);
