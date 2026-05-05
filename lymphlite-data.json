@@ -1,5 +1,254 @@
 {
-  "lastUpdated": "2026-05-05T16:58:45.883Z",
-  "daily": [],
+  "lastUpdated": "2026-05-05T17:02:31.938Z",
+  "daily": [
+    {
+      "date": "2026-04-05",
+      "label": "04/05",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 230.3,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-06",
+      "label": "04/06",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 186.73,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-07",
+      "label": "04/07",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 60.62,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-08",
+      "label": "04/08",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 213.3,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-09",
+      "label": "04/09",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 237.98,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-10",
+      "label": "04/10",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 225.41,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-11",
+      "label": "04/11",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 231.94,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-12",
+      "label": "04/12",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 90.95,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-13",
+      "label": "04/13",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 0.42,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-14",
+      "label": "04/14",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 152.74,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-15",
+      "label": "04/15",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 282.18,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-16",
+      "label": "04/16",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 271.7,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-17",
+      "label": "04/17",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 298.35,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-18",
+      "label": "04/18",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 301.5,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-19",
+      "label": "04/19",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 230.31,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-20",
+      "label": "04/20",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 194.5,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-21",
+      "label": "04/21",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 173.96,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-22",
+      "label": "04/22",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 94.58,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-23",
+      "label": "04/23",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 376.64,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-24",
+      "label": "04/24",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 493.69,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-25",
+      "label": "04/25",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 342.48,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-26",
+      "label": "04/26",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 479.9,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-27",
+      "label": "04/27",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 305.2,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-28",
+      "label": "04/28",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 373.16,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-29",
+      "label": "04/29",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 392.77,
+      "cmds": []
+    },
+    {
+      "date": "2026-04-30",
+      "label": "04/30",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 375.53,
+      "cmds": []
+    },
+    {
+      "date": "2026-05-01",
+      "label": "05/01",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 459.87,
+      "cmds": []
+    },
+    {
+      "date": "2026-05-02",
+      "label": "05/02",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 334.59,
+      "cmds": []
+    },
+    {
+      "date": "2026-05-03",
+      "label": "05/03",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 354.27,
+      "cmds": []
+    },
+    {
+      "date": "2026-05-04",
+      "label": "05/04",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 374.1,
+      "cmds": []
+    },
+    {
+      "date": "2026-05-05",
+      "label": "05/05",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 209.24,
+      "cmds": []
+    }
+  ],
   "skusSeen": []
 }
