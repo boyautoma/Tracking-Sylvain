@@ -4,19 +4,19 @@
       "username": "admin",
       "passwordHash": "13c2a9264b5c7bad593cb023ccfa5be9c0f03a15bd4406463828e9f166efd187",
       "role": "admin",
-      "shops": [
-        "vividcraft",
-        "lymphlite"
-      ]
+      "shops": ["vividcraft", "lymphlite"]
     },
     {
       "username": "Benjamin_Ecom",
       "passwordHash": "13c2a9264b5c7bad593cb023ccfa5be9c0f03a15bd4406463828e9f166efd187",
       "role": "admin",
-      "shops": [
-        "vividcraft",
-        "lymphlite"
-      ]
+      "shops": ["vividcraft", "lymphlite"]
+    },
+    {
+      "username": "Kaiso_Ecom",
+      "passwordHash": "c04f9821165f0034c849d573b81486e5fd21832601e0d1f27c8f875edb77067a",
+      "role": "user",
+      "shops": ["lymphlite"]
     }
   ]
 }
