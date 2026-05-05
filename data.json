@@ -6,7 +6,7 @@
       "label": "04/05",
       "orders": 5,
       "revenue": 313.46,
-      "spend": 0,
+      "spend": 284.27,
       "cmds": [
         {
           "id": "#VVD1066",
@@ -57,7 +57,7 @@
       "label": "04/06",
       "orders": 7,
       "revenue": 438.97,
-      "spend": 0,
+      "spend": 199.77,
       "cmds": [
         {
           "id": "#VVD1073",
@@ -119,7 +119,7 @@
       "label": "04/07",
       "orders": 6,
       "revenue": 420.96,
-      "spend": 0,
+      "spend": 304.73,
       "cmds": [
         {
           "id": "#VVD1079",
@@ -174,7 +174,7 @@
       "label": "04/08",
       "orders": 7,
       "revenue": 496.45,
-      "spend": 0,
+      "spend": 236.62,
       "cmds": [
         {
           "id": "#VVD1086",
@@ -237,7 +237,7 @@
       "label": "04/09",
       "orders": 1,
       "revenue": 54.99,
-      "spend": 0,
+      "spend": 140.58,
       "cmds": [
         {
           "id": "#VVD1087",
@@ -253,7 +253,7 @@
       "label": "04/10",
       "orders": 16,
       "revenue": 1004.33,
-      "spend": 0,
+      "spend": 280.61,
       "cmds": [
         {
           "id": "#VVD1103",
@@ -376,7 +376,7 @@
       "label": "04/11",
       "orders": 5,
       "revenue": 324.98,
-      "spend": 0,
+      "spend": 371.95,
       "cmds": [
         {
           "id": "#VVD1108",
@@ -422,7 +422,7 @@
       "label": "04/12",
       "orders": 5,
       "revenue": 315.96,
-      "spend": 0,
+      "spend": 267.01,
       "cmds": [
         {
           "id": "#VVD1113",
@@ -468,7 +468,7 @@
       "label": "04/13",
       "orders": 1,
       "revenue": 76.49,
-      "spend": 0,
+      "spend": 119.16,
       "cmds": [
         {
           "id": "#VVD1114",
@@ -485,7 +485,7 @@
       "label": "04/14",
       "orders": 6,
       "revenue": 514.93,
-      "spend": 0,
+      "spend": 117.73,
       "cmds": [
         {
           "id": "#VVD1120",
@@ -540,7 +540,7 @@
       "label": "04/15",
       "orders": 6,
       "revenue": 419.42,
-      "spend": 0,
+      "spend": 135.29,
       "cmds": [
         {
           "id": "#VVD1126",
@@ -595,7 +595,7 @@
       "label": "04/16",
       "orders": 4,
       "revenue": 283.98,
-      "spend": 0,
+      "spend": 205.31,
       "cmds": [
         {
           "id": "#VVD1130",
@@ -635,7 +635,7 @@
       "label": "04/17",
       "orders": 1,
       "revenue": 54.49,
-      "spend": 0,
+      "spend": 77.62,
       "cmds": [
         {
           "id": "#VVD1131",
@@ -651,7 +651,7 @@
       "label": "04/21",
       "orders": 3,
       "revenue": 279.97,
-      "spend": 0,
+      "spend": 92.85,
       "cmds": [
         {
           "id": "#VVD1134",
@@ -685,7 +685,7 @@
       "label": "04/22",
       "orders": 5,
       "revenue": 418.37,
-      "spend": 0,
+      "spend": 254.08,
       "cmds": [
         {
           "id": "#VVD1139",
@@ -735,7 +735,7 @@
       "label": "04/23",
       "orders": 12,
       "revenue": 978.57,
-      "spend": 0,
+      "spend": 234.47,
       "cmds": [
         {
           "id": "#VVD1151",
@@ -838,7 +838,7 @@
       "label": "04/24",
       "orders": 8,
       "revenue": 569.58,
-      "spend": 0,
+      "spend": 311.04,
       "cmds": [
         {
           "id": "#VVD1159",
@@ -909,7 +909,7 @@
       "label": "04/25",
       "orders": 9,
       "revenue": 674.17,
-      "spend": 0,
+      "spend": 262.59,
       "cmds": [
         {
           "id": "#VVD1168",
@@ -984,7 +984,7 @@
       "label": "04/26",
       "orders": 9,
       "revenue": 725.32,
-      "spend": 0,
+      "spend": 341.8,
       "cmds": [
         {
           "id": "#VVD1177",
@@ -1065,7 +1065,7 @@
       "label": "04/27",
       "orders": 20,
       "revenue": 1615.42,
-      "spend": 0,
+      "spend": 457.17,
       "cmds": [
         {
           "id": "#VVD1197",
@@ -1232,7 +1232,7 @@
       "label": "04/28",
       "orders": 19,
       "revenue": 1536.48,
-      "spend": 0,
+      "spend": 462.91,
       "cmds": [
         {
           "id": "#VVD1216",
@@ -1387,7 +1387,7 @@
       "label": "04/29",
       "orders": 10,
       "revenue": 755.84,
-      "spend": 0,
+      "spend": 369.91,
       "cmds": [
         {
           "id": "#VVD1226",
