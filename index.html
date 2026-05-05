@@ -452,17 +452,34 @@ function showApp(){
   // Setup shop selector
   setupShopSelector();
 
-  // Auto-select shop
+  // Auto-select shop — restore from session if available
   const userShops=currentUser.shops||Object.keys(SHOPS);
+  const savedShop=sessionStorage.getItem('vc_shop');
+  const savedView=sessionStorage.getItem('vc_view');
+
   if(userShops.length===1){
     currentShop=userShops[0];
     document.getElementById('shopSelect').style.display='none';
+  } else if(savedShop && (savedShop==='_admin' && currentUser.role==='admin' || userShops.includes(savedShop))){
+    currentShop=savedShop;
   } else {
     currentShop=userShops[0];
   }
 
-  applyTheme(currentShop);
-  loadShopData();
+  if(currentShop==='_admin'){
+    switchShop('_admin');
+  } else {
+    applyTheme(currentShop);
+    document.getElementById('shopSelect').value=currentShop;
+    // Restore view if valid for shop context
+    if(savedView && savedView!=='users' && ['kpis','breakdown','products','invoices','settings'].includes(savedView)){
+      currentView=savedView;
+      document.querySelectorAll('.sb-item').forEach(x=>x.classList.remove('active'));
+      const nav=document.querySelector('.sb-item[data-view="'+savedView+'"]');
+      if(nav) nav.classList.add('active');
+    }
+    loadShopData();
+  }
 }
 
 function setupShopSelector(){
@@ -512,6 +529,8 @@ function switchShop(shopKey){
     document.querySelectorAll('.sb-item').forEach(x=>x.classList.remove('active'));
     document.getElementById('navUsers').classList.add('active');
     currentView='users';
+    sessionStorage.setItem('vc_shop',currentShop);
+    sessionStorage.setItem('vc_view',currentView);
     render();
     return;
   }
@@ -530,6 +549,8 @@ function switchShop(shopKey){
   document.querySelectorAll('.sb-item').forEach(x=>x.classList.remove('active'));
   document.querySelector('.sb-item[data-view="kpis"]').classList.add('active');
   currentView='kpis';
+  sessionStorage.setItem('vc_shop',currentShop);
+  sessionStorage.setItem('vc_view',currentView);
   loadShopData();
 }
 
@@ -1206,6 +1227,7 @@ document.querySelectorAll(".sb-item[data-view]").forEach(item=>{
     document.querySelectorAll(".sb-item").forEach(x=>x.classList.remove("active"));
     item.classList.add("active");
     currentView=item.dataset.view;
+    sessionStorage.setItem('vc_view',currentView);
     render();
     document.getElementById("sidebar").classList.remove("open");
     document.getElementById("overlay").classList.remove("show");
