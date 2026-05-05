@@ -691,7 +691,9 @@ function renderKPIs(el,data){
   const isPos=s.profitNet>=0;
   const profitColor=isPos?'#22c55e':'#ef4444';
   const heroClass=isPos?'hero-card':'hero-card negative';
-  const roasOk=s.roasBlended>=1.66;
+  const costRatio=s.revenue>0?(s.cogs+s.fees)/s.revenue:0;
+  const beRoas=costRatio<1?1/(1-costRatio):99;
+  const roasOk=s.roasBlended>=beRoas;
 
   // Area chart: daily profit
   const chartData=data.map(d=>{const pn=d.revenue-calcDayCOGS(d.cmds)-(d.revenue*0.029+d.orders*0.30)-d.spend;return{label:d.label,value:pn}});
@@ -770,7 +772,7 @@ function renderKPIs(el,data){
     '</div>'+
     '<div class="metric-card tinted" style="background:linear-gradient(135deg,'+(roasOk?'#f0fdf4':'#fefce8')+',#fff)">'+
       '<div class="mc-label"><span class="mc-emoji">'+(roasOk?'🟢':'🟡')+'</span> BREAKEVEN</div>'+
-      '<div class="mc-value">1.66x</div>'+
+      '<div class="mc-value">'+beRoas.toFixed(2)+'x</div>'+
       '<div class="mc-sub" style="color:'+(roasOk?'var(--green)':'#f97316')+'">ROAS: '+s.roasBlended.toFixed(2)+'x '+(roasOk?'✓':'✗')+'</div>'+
     '</div>'+
   '</div>';
