@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-06T20:12:22.580Z",
+  "lastUpdated": "2026-05-06T20:27:58.119Z",
   "daily": [
     {
       "date": "2026-04-06",
       "label": "04/06",
-      "orders": 6,
-      "revenue": 187.74,
+      "orders": 5,
+      "revenue": 155.04,
       "spend": 186.73,
       "cmds": [
         {
@@ -52,15 +52,6 @@
           "country": "US",
           "h": 17,
           "rev": 20.8
-        },
-        {
-          "id": "#3414",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "GB",
-          "h": 16,
-          "rev": 32.7
         }
       ]
     },
@@ -5052,10 +5043,28 @@
     {
       "date": "2026-05-06",
       "label": "05/06",
-      "orders": 66,
-      "revenue": 1646.17,
+      "orders": 68,
+      "revenue": 1683.69,
       "spend": 454.24,
       "cmds": [
+        {
+          "id": "#4009",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 18.76
+        },
+        {
+          "id": "#4008",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 18.76
+        },
         {
           "id": "#4007",
           "items": {
