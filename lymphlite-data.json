@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-06T20:27:58.119Z",
+  "lastUpdated": "2026-05-06T21:41:40.630Z",
   "daily": [
     {
       "date": "2026-04-06",
@@ -5043,10 +5043,101 @@
     {
       "date": "2026-05-06",
       "label": "05/06",
-      "orders": 68,
-      "revenue": 1683.69,
+      "orders": 78,
+      "revenue": 1976.56,
       "spend": 454.24,
       "cmds": [
+        {
+          "id": "#4019",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "NZ",
+          "h": 17,
+          "rev": 21.38
+        },
+        {
+          "id": "#4018",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 18.76
+        },
+        {
+          "id": "#4017",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 18.76
+        },
+        {
+          "id": "#4016",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "AU",
+          "h": 17,
+          "rev": 54.06
+        },
+        {
+          "id": "#4015",
+          "items": {
+            "LL-OIL-LEG": 1,
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "AU",
+          "h": 17,
+          "rev": 33.22
+        },
+        {
+          "id": "#4014",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 18.76
+        },
+        {
+          "id": "#4013",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "US",
+          "h": 17,
+          "rev": 50.04
+        },
+        {
+          "id": "#4012",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 18.76
+        },
+        {
+          "id": "#4011",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "NZ",
+          "h": 17,
+          "rev": 28.6
+        },
+        {
+          "id": "#4010",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "US",
+          "h": 16,
+          "rev": 30.53
+        },
         {
           "id": "#4009",
           "items": {
@@ -5673,6 +5764,7 @@
     "Gua Sha Massage",
     "LL-DRP-60-HNY-V1",
     "LL-OIL-CEL",
+    "LL-OIL-LEG",
     "Leg Comfort Oil",
     "Lighter legs. Less puffiness. One drop every morning.",
     "Lymphatic Face Brush",

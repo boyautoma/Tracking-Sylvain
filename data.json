@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-06T20:27:55.240Z",
+  "lastUpdated": "2026-05-06T21:41:38.345Z",
   "daily": [
     {
       "date": "2026-03-30",
@@ -2217,10 +2217,20 @@
     {
       "date": "2026-05-06",
       "label": "05/06",
-      "orders": 8,
-      "revenue": 472.34,
+      "orders": 9,
+      "revenue": 543.73,
       "spend": 191.79,
       "cmds": [
+        {
+          "id": "#VVD1274",
+          "items": {
+            "VC_GLITTERMARKER_96": 1,
+            "VC_EBOOK": 1,
+            "VC_MIXGUIDE": 1
+          },
+          "h": 16,
+          "rev": 71.39
+        },
         {
           "id": "#VVD1273",
           "items": {
