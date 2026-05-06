@@ -63,7 +63,8 @@ async function fetchShopifyOrders() {
       const sku = li.sku || li.title || 'UNKNOWN';
       items[sku] = (items[sku] || 0) + li.quantity;
     });
-    byDate[date].cmds.push({ id: o.name || o.order_number, items });
+    const country = (o.shipping_address && o.shipping_address.country_code) || 'US';
+    byDate[date].cmds.push({ id: o.name || o.order_number, items, country });
   });
 
   return byDate;
