@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-06T09:32:04.893Z",
+  "lastUpdated": "2026-05-06T11:13:32.062Z",
   "daily": [
     {
       "date": "2026-04-06",
       "label": "04/06",
-      "orders": 11,
-      "revenue": 326.11,
+      "orders": 8,
+      "revenue": 241.85,
       "spend": 186.73,
       "cmds": [
         {
@@ -63,27 +63,6 @@
             "Lymphatic Support Drops": 1
           },
           "country": "CA"
-        },
-        {
-          "id": "#3411",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "GB"
-        },
-        {
-          "id": "#3410",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "US"
-        },
-        {
-          "id": "#3409",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "GB"
         }
       ]
     },
@@ -3771,7 +3750,7 @@
       "label": "05/05",
       "orders": 36,
       "revenue": 878.9,
-      "spend": 402.92,
+      "spend": 403.8,
       "cmds": [
         {
           "id": "#3941",
@@ -4031,10 +4010,31 @@
     {
       "date": "2026-05-06",
       "label": "05/06",
-      "orders": 14,
-      "revenue": 358.5,
-      "spend": 99.26,
+      "orders": 17,
+      "revenue": 418.02,
+      "spend": 123.01,
       "cmds": [
+        {
+          "id": "#3958",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB"
+        },
+        {
+          "id": "#3957",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "CA"
+        },
+        {
+          "id": "#3956",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB"
+        },
         {
           "id": "#3955",
           "items": {
@@ -4144,6 +4144,7 @@
     "46220083298503",
     "Anti-Cellulite Body Oil",
     "Gua Sha Massage",
+    "LL-DRP-60-HNY-V1",
     "Leg Comfort Oil",
     "Lighter legs. Less puffiness. One drop every morning.",
     "Lymphatic Face Brush",
