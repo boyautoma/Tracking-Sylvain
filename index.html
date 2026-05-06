@@ -350,7 +350,10 @@ const SHOPS = {
     cogsFile: 'lymphlite-cogs.json',
     invoicesFile: 'lymphlite-invoices.json',
     defaultSkus: [],
-    skuNames: {}
+    skuNames: {},
+    cogsMode: 'country-qty',
+    countries: ['US','GB','CA','AU1','AU2','AU3','IE','NZ','FR','DK','NL'],
+    maxQty: 6
   }
 };
 
@@ -647,8 +650,9 @@ async function saveInvoices(data){
 function calcOrderCOGS(cmd){
   const items=cmd&&cmd.items?cmd.items:(typeof cmd==='object'&&!cmd.id?cmd:{});
   const orderId=cmd&&cmd.id?cmd.id:null;
+  const country=cmd&&cmd.country?cmd.country:null;
   const invoicePrices=orderId?invoiceIndex[orderId]:null;
-  // Lymphlite format: total cost per order (no per-SKU breakdown)
+  // Lymphlite format: total cost per order from invoice
   if(invoicePrices&&invoicePrices._orderTotal!==undefined){
     return Number(invoicePrices._orderTotal)||0;
   }
@@ -656,12 +660,22 @@ function calcOrderCOGS(cmd){
   for(const[sku,qty]of Object.entries(items)){
     const q=Number(qty)||0;
     if(invoicePrices){
+      // VividCraft: per-SKU unit price from invoice
       const cost=Number(invoicePrices[sku])||0;
-      prodTotal+=q*cost;
+      prodTotal+=cost*q;
     } else {
-      prodTotal+=q*(Number((skuCosts[sku]||{}).product)||0);
-      const ship=Number((skuCosts[sku]||{}).shipping)||0;
-      if(ship>maxShip) maxShip=ship;
+      const costs=skuCosts[sku]||{};
+      // Country-qty mode: costs = { "US": { "1": 6.07, "2": 4.75 }, ... }
+      if(country&&costs[country]){
+        const qtyKey=String(Math.min(q,Object.keys(costs[country]).length||1));
+        const unitCost=Number(costs[country][qtyKey])||Number(costs[country]['1'])||0;
+        prodTotal+=unitCost*q;
+      } else if(costs.product!==undefined){
+        // Simple mode: { product: X, shipping: Y }
+        prodTotal+=q*(Number(costs.product)||0);
+        const ship=Number(costs.shipping)||0;
+        if(ship>maxShip) maxShip=ship;
+      }
     }
   }
   return (prodTotal+maxShip)||0;
@@ -1161,6 +1175,12 @@ function renderInvoices(el){
 }
 
 function renderSettings(el){
+  const shop=SHOPS[currentShop];
+  if(shop&&shop.cogsMode==='country-qty') return renderSettingsCountryQty(el);
+  return renderSettingsSimple(el);
+}
+
+function renderSettingsSimple(el){
   let rows=ALL_SKUS.map(s=>{
     const c=skuCosts[s.sku]||{product:0,shipping:0};
     return'<tr><td>'+s.sku+'</td><td>'+s.name+'</td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" data-type="product" value="'+(c.product||0).toFixed(2)+'"></td><td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" data-type="shipping" value="'+(c.shipping||0).toFixed(2)+'"></td></tr>';
@@ -1173,6 +1193,64 @@ function renderSettings(el){
       const sku=inp.dataset.sku,type=inp.dataset.type;
       if(!skuCosts[sku])skuCosts[sku]={product:0,shipping:0};
       skuCosts[sku][type]=parseFloat(inp.value)||0;
+    });
+    const ok=await saveCosts(skuCosts);
+    btn.textContent="Sauvegarder";btn.disabled=false;
+    const msg=document.getElementById("saveMsg");
+    msg.textContent=ok?"✓ Sauvegardé en ligne":"✗ Erreur de sauvegarde";
+    msg.style.color=ok?"var(--green)":"var(--red)";
+    msg.classList.add("show");
+    setTimeout(()=>msg.classList.remove("show"),3000);
+  });
+}
+
+function renderSettingsCountryQty(el){
+  const shop=SHOPS[currentShop];
+  const countries=shop.countries||['US','GB','CA','AU','IE','NZ','FR'];
+  const maxQty=shop.maxQty||6;
+  // skuCosts format for country-qty: { "SKU": { "US": { "1": 6.07, "2": 4.75, ... }, "GB": {...} } }
+  // or legacy flat: { "SKU": { product: X, shipping: Y } }
+
+  let skuBlocks=ALL_SKUS.map(s=>{
+    const costs=skuCosts[s.sku]||{};
+    let gridHtml='<div style="overflow-x:auto;margin-top:8px"><table class="settings-table" style="font-size:11px;min-width:auto"><thead><tr><th style="text-align:left;width:60px">Pays \\ Qty</th>';
+    for(let q=1;q<=maxQty;q++) gridHtml+='<th style="text-align:center;width:65px">'+q+'</th>';
+    gridHtml+='</tr></thead><tbody>';
+    countries.forEach(c=>{
+      const countryCosts=costs[c]||{};
+      gridHtml+='<tr><td style="text-align:left;font-weight:600;font-size:11px">'+c+'</td>';
+      for(let q=1;q<=maxQty;q++){
+        const val=countryCosts[String(q)]||'';
+        gridHtml+='<td><input type="number" step="0.01" min="0" data-sku="'+s.sku+'" data-country="'+c+'" data-qty="'+q+'" value="'+(val||'')+'" placeholder="—" style="width:58px;padding:4px 6px;font-size:11px;text-align:center;background:var(--bg);border:1px solid var(--border);border-radius:6px;font-family:\'JetBrains Mono\',monospace"></td>';
+      }
+      gridHtml+='</tr>';
+    });
+    gridHtml+='</tbody></table></div>';
+
+    return '<div style="margin-bottom:24px;padding:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius)">'+
+      '<div style="font-weight:600;font-size:13px;color:var(--text)">'+s.sku+'</div>'+
+      '<div style="font-size:11px;color:var(--text-muted);margin-top:2px">'+s.name+'</div>'+
+      gridHtml+
+    '</div>';
+  }).join('');
+
+  el.innerHTML='<div class="settings-section">'+
+    '<h3>Coûts par SKU — Pays × Quantité</h3>'+
+    '<p style="color:var(--text-muted);font-size:12px;margin-bottom:16px">Coût unitaire ($) par pays de livraison et quantité commandée.<br>Le coût est <b>dégressif</b> : plus le client commande, moins ça coûte par unité (shipping mutualisé).</p>'+
+    skuBlocks+
+    '<div style="display:flex;align-items:center;margin-top:16px"><button class="btn-save" id="btnSave">Sauvegarder</button><span class="save-msg" id="saveMsg"></span></div>'+
+  '</div>';
+
+  document.getElementById("btnSave").addEventListener("click",async()=>{
+    const btn=document.getElementById("btnSave");
+    btn.textContent="Sauvegarde...";btn.disabled=true;
+    document.querySelectorAll('.settings-section input[data-sku][data-country]').forEach(inp=>{
+      const sku=inp.dataset.sku,country=inp.dataset.country,qty=inp.dataset.qty;
+      const val=parseFloat(inp.value);
+      if(isNaN(val)||!val) return;
+      if(!skuCosts[sku]) skuCosts[sku]={};
+      if(!skuCosts[sku][country]) skuCosts[sku][country]={};
+      skuCosts[sku][country][qty]=val;
     });
     const ok=await saveCosts(skuCosts);
     btn.textContent="Sauvegarder";btn.disabled=false;
