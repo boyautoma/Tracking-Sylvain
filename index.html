@@ -665,11 +665,19 @@ function calcOrderCOGS(cmd){
       prodTotal+=cost*q;
     } else {
       const costs=skuCosts[sku]||{};
-      // Country-qty mode: costs = { "US": { "1": 6.07, "2": 4.75 }, ... }
+      // Country-qty mode: costs = { "US": { "1": 6.07, "2": 9.50 }, ... } (total cost for qty)
       if(country&&costs[country]){
-        const qtyKey=String(Math.min(q,Object.keys(costs[country]).length||1));
-        const unitCost=Number(costs[country][qtyKey])||Number(costs[country]['1'])||0;
-        prodTotal+=unitCost*q;
+        const maxKey=Object.keys(costs[country]).filter(k=>k!=='_estimated').map(Number).sort((a,b)=>b-a)[0]||1;
+        const qtyKey=String(Math.min(q,maxKey));
+        const totalCost=Number(costs[country][qtyKey])||Number(costs[country]['1'])||0;
+        // If qty exceeds max key, extrapolate: use max total + per-unit cost of max for extra units
+        if(q>maxKey&&maxKey>0){
+          const maxTotal=Number(costs[country][String(maxKey)])||0;
+          const perUnit=maxTotal/maxKey;
+          prodTotal+=maxTotal+perUnit*(q-maxKey);
+        } else {
+          prodTotal+=totalCost;
+        }
       } else if(costs.product!==undefined){
         // Simple mode: { product: X, shipping: Y }
         prodTotal+=q*(Number(costs.product)||0);
@@ -1239,7 +1247,7 @@ function renderSettingsCountryQty(el){
 
   el.innerHTML='<div class="settings-section">'+
     '<h3>Coûts par SKU — Pays × Quantité</h3>'+
-    '<p style="color:var(--text-muted);font-size:12px;margin-bottom:16px">Coût unitaire ($) par pays de livraison et quantité commandée.<br>Le coût est <b>dégressif</b> : plus le client commande, moins ça coûte par unité (shipping mutualisé).<br><span style="display:inline-block;width:12px;height:12px;background:#fef2f2;border:1px solid #fca5a5;border-radius:3px;vertical-align:middle;margin-right:4px"></span> <span style="color:var(--red)">Estimation pessimiste</span> — non validé par une facture. Les valeurs blanches sont confirmées.</p>'+
+    '<p style="color:var(--text-muted);font-size:12px;margin-bottom:16px">Coût <b>total</b> ($) pour N unités par pays de livraison (produit + shipping inclus).<br><span style="display:inline-block;width:12px;height:12px;background:#fef2f2;border:1px solid #fca5a5;border-radius:3px;vertical-align:middle;margin-right:4px"></span> <span style="color:var(--red)">Estimation pessimiste</span> — non validé par une facture. Les valeurs blanches sont confirmées.</p>'+
     skuBlocks+
     '<div style="display:flex;align-items:center;margin-top:16px"><button class="btn-save" id="btnSave">Sauvegarder</button><span class="save-msg" id="saveMsg"></span></div>'+
   '</div>';
