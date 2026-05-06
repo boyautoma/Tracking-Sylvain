@@ -769,6 +769,49 @@ function renderKPIs(el,data){
   +rPts.map((p,i)=>'<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="8" fill="transparent" data-i="'+i+'"/><circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="3" fill="'+rCol+'" opacity="0" class="roas-dot" data-i="'+i+'"/>').join('')
   +'</svg>';
 
+  // ─── Scaling Advisor calculations ───
+  const last3d=data.slice(-3);
+  const spend3=last3d.reduce((a,d)=>a+(d.spend||0),0),rev3=last3d.reduce((a,d)=>a+(d.revenue||0),0);
+  const roas3d=spend3>0?rev3/spend3:0;
+  const multiplier=beRoas>0&&beRoas<99?s.roasBlended/beRoas:0;
+  const roas3dDaily=last3d.map(d=>({label:d.label,roas:d.spend>0?d.revenue/d.spend:0,spend:d.spend,revenue:d.revenue}));
+  const margin3d=beRoas>0&&beRoas<99?(roas3d-beRoas)/beRoas:0;
+  const marginCur=beRoas>0&&beRoas<99?(s.roasBlended-beRoas)/beRoas:0;
+  // Hourly analysis for today
+  const todayKey=todayEST();
+  const todayDay=data.find(d=>d.date===todayKey);
+  let hourlyBins={},hasHourly=false,hourlyDrop=0,recentPace=0,earlyPace=0;
+  const nowH=parseInt(new Date().toLocaleString('en-US',{timeZone:'America/New_York',hour:'numeric',hour12:false}))||0;
+  if(todayDay&&todayDay.cmds&&todayDay.cmds.some(c=>c.h!==undefined)){
+    hasHourly=true;
+    todayDay.cmds.forEach(cmd=>{if(cmd.h===undefined)return;if(!hourlyBins[cmd.h])hourlyBins[cmd.h]={orders:0,rev:0};hourlyBins[cmd.h].orders++;hourlyBins[cmd.h].rev+=(cmd.rev||0)});
+    const hKeys=Object.keys(hourlyBins).map(Number).sort((a,b)=>a-b);
+    const recent=hKeys.filter(h=>h>=nowH-2&&h<=nowH);
+    const earlier=hKeys.filter(h=>h<nowH-2);
+    recentPace=recent.length?recent.reduce((a,h)=>a+hourlyBins[h].orders,0)/recent.length:0;
+    earlyPace=earlier.length?earlier.reduce((a,h)=>a+hourlyBins[h].orders,0)/earlier.length:0;
+    hourlyDrop=earlyPace>1?(recentPace-earlyPace)/earlyPace:0;
+  }
+  // Build hourly chart + decline HTML
+  let declineHtml='';
+  if(hasHourly&&Object.keys(hourlyBins).length>=2){
+    const hKeys=Object.keys(hourlyBins).map(Number).sort((a,b)=>a-b);
+    const minH=hKeys[0];const maxH=Math.max(hKeys[hKeys.length-1],nowH);
+    const maxOrd=Math.max(...Object.values(hourlyBins).map(h=>h.orders),1);
+    let bars='';
+    for(let h=minH;h<=maxH;h++){const d=hourlyBins[h]||{orders:0,rev:0};const pct=Math.round((d.orders/maxOrd)*100);const isRecent=h>=nowH-2&&h<=nowH;const isFuture=h>nowH;const col=isFuture?'transparent':isRecent?'var(--accent)':'#cbd5e1';const brd=isFuture?'1px dashed var(--border)':'none';bars+='<div style="flex:1;text-align:center;min-width:16px" title="'+h+'h: '+d.orders+' cmd, $'+d.rev.toFixed(0)+'"><div style="height:44px;display:flex;align-items:flex-end;justify-content:center"><div style="width:100%;max-width:22px;height:'+Math.max(pct,3)+'%;background:'+col+';border-radius:3px 3px 0 0;border:'+brd+'"></div></div><div style="font-size:8px;color:var(--text-muted);margin-top:2px">'+h+'</div></div>'}
+    const dc=hourlyDrop<-0.40?'#ef4444':hourlyDrop<-0.25?'#f97316':hourlyDrop>=0.10?'#22c55e':'#22c55e';
+    const di=hourlyDrop<-0.40?'⚠️':hourlyDrop<-0.25?'⚡':'✓';
+    const dt=hourlyDrop<-0.40?'Déclin brutal détecté':hourlyDrop<-0.25?'Baisse du rythme':hourlyDrop>=0.10?'En accélération':'Rythme stable';
+    const recentRev=Object.keys(hourlyBins).map(Number).filter(h=>h>=nowH-2&&h<=nowH).reduce((a,h)=>a+(hourlyBins[h]||{rev:0}).rev,0);
+    declineHtml='<div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border-light)">'+
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px"><div style="font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px">ANALYSE HEURE PAR HEURE — Aujourd\'hui</div><div style="font-size:10px;color:var(--text-muted);font-family:\'JetBrains Mono\',monospace">'+nowH+'h EST · '+todayDay.cmds.length+' cmd · $'+Math.round(todayDay.revenue)+'</div></div>'+
+      '<div style="display:flex;gap:2px;align-items:flex-end;padding:10px 6px 4px;background:var(--bg);border-radius:10px;border:1px solid var(--border)">'+bars+'</div>'+
+      '<div style="display:flex;gap:12px;margin-top:4px;justify-content:flex-end;font-size:9px;color:var(--text-muted)"><span style="display:flex;align-items:center;gap:3px"><span style="width:8px;height:8px;border-radius:2px;background:var(--accent)"></span> 3 dernières h</span><span style="display:flex;align-items:center;gap:3px"><span style="width:8px;height:8px;border-radius:2px;background:#cbd5e1"></span> précédent</span></div>'+
+      '<div style="background:'+dc+'15;border:1px solid '+dc+'35;border-radius:10px;padding:12px 16px;margin-top:10px;display:flex;align-items:center;gap:10px"><span style="font-size:18px">'+di+'</span><div><div style="font-size:13px;font-weight:700;color:'+dc+'">'+dt+'</div><div style="font-size:11px;color:var(--text-muted)">3 dernières heures: '+recentPace.toFixed(1)+' cmd/h · $'+Math.round(recentRev)+' rev — vs moy. précédente: '+earlyPace.toFixed(1)+' cmd/h ('+(hourlyDrop>=0?'+':'')+Math.round(hourlyDrop*100)+'%)</div></div></div>'+
+    '</div>';
+  }
+
   el.innerHTML=
   '<div class="hero-row">'+
     '<div class="'+heroClass+'">'+
@@ -804,27 +847,51 @@ function renderKPIs(el,data){
       '</div>'+
     '</div>'+
   '</div>'+
-  '<div class="bottom-row">'+
+  '<div class="bottom-row" style="grid-template-columns:repeat(3,1fr)">'+
+    '<div class="metric-card">'+
+      '<div class="mc-label"><span class="mc-emoji">%</span> FEES</div>'+
+      '<div class="mc-value">'+fmtShort(s.fees)+'</div>'+
+      '<div class="mc-sub">'+(s.revenue>0?(s.fees/s.revenue*100).toFixed(1):0)+'% of revenue</div>'+
+    '</div>'+
     '<div class="metric-card tinted" style="background:linear-gradient(135deg,#fef2f2,#fff)">'+
       '<div class="mc-label"><span class="mc-emoji">↩️</span> REFUNDED</div>'+
       '<div class="mc-value">$0.00</div>'+
       '<div class="mc-sub">0.0% of revenue</div>'+
     '</div>'+
     '<div class="metric-card">'+
-      '<div class="mc-label"><span class="mc-emoji">%</span> FEES</div>'+
-      '<div class="mc-value">'+fmtShort(s.fees)+'</div>'+
-      '<div class="mc-sub">'+(s.revenue>0?(s.fees/s.revenue*100).toFixed(1):0)+'% of revenue</div>'+
-    '</div>'+
-    '<div class="metric-card">'+
       '<div class="mc-label"><span class="mc-emoji">👤</span> CUSTOMER LTV</div>'+
       '<div class="mc-value">$0</div>'+
       '<div class="mc-sub">No data yet</div>'+
     '</div>'+
-    '<div class="metric-card tinted" style="background:linear-gradient(135deg,'+(roasOk?'#f0fdf4':'#fefce8')+',#fff)">'+
-      '<div class="mc-label"><span class="mc-emoji">'+(roasOk?'🟢':'🟡')+'</span> BREAKEVEN</div>'+
-      '<div class="mc-value">'+beRoas.toFixed(2)+'x</div>'+
-      '<div class="mc-sub" style="color:'+(roasOk?'var(--green)':'#f97316')+'">ROAS: '+s.roasBlended.toFixed(2)+'x '+(roasOk?'✓':'✗')+'</div>'+
+  '</div>'+
+  '<div style="background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-top:16px;border:1px solid var(--border-light)">'+
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">'+
+      '<div style="font-size:16px;font-weight:700;color:var(--text)">🎯 Scaling Advisor</div>'+
+      '<div style="font-size:11px;color:var(--text-muted);font-family:\'JetBrains Mono\',monospace">période sélectionnée</div>'+
     '</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:22px">'+
+      '<div style="background:linear-gradient(135deg,#f1f5f9,#fff);border:1px solid #cbd5e1;border-radius:14px;padding:22px;text-align:center">'+
+        '<div style="font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;color:#64748b;margin-bottom:8px">ROAS Breakeven</div>'+
+        '<div style="font-size:40px;font-weight:700;color:#334155;letter-spacing:-1.5px;line-height:1">'+beRoas.toFixed(2)+'<span style="font-size:20px;opacity:.5">x</span></div>'+
+        '<div style="font-size:11px;color:#94a3b8;margin-top:6px">Seuil de rentabilité</div>'+
+      '</div>'+
+      '<div style="background:linear-gradient(135deg,'+(roasOk?'#f0fdf4':'#fef2f2')+',#fff);border:1px solid '+(roasOk?'#86efac':'#fca5a5')+';border-radius:14px;padding:22px;text-align:center">'+
+        '<div style="font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;color:'+(roasOk?'#15803d':'#dc2626')+';margin-bottom:8px">ROAS Actuel</div>'+
+        '<div style="font-size:40px;font-weight:700;color:'+(roasOk?'#16a34a':'#ef4444')+';letter-spacing:-1.5px;line-height:1">'+s.roasBlended.toFixed(2)+'<span style="font-size:20px;opacity:.5">x</span></div>'+
+        '<div style="font-size:11px;color:#94a3b8;margin-top:6px">'+(roasOk?'Au-dessus du BE ✓':'Sous le BE ✗')+'</div>'+
+      '</div>'+
+      '<div style="background:linear-gradient(135deg,'+(multiplier>=1?'#eff6ff':'#fef2f2')+',#fff);border:1px solid '+(multiplier>=1?'#93c5fd':'#fca5a5')+';border-radius:14px;padding:22px;text-align:center">'+
+        '<div style="font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;color:'+(multiplier>=1?'#1d4ed8':'#dc2626')+';margin-bottom:8px">Multiplicateur</div>'+
+        '<div style="font-size:40px;font-weight:700;color:'+(multiplier>=1?'#2563eb':'#ef4444')+';letter-spacing:-1.5px;line-height:1">'+(multiplier>0?multiplier.toFixed(2):'—')+'<span style="font-size:20px;opacity:.5">x</span></div>'+
+        '<div style="font-size:11px;color:#94a3b8;margin-top:6px">ROAS ÷ Breakeven</div>'+
+      '</div>'+
+    '</div>'+
+    '<div style="margin-bottom:20px">'+
+      '<div style="font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px">ROAS — 3 derniers jours</div>'+
+      '<div style="display:flex;gap:10px">'+roas3dDaily.map(function(d){var ok2=d.roas>=beRoas;var c2=d.roas>0?(ok2?'#22c55e':'#ef4444'):'var(--text-muted)';return'<div style="flex:1;background:var(--bg);border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)"><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase">'+d.label+'</div><div style="font-size:22px;font-weight:700;color:'+c2+';margin-top:4px">'+(d.roas>0?d.roas.toFixed(2)+'x':'—')+'</div><div style="font-size:10px;color:var(--text-muted);margin-top:2px">$'+Math.round(d.revenue)+' / $'+Math.round(d.spend)+'</div></div>'}).join('')+'</div>'+
+      '<div style="text-align:center;margin-top:8px;font-size:12px;font-weight:600;color:var(--text-secondary)">Moyenne 3j: '+(roas3d>0?roas3d.toFixed(2)+'x':'—')+' <span style="color:'+(margin3d>=0.10?'#22c55e':margin3d>=0?'#eab308':'#ef4444')+'">'+(roas3d>0?(margin3d>0?'+':'')+Math.round(margin3d*100)+'% vs BE':'')+'</span></div>'+
+    '</div>'+
+    declineHtml+
   '</div>';
 
   // Interactive ROAS chart tooltips
