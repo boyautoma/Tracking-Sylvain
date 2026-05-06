@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-06T17:33:36.436Z",
+  "lastUpdated": "2026-05-06T18:56:17.768Z",
   "daily": [
     {
       "date": "2026-03-30",
@@ -69,7 +69,9 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 54.99
         },
         {
           "id": "#VVD1072",
@@ -77,7 +79,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 20,
+          "rev": 72
         },
         {
           "id": "#VVD1071",
@@ -85,20 +89,26 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 20,
+          "rev": 72
         },
         {
           "id": "#VVD1070",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 18,
+          "rev": 40.99
         },
         {
           "id": "#VVD1069",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 17,
+          "rev": 54.99
         }
       ]
     },
@@ -115,7 +125,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 79.99
         },
         {
           "id": "#VVD1078",
@@ -123,7 +135,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 17,
+          "rev": 72
         },
         {
           "id": "#VVD1077",
@@ -131,14 +145,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 72
         },
         {
           "id": "#VVD1076",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 54.99
         },
         {
           "id": "#VVD1075",
@@ -146,14 +164,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 72
         },
         {
           "id": "#VVD1074",
           "items": {
             "VC_COLORBOOK_JAPAN": 1,
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 24,
+          "rev": 69.98
         }
       ]
     },
@@ -169,13 +191,17 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 54.49
         },
         {
           "id": "#VVD1085",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 14,
+          "rev": 40.99
         },
         {
           "id": "#VVD1084",
@@ -183,7 +209,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 14,
+          "rev": 79.99
         },
         {
           "id": "#VVD1083",
@@ -191,7 +219,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 72
         },
         {
           "id": "#VVD1082",
@@ -199,7 +229,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 72
         },
         {
           "id": "#VVD1081",
@@ -208,7 +240,9 @@
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 2,
+          "rev": 104.98
         },
         {
           "id": "#VVD1080",
@@ -216,7 +250,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 24,
+          "rev": 72
         }
       ]
     },
@@ -232,7 +268,9 @@
           "items": {
             "VC_MIXGUIDE": 1,
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1
-          }
+          },
+          "h": 24,
+          "rev": 54.99
         }
       ]
     },
@@ -248,14 +286,18 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 54.99
         },
         {
           "id": "#VVD1102",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 54.99
         },
         {
           "id": "#VVD1101",
@@ -263,7 +305,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 72
         },
         {
           "id": "#VVD1100",
@@ -271,14 +315,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 19,
+          "rev": 72
         },
         {
           "id": "#VVD1099",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 18,
+          "rev": 54.49
         },
         {
           "id": "#VVD1098",
@@ -286,53 +334,69 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 18,
+          "rev": 72
         },
         {
           "id": "#VVD1097",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 18,
+          "rev": 54.49
         },
         {
           "id": "#VVD1096",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 17,
+          "rev": 44.98
         },
         {
           "id": "#VVD1095",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 54.49
         },
         {
           "id": "#VVD1094",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 54.49
         },
         {
           "id": "#VVD1093",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 14,
+          "rev": 54.49
         },
         {
           "id": "#VVD1092",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 14,
+          "rev": 40.99
         },
         {
           "id": "#VVD1091",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 11,
+          "rev": 44.98
         },
         {
           "id": "#VVD1090",
@@ -341,7 +405,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 114.97
         },
         {
           "id": "#VVD1089",
@@ -349,13 +415,17 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 79.99
         },
         {
           "id": "#VVD1088",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1
-          }
+          },
+          "h": 10,
+          "rev": 79.99
         }
       ]
     },
@@ -371,7 +441,9 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1
-          }
+          },
+          "h": 18,
+          "rev": 72
         },
         {
           "id": "#VVD1107",
@@ -379,7 +451,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 72
         },
         {
           "id": "#VVD1106",
@@ -387,21 +461,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 72
         },
         {
           "id": "#VVD1105",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 54.49
         },
         {
           "id": "#VVD1104",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 8,
+          "rev": 54.49
         }
       ]
     },
@@ -417,7 +497,9 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 54.99
         },
         {
           "id": "#VVD1112",
@@ -425,21 +507,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 72
         },
         {
           "id": "#VVD1111",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 17,
+          "rev": 54.49
         },
         {
           "id": "#VVD1110",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 54.49
         },
         {
           "id": "#VVD1109",
@@ -447,7 +535,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 24,
+          "rev": 79.99
         }
       ]
     },
@@ -464,7 +554,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 76.49
         }
       ]
     },
@@ -482,13 +574,17 @@
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1,
             "VC_GLITTERMARKER_96": 1
-          }
+          },
+          "h": 22,
+          "rev": 134.99
         },
         {
           "id": "#VVD1119",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 21,
+          "rev": 40.99
         },
         {
           "id": "#VVD1118",
@@ -496,7 +592,9 @@
             "VC_GLITTERMARKER_48": 1,
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 18,
+          "rev": 76.49
         },
         {
           "id": "#VVD1117",
@@ -504,7 +602,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 2
-          }
+          },
+          "h": 17,
+          "rev": 81.98
         },
         {
           "id": "#VVD1116",
@@ -512,14 +612,18 @@
             "VC_GLITTERMARKER_96": 2,
             "VC_EBOOK": 2,
             "VC_MIXGUIDE": 2
-          }
+          },
+          "h": 8,
+          "rev": 125.99
         },
         {
           "id": "#VVD1115",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 5,
+          "rev": 54.49
         }
       ]
     },
@@ -535,21 +639,27 @@
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 54.49
         },
         {
           "id": "#VVD1125",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 16,
+          "rev": 54.49
         },
         {
           "id": "#VVD1124",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 51
         },
         {
           "id": "#VVD1123",
@@ -558,14 +668,18 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 92.81
         },
         {
           "id": "#VVD1122",
           "items": {
             "VC_GLITTERMARKER_24": 1,
             "VC_ARTBOOK_STEPBYSTEP": 1
-          }
+          },
+          "h": 4,
+          "rev": 74.25
         },
         {
           "id": "#VVD1121",
@@ -574,7 +688,9 @@
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 2,
+          "rev": 92.38
         }
       ]
     },
@@ -592,7 +708,9 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 17,
+          "rev": 89.99
         },
         {
           "id": "#VVD1129",
@@ -600,7 +718,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 79.99
         },
         {
           "id": "#VVD1128",
@@ -608,13 +728,17 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_24": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 6,
+          "rev": 70.74
         },
         {
           "id": "#VVD1127",
           "items": {
             "VC_GLITTERMARKER_24": 1
-          }
+          },
+          "h": 4,
+          "rev": 43.26
         }
       ]
     },
@@ -630,7 +754,9 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 54.49
         }
       ]
     },
@@ -656,14 +782,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 134.99
         },
         {
           "id": "#VVD1133",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 54.99
         },
         {
           "id": "#VVD1132",
@@ -672,7 +802,9 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 13,
+          "rev": 89.99
         }
       ]
     },
@@ -689,7 +821,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 79.99
         },
         {
           "id": "#VVD1138",
@@ -699,7 +833,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 13,
+          "rev": 126.97
         },
         {
           "id": "#VVD1137",
@@ -707,7 +843,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 73.82
         },
         {
           "id": "#VVD1136",
@@ -715,14 +853,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 7,
+          "rev": 79.99
         },
         {
           "id": "#VVD1135",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 2
-          }
+          },
+          "h": 1,
+          "rev": 57.6
         }
       ]
     },
@@ -738,7 +880,9 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 50.63
         },
         {
           "id": "#VVD1150",
@@ -747,14 +891,18 @@
             "VC_MIXGUIDE": 2,
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 2
-          }
+          },
+          "h": 22,
+          "rev": 134.99
         },
         {
           "id": "#VVD1149",
           "items": {
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_GLITTERMARKER_48": 1
-          }
+          },
+          "h": 20,
+          "rev": 74.98
         },
         {
           "id": "#VVD1148",
@@ -762,7 +910,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 20,
+          "rev": 73.43
         },
         {
           "id": "#VVD1147",
@@ -770,7 +920,9 @@
             "VC_GLITTERMARKER_48": 1,
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 2,
             "VC_MIXGUIDE": 3
-          }
+          },
+          "h": 18,
+          "rev": 141.35
         },
         {
           "id": "#VVD1146",
@@ -779,7 +931,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 111.99
         },
         {
           "id": "#VVD1145",
@@ -787,14 +941,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 73.79
         },
         {
           "id": "#VVD1144",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 6,
+          "rev": 56.76
         },
         {
           "id": "#VVD1143",
@@ -802,7 +960,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 6,
+          "rev": 71.39
         },
         {
           "id": "#VVD1142",
@@ -811,21 +971,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 4,
+          "rev": 83.79
         },
         {
           "id": "#VVD1141",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 1,
+          "rev": 54.99
         },
         {
           "id": "#VVD1140",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 24,
+          "rev": 50.48
         }
       ]
     },
@@ -843,7 +1009,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 116.99
         },
         {
           "id": "#VVD1158",
@@ -851,21 +1019,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 16,
+          "rev": 74.03
         },
         {
           "id": "#VVD1157",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 16,
+          "rev": 54.99
         },
         {
           "id": "#VVD1156",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 54.49
         },
         {
           "id": "#VVD1155",
@@ -874,7 +1048,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 80.99
         },
         {
           "id": "#VVD1154",
@@ -882,21 +1058,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 82.61
         },
         {
           "id": "#VVD1153",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 2,
+          "rev": 50.49
         },
         {
           "id": "#VVD1152",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 1,
+          "rev": 54.99
         }
       ]
     },
@@ -914,48 +1096,62 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 18,
+          "rev": 107.99
         },
         {
           "id": "#VVD1167",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 56.25
         },
         {
           "id": "#VVD1166",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 54.49
         },
         {
           "id": "#VVD1165",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1
-          }
+          },
+          "h": 13,
+          "rev": 79.99
         },
         {
           "id": "#VVD1164",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 54.49
         },
         {
           "id": "#VVD1163",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 54.49
         },
         {
           "id": "#VVD1162",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 2,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 98.99
         },
         {
           "id": "#VVD1161",
@@ -964,14 +1160,18 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 112.49
         },
         {
           "id": "#VVD1160",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 7,
+          "rev": 54.99
         }
       ]
     },
@@ -987,7 +1187,9 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 54.99
         },
         {
           "id": "#VVD1176",
@@ -996,7 +1198,9 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 2
-          }
+          },
+          "h": 23,
+          "rev": 100.66
         },
         {
           "id": "#VVD1175",
@@ -1004,7 +1208,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 69.99
         },
         {
           "id": "#VVD1174",
@@ -1013,7 +1219,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 116.99
         },
         {
           "id": "#VVD1173",
@@ -1022,7 +1230,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 6,
+          "rev": 120.12
         },
         {
           "id": "#VVD1172",
@@ -1030,21 +1240,27 @@
             "VC_GLITTERMARKER_48": 1,
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 6,
+          "rev": 68.84
         },
         {
           "id": "#VVD1171",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 5,
+          "rev": 56.09
         },
         {
           "id": "#VVD1170",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_GLITTERMARKER_24": 1
-          }
+          },
+          "h": 2,
+          "rev": 64
         },
         {
           "id": "#VVD1169",
@@ -1052,7 +1268,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 2,
+          "rev": 73.64
         }
       ]
     },
@@ -1069,7 +1287,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 81.59
         },
         {
           "id": "#VVD1196",
@@ -1078,14 +1298,18 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 92.49
         },
         {
           "id": "#VVD1195",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 54.49
         },
         {
           "id": "#VVD1194",
@@ -1094,14 +1318,18 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 137.06
         },
         {
           "id": "#VVD1193",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 54.49
         },
         {
           "id": "#VVD1192",
@@ -1110,7 +1338,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 116.99
         },
         {
           "id": "#VVD1191",
@@ -1118,7 +1348,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_24": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 19,
+          "rev": 69.08
         },
         {
           "id": "#VVD1190",
@@ -1126,21 +1358,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 16,
+          "rev": 72
         },
         {
           "id": "#VVD1189",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 54.49
         },
         {
           "id": "#VVD1188",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 14,
+          "rev": 54.49
         },
         {
           "id": "#VVD1187",
@@ -1148,7 +1386,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_24": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 14,
+          "rev": 67.49
         },
         {
           "id": "#VVD1186",
@@ -1156,14 +1396,18 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 14,
+          "rev": 63
         },
         {
           "id": "#VVD1185",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 56.09
         },
         {
           "id": "#VVD1184",
@@ -1171,7 +1415,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 72
         },
         {
           "id": "#VVD1183",
@@ -1179,7 +1425,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 3,
+          "rev": 83.67
         },
         {
           "id": "#VVD1182",
@@ -1187,14 +1435,18 @@
             "VC_GLITTERMARKER_24": 1,
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 3,
+          "rev": 87.2
         },
         {
           "id": "#VVD1181",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1
-          }
+          },
+          "h": 2,
+          "rev": 108
         },
         {
           "id": "#VVD1180",
@@ -1203,7 +1455,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 1,
+          "rev": 134.99
         },
         {
           "id": "#VVD1179",
@@ -1212,14 +1466,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_EBOOK": 2,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 1,
+          "rev": 101.32
         },
         {
           "id": "#VVD1178",
           "items": {
             "VC_MIXGUIDE": 1,
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1
-          }
+          },
+          "h": 24,
+          "rev": 54.49
         }
       ]
     },
@@ -1235,14 +1493,18 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 54.99
         },
         {
           "id": "#VVD1215",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 50.76
         },
         {
           "id": "#VVD1214",
@@ -1251,7 +1513,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 20,
+          "rev": 133.99
         },
         {
           "id": "#VVD1213",
@@ -1259,7 +1523,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 18,
+          "rev": 70.59
         },
         {
           "id": "#VVD1212",
@@ -1268,21 +1534,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 18,
+          "rev": 134.99
         },
         {
           "id": "#VVD1211",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 17,
+          "rev": 54.99
         },
         {
           "id": "#VVD1210",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 14,
+          "rev": 54.99
         },
         {
           "id": "#VVD1209",
@@ -1291,7 +1563,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 13,
+          "rev": 135.99
         },
         {
           "id": "#VVD1208",
@@ -1299,7 +1573,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_24": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 74.98
         },
         {
           "id": "#VVD1207",
@@ -1307,13 +1583,17 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 83.24
         },
         {
           "id": "#VVD1206",
           "items": {
             "VC_GLITTERMARKER_24": 1
-          }
+          },
+          "h": 11,
+          "rev": 24.98
         },
         {
           "id": "#VVD1205",
@@ -1322,7 +1602,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 107.99
         },
         {
           "id": "#VVD1204",
@@ -1330,7 +1612,9 @@
             "VC_COLORBOOK_CORNERS": 1,
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 77.09
         },
         {
           "id": "#VVD1203",
@@ -1339,13 +1623,17 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 116.99
         },
         {
           "id": "#VVD1202",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1
-          }
+          },
+          "h": 10,
+          "rev": 82.58
         },
         {
           "id": "#VVD1201",
@@ -1353,7 +1641,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_24": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 4,
+          "rev": 70.59
         },
         {
           "id": "#VVD1200",
@@ -1361,20 +1651,26 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1,
             "VC_GLITTERMARKER_48": 1
-          }
+          },
+          "h": 2,
+          "rev": 100.96
         },
         {
           "id": "#VVD1199",
           "items": {
             "VC_GLITTERMARKER_48": 1
-          }
+          },
+          "h": 1,
+          "rev": 50.8
         },
         {
           "id": "#VVD1198",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 1,
+          "rev": 54.99
         }
       ]
     },
@@ -1390,20 +1686,26 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 54.99
         },
         {
           "id": "#VVD1225",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 50.49
         },
         {
           "id": "#VVD1224",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
-          }
+          },
+          "h": 19,
+          "rev": 45.88
         },
         {
           "id": "#VVD1223",
@@ -1411,7 +1713,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 17,
+          "rev": 73.83
         },
         {
           "id": "#VVD1222",
@@ -1419,7 +1723,9 @@
             "VC_MIXGUIDE": 1,
             "VC_COLORBOOK_CORNERS": 1,
             "VC_GLITTERMARKER_96": 1
-          }
+          },
+          "h": 16,
+          "rev": 86.68
         },
         {
           "id": "#VVD1221",
@@ -1427,7 +1733,9 @@
             "VC_GLITTERMARKER_48": 1,
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 13,
+          "rev": 74.98
         },
         {
           "id": "#VVD1220",
@@ -1435,7 +1743,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 82.37
         },
         {
           "id": "#VVD1219",
@@ -1444,14 +1754,18 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 136.67
         },
         {
           "id": "#VVD1218",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 6,
+          "rev": 49.97
         },
         {
           "id": "#VVD1217",
@@ -1460,7 +1774,9 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 5,
+          "rev": 99.98
         }
       ]
     },
@@ -1475,7 +1791,9 @@
           "id": "#VVD1235",
           "items": {
             "UNKNOWN": 1
-          }
+          },
+          "h": 22,
+          "rev": 3.99
         },
         {
           "id": "#VVD1234",
@@ -1483,7 +1801,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 22,
+          "rev": 79.99
         },
         {
           "id": "#VVD1233",
@@ -1491,7 +1811,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 16,
+          "rev": 72
         },
         {
           "id": "#VVD1232",
@@ -1499,13 +1821,17 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 13,
+          "rev": 69.99
         },
         {
           "id": "#VVD1231",
           "items": {
             "VC_GLITTERMARKER_24": 1
-          }
+          },
+          "h": 10,
+          "rev": 40.99
         },
         {
           "id": "#VVD1230",
@@ -1513,7 +1839,9 @@
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_GLITTERMARKER_48": 2,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 5,
+          "rev": 132.57
         },
         {
           "id": "#VVD1229",
@@ -1521,7 +1849,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 3,
+          "rev": 63
         },
         {
           "id": "#VVD1228",
@@ -1529,7 +1859,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_24": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 2,
+          "rev": 70.3
         },
         {
           "id": "#VVD1227",
@@ -1538,7 +1870,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 24,
+          "rev": 119.33
         }
       ]
     },
@@ -1555,14 +1889,18 @@
             "VC_GLITTERMARKER_48": 1,
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 67.49
         },
         {
           "id": "#VVD1241",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 16,
+          "rev": 54.49
         },
         {
           "id": "#VVD1240",
@@ -1570,7 +1908,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 15,
+          "rev": 79.99
         },
         {
           "id": "#VVD1239",
@@ -1579,20 +1919,26 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 14,
+          "rev": 102.81
         },
         {
           "id": "#VVD1238",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 51.16
         },
         {
           "id": "#VVD1237",
           "items": {
             "VC_GLITTERMARKER_48": 1
-          }
+          },
+          "h": 8,
+          "rev": 54.99
         },
         {
           "id": "#VVD1236",
@@ -1600,7 +1946,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 7,
+          "rev": 72
         }
       ]
     },
@@ -1617,7 +1965,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 21,
+          "rev": 72
         },
         {
           "id": "#VVD1246",
@@ -1626,7 +1976,9 @@
             "VC_MIXGUIDE": 1,
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1
-          }
+          },
+          "h": 20,
+          "rev": 116.38
         },
         {
           "id": "#VVD1245",
@@ -1635,7 +1987,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 5,
+          "rev": 116.99
         },
         {
           "id": "#VVD1244",
@@ -1643,7 +1997,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 2,
+          "rev": 81.59
         },
         {
           "id": "#VVD1243",
@@ -1651,7 +2007,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 24,
+          "rev": 81.59
         }
       ]
     },
@@ -1668,7 +2026,9 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 63
         },
         {
           "id": "#VVD1252",
@@ -1676,14 +2036,18 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 73.6
         },
         {
           "id": "#VVD1251",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 51.45
         },
         {
           "id": "#VVD1250",
@@ -1691,14 +2055,18 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 63
         },
         {
           "id": "#VVD1249",
           "items": {
             "VC_GLITTERMARKER_48": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 54.49
         },
         {
           "id": "#VVD1248",
@@ -1706,7 +2074,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 72
         }
       ]
     },
@@ -1722,13 +2092,17 @@
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 20,
+          "rev": 73.5
         },
         {
           "id": "#VVD1260",
           "items": {
             "UNKNOWN": 1
-          }
+          },
+          "h": 18,
+          "rev": 2.99
         },
         {
           "id": "#VVD1259",
@@ -1737,13 +2111,17 @@
             "VC_COLORBOOK_CORNERS": 1,
             "VC_ARTBOOK_STEPBYSTEP": 1,
             "VC_GLITTERMARKER_48": 1
-          }
+          },
+          "h": 18,
+          "rev": 154.96
         },
         {
           "id": "#VVD1258",
           "items": {
             "VC_GLITTERMARKER_48": 1
-          }
+          },
+          "h": 14,
+          "rev": 54.99
         },
         {
           "id": "#VVD1257",
@@ -1752,7 +2130,9 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 3
-          }
+          },
+          "h": 9,
+          "rev": 106.19
         },
         {
           "id": "#VVD1256",
@@ -1761,13 +2141,17 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 3,
+          "rev": 89.99
         },
         {
           "id": "#VVD1255",
           "items": {
             "UNKNOWN": 1
-          }
+          },
+          "h": 24,
+          "rev": 2.99
         },
         {
           "id": "#VVD1254",
@@ -1776,7 +2160,9 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 24,
+          "rev": 99.98
         }
       ]
     },
@@ -1785,7 +2171,7 @@
       "label": "05/05",
       "orders": 4,
       "revenue": 296.94,
-      "spend": 259.64,
+      "spend": 259.65,
       "cmds": [
         {
           "id": "#VVD1265",
@@ -1793,21 +2179,27 @@
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 23,
+          "rev": 79.99
         },
         {
           "id": "#VVD1264",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_GLITTERMARKER_24": 1
-          }
+          },
+          "h": 20,
+          "rev": 59.98
         },
         {
           "id": "#VVD1263",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 17,
+          "rev": 54.99
         },
         {
           "id": "#VVD1262",
@@ -1816,31 +2208,54 @@
             "VC_GLITTERMARKER_24": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 4,
+          "rev": 101.98
         }
       ]
     },
     {
       "date": "2026-05-06",
       "label": "05/06",
-      "orders": 6,
-      "revenue": 372.87,
-      "spend": 147.37,
+      "orders": 8,
+      "revenue": 472.34,
+      "spend": 171.85,
       "cmds": [
+        {
+          "id": "#VVD1273",
+          "items": {
+            "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
+            "VC_MIXGUIDE": 1
+          },
+          "h": 14,
+          "rev": 54.49
+        },
+        {
+          "id": "#VVD1272",
+          "items": {
+            "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1
+          },
+          "h": 14,
+          "rev": 44.98
+        },
         {
           "id": "#VVD1271",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 12,
+          "rev": 74.02
         },
         {
           "id": "#VVD1270",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 11,
+          "rev": 50.9
         },
         {
           "id": "#VVD1269",
@@ -1848,14 +2263,18 @@
             "VC_GLITTERMARKER_96": 1,
             "VC_EBOOK": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 10,
+          "rev": 69.99
         },
         {
           "id": "#VVD1268",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 1,
             "VC_GLITTERMARKER_24": 1
-          }
+          },
+          "h": 9,
+          "rev": 59.98
         },
         {
           "id": "#VVD1267",
@@ -1863,20 +2282,26 @@
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_GLITTERMARKER_24": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 9,
+          "rev": 67.49
         },
         {
           "id": "#VVD1266",
           "items": {
             "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 1,
             "VC_MIXGUIDE": 1
-          }
+          },
+          "h": 24,
+          "rev": 50.49
         }
       ]
     }
   ],
   "skusSeen": [
+    "h",
     "id",
-    "items"
+    "items",
+    "rev"
   ]
 }
