@@ -81,7 +81,8 @@ async function fetchShopifyOrders() {
       const sku = li.sku || titleToSku[li.title] || 'UNKNOWN';
       items[sku] = (items[sku] || 0) + li.quantity;
     });
-    byDate[date].cmds.push({ id: o.name || o.order_number, items });
+    const h = parseInt(new Date(o.created_at).toLocaleString('en-US',{timeZone:'America/New_York',hour:'numeric',hour12:false}))||0;
+    byDate[date].cmds.push({ id: o.name || o.order_number, items, h, rev: parseFloat(o.total_price)||0 });
   });
 
   return byDate;
