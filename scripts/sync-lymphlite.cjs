@@ -64,7 +64,8 @@ async function fetchShopifyOrders() {
       items[sku] = (items[sku] || 0) + li.quantity;
     });
     const country = (o.shipping_address && o.shipping_address.country_code) || 'US';
-    byDate[date].cmds.push({ id: o.name || o.order_number, items, country });
+    const h = parseInt(new Date(o.created_at).toLocaleString('en-US',{timeZone:'America/New_York',hour:'numeric',hour12:false}))||0;
+    byDate[date].cmds.push({ id: o.name || o.order_number, items, country, h, rev: parseFloat(o.total_price)||0 });
   });
 
   return byDate;
