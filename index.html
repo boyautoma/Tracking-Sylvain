@@ -611,7 +611,10 @@ async function loadInvoices(){
     const res=await fetch(GH_RAW+shop.invoicesFile+'?t='+Date.now());
     if(res.ok){const data=await res.json();invoiceBatches=data.batches||[];
       invoiceIndex={};
-      invoiceBatches.forEach(b=>{b.orders.forEach(id=>{invoiceIndex[id]=b.prices})});
+      invoiceBatches.forEach(b=>{
+        if(b.orderCosts){b.orders.forEach(id=>{invoiceIndex[id]={_orderTotal:b.prices[id]||0}})}
+        else{b.orders.forEach(id=>{invoiceIndex[id]=b.prices})}
+      });
       console.log('Loaded invoices:',Object.keys(invoiceIndex).length,'orders covered');
     } else {invoiceBatches=[];invoiceIndex={}}
   }catch(e){invoiceBatches=[];invoiceIndex={}}
@@ -645,6 +648,10 @@ function calcOrderCOGS(cmd){
   const items=cmd&&cmd.items?cmd.items:(typeof cmd==='object'&&!cmd.id?cmd:{});
   const orderId=cmd&&cmd.id?cmd.id:null;
   const invoicePrices=orderId?invoiceIndex[orderId]:null;
+  // Lymphlite format: total cost per order (no per-SKU breakdown)
+  if(invoicePrices&&invoicePrices._orderTotal!==undefined){
+    return Number(invoicePrices._orderTotal)||0;
+  }
   let prodTotal=0,maxShip=0;
   for(const[sku,qty]of Object.entries(items)){
     const q=Number(qty)||0;
@@ -858,6 +865,62 @@ async function parseInvoiceFile(file){
   const wb=XLSX.read(buf,{type:'array'});
   console.log('[Invoice] Sheets found:',wb.SheetNames);
 
+  // Detect format: Lymphlite has headers [order number, order, Shopify SKU, ..., Cost]
+  // VividCraft has VVD order numbers and a SKU sheet
+  const firstSheet=wb.Sheets[wb.SheetNames[0]];
+  const firstRows=XLSX.utils.sheet_to_json(firstSheet,{header:1,defval:''});
+  const headers=(firstRows[0]||[]).map(h=>String(h).toLowerCase().trim());
+  const isLymphlite=headers.includes('order number')&&headers.includes('cost');
+
+  if(isLymphlite) return parseInvoiceLymphlite(wb,file,firstRows,headers);
+  return parseInvoiceVividCraft(wb,file);
+}
+
+function parseInvoiceLymphlite(wb,file,rows,headers){
+  console.log('[Invoice] Detected Lymphlite format');
+  const orderCol=headers.indexOf('order');
+  const costCol=headers.indexOf('cost');
+  if(orderCol<0||costCol<0) return {error:'Colonnes "order" ou "cost" introuvables. Headers: '+headers.join(', ')};
+
+  // Aggregate cost per order number (multiple lines = multiple items in same order)
+  const orderCosts={};
+  for(let i=1;i<rows.length;i++){
+    const row=rows[i]; if(!row) continue;
+    const orderNum=String(row[orderCol]||'').trim();
+    if(!orderNum) continue;
+    const cost=parseFloat(row[costCol])||0;
+    const orderId='#'+orderNum;
+    orderCosts[orderId]=(orderCosts[orderId]||0)+cost;
+  }
+
+  const orders=Object.keys(orderCosts).sort();
+  console.log('[Invoice] Lymphlite orders:',orders.length,'total cost:',Object.values(orderCosts).reduce((a,b)=>a+b,0).toFixed(2));
+
+  if(!orders.length) return {error:'Aucun numéro de commande trouvé dans la facture.'};
+
+  // Build prices as {orderId: {_total: cost}} — special key for total order cost
+  const prices={};
+  orders.forEach(id=>{prices[id]=Math.round(orderCosts[id]*100)/100});
+
+  // Invoice metadata from filename (e.g. "3596-3713 order-4.27 tracking+costs.xlsx")
+  let invoiceNo='',invoiceDate='';
+  const fnMatch=file.name.match(/(\d+)-(\d+)\s*order-(\d+)\.(\d+)/i);
+  if(fnMatch){
+    invoiceNo='LY-'+fnMatch[1]+'-'+fnMatch[2];
+    invoiceDate='2026-'+fnMatch[3].padStart(2,'0')+'-'+fnMatch[4].padStart(2,'0');
+  }
+
+  return {
+    invoice:invoiceNo||'INV-'+Date.now(),
+    date:invoiceDate||new Date().toISOString().slice(0,10),
+    orders,
+    prices,
+    orderCosts:true,
+    filename:file.name
+  };
+}
+
+function parseInvoiceVividCraft(wb,file){
   // Map product names/SKUs that appear as numeric IDs to our SKUs
   const idMap={
     '53024612319570':'VC_MIXGUIDE','53024614187346':'VC_FREESHIP','53024626147666':'VC_EBOOK',
@@ -881,14 +944,13 @@ async function parseInvoiceFile(file){
     }
   }
   orders=[...seen].sort();
-  console.log('[Invoice] Orders found:',orders.length,orders.slice(0,5));
+  console.log('[Invoice] VividCraft orders found:',orders.length,orders.slice(0,5));
 
-  // 2) Get prices from SKU sheet — find it by name (SKU, sku, Sku...)
+  // 2) Get prices from SKU sheet
   const prices={};
   const skuSheet=wb.SheetNames.find(s=>s.toLowerCase()==='sku');
   if(skuSheet){
     const rows=XLSX.utils.sheet_to_json(wb.Sheets[skuSheet],{header:1,defval:''});
-    // Find header row: look for a row containing "sku" and "unit price" or "price"
     let skuCol=-1,priceCol=-1,headerRow=-1;
     for(let i=0;i<Math.min(5,rows.length);i++){
       const row=rows[i]; if(!row) continue;
@@ -899,23 +961,19 @@ async function parseInvoiceFile(file){
       }
       if(skuCol>=0&&priceCol>=0){headerRow=i;break}
     }
-    // Fallback: assume col 1=sku, col 4=unit price (standard layout)
     if(skuCol<0) skuCol=1;
     if(priceCol<0) priceCol=4;
     if(headerRow<0) headerRow=0;
-    console.log('[Invoice] SKU sheet columns: sku='+skuCol+' price='+priceCol+' header='+headerRow);
     for(let i=headerRow+1;i<rows.length;i++){
       const row=rows[i]; if(!row) continue;
       let sku=String(row[skuCol]||'').trim();
       if(!sku) continue;
       if(idMap[sku]) sku=idMap[sku];
-      const unitPrice=parseFloat(row[priceCol])||0;
-      prices[sku]=unitPrice;
+      prices[sku]=parseFloat(row[priceCol])||0;
     }
   }
-  console.log('[Invoice] Prices found:',Object.keys(prices).length,JSON.stringify(prices));
 
-  // 3) Get invoice metadata - scan all sheets
+  // 3) Get invoice metadata
   let invoiceNo='',invoiceDate='';
   for(const sheetName of wb.SheetNames){
     const rows=XLSX.utils.sheet_to_json(wb.Sheets[sheetName],{header:1,defval:''});
@@ -940,7 +998,6 @@ async function parseInvoiceFile(file){
       }
     }
   }
-  // Filename fallback (e.g. "4.23 vividcraft 1131-1138" -> PD20260423)
   if(!invoiceNo){
     const fn=file.name.match(/^(\d+)\.(\d+)\s*vividcraft/i);
     if(fn) invoiceNo='PD2026'+fn[1].padStart(2,'0')+fn[2].padStart(2,'0');
@@ -989,12 +1046,14 @@ async function handleInvoiceFiles(files){
       // Skip if invoice already exists
       const existing=invoicesData.batches.find(b=>b.invoice===parsed.invoice);
       if(existing){results.push({file:file.name,ok:false,msg:'Deja importée ('+parsed.invoice+')'});continue}
-      invoicesData.batches.push({
+      const batch={
         invoice:parsed.invoice,
         date:parsed.date,
         orders:parsed.orders,
         prices:parsed.prices
-      });
+      };
+      if(parsed.orderCosts) batch.orderCosts=true;
+      invoicesData.batches.push(batch);
       results.push({file:file.name,ok:true,msg:parsed.invoice+' : '+parsed.orders.length+' commandes'});
     }catch(e){
       results.push({file:file.name,ok:false,msg:'Erreur parsing'});
@@ -1010,7 +1069,15 @@ async function handleInvoiceFiles(files){
   if(saved){
     invoiceBatches=invoicesData.batches||[];
     invoiceIndex={};
-    invoiceBatches.forEach(b=>b.orders.forEach(id=>{invoiceIndex[id]=b.prices}));
+    invoiceBatches.forEach(b=>{
+      if(b.orderCosts){
+        // Lymphlite: prices={orderId:totalCost} — store as {_orderTotal:cost}
+        b.orders.forEach(id=>{invoiceIndex[id]={_orderTotal:b.prices[id]||0}});
+      } else {
+        // VividCraft: prices={sku:unitPrice}
+        b.orders.forEach(id=>{invoiceIndex[id]=b.prices});
+      }
+    });
   }
   // Re-render after showing status
   setTimeout(()=>{if(currentView==='invoices') renderInvoices(document.getElementById('content'))},2500);
@@ -1083,7 +1150,10 @@ function renderInvoices(el){
       if(ok){
         invoiceBatches=data.batches;
         invoiceIndex={};
-        invoiceBatches.forEach(b=>b.orders.forEach(id=>{invoiceIndex[id]=b.prices}));
+        invoiceBatches.forEach(b=>{
+          if(b.orderCosts){b.orders.forEach(id=>{invoiceIndex[id]={_orderTotal:b.prices[id]||0}})}
+          else{b.orders.forEach(id=>{invoiceIndex[id]=b.prices})}
+        });
         renderInvoices(el);
       }
     });
