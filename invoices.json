@@ -365,6 +365,49 @@
         "53317954240850": 0,
         "VC_FREESHIP": 0
       }
+    },
+    {
+      "invoice": "PD20260507",
+      "date": "2026-05-07",
+      "orders": [
+        "#VVD1254",
+        "#VVD1255",
+        "#VVD1256",
+        "#VVD1257",
+        "#VVD1258",
+        "#VVD1259",
+        "#VVD1260",
+        "#VVD1261",
+        "#VVD1262",
+        "#VVD1263",
+        "#VVD1264",
+        "#VVD1265",
+        "#VVD1266",
+        "#VVD1267",
+        "#VVD1268",
+        "#VVD1269",
+        "#VVD1270",
+        "#VVD1271",
+        "#VVD1272",
+        "#VVD1273",
+        "#VVD1274",
+        "#VVD1275"
+      ],
+      "prices": {
+        "VIVIDCRAFT_ACRYLICMARKER_24COLORS": 8.07,
+        "VIVIDCRAFT_ACRYLICMARKER_72COLORS": 15.23,
+        "VIVIDCRAFT_ACRYLICMARKER_168COLORS": 33.71,
+        "VC_GLITTERMARKER_24": 9.76,
+        "VC_GLITTERMARKER_48": 13.31,
+        "VC_GLITTERMARKER_96": 22.54,
+        "VC_COLORBOOK_JAPAN": 8.61,
+        "VC_COLORBOOK_CORNERS": 8.61,
+        "VC_ARTBOOK_STEPBYSTEP": 9.7,
+        "VC_MIXGUIDE": 0,
+        "VC_EBOOK": 0,
+        "53317954240850": 0,
+        "VC_FREESHIP": 0
+      }
     }
   ]
 }
