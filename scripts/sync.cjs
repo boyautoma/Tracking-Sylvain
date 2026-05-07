@@ -5,7 +5,7 @@ const SHOPIFY_TOKEN = process.env.SHOPIFY_TOKEN;
 const SHOPIFY_DOMAIN = process.env.SHOPIFY_DOMAIN;
 const META_ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 const META_AD_ACCOUNT_ID = process.env.META_AD_ACCOUNT_ID;
-const DAYS_BACK = 30;
+const DAYS_BACK = 90;
 
 // Frozen spend from old Meta ad account (pre-04/30) — immutable
 const FROZEN_SPEND = {
