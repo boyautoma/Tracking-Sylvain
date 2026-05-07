@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-07T08:48:45.974Z",
+  "lastUpdated": "2026-05-07T13:23:57.167Z",
   "daily": [
     {
       "date": "2026-04-07",
       "label": "04/07",
-      "orders": 3,
-      "revenue": 83.75,
+      "orders": 2,
+      "revenue": 53.55,
       "spend": 60.62,
       "cmds": [
         {
@@ -25,15 +25,6 @@
           "country": "MX",
           "h": 15,
           "rev": 20.8
-        },
-        {
-          "id": "#3421",
-          "items": {
-            "Lymphlite Face & Jawline Formula": 2
-          },
-          "country": "GB",
-          "h": 8,
-          "rev": 30.2
         }
       ]
     },
@@ -4982,7 +4973,7 @@
       "label": "05/06",
       "orders": 93,
       "revenue": 2347.89,
-      "spend": 1010.22,
+      "spend": 1011.97,
       "cmds": [
         {
           "id": "#4034",
@@ -5828,10 +5819,64 @@
     {
       "date": "2026-05-07",
       "label": "05/07",
-      "orders": 9,
-      "revenue": 210.6,
-      "spend": 106.4,
+      "orders": 15,
+      "revenue": 348.56,
+      "spend": 185.33,
       "cmds": [
+        {
+          "id": "#4049",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 9,
+          "rev": 33.65
+        },
+        {
+          "id": "#4048",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "IE",
+          "h": 6,
+          "rev": 22.24
+        },
+        {
+          "id": "#4047",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "IE",
+          "h": 6,
+          "rev": 22.24
+        },
+        {
+          "id": "#4046",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.79
+        },
+        {
+          "id": "#4045",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 18.8
+        },
+        {
+          "id": "#4044",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "IE",
+          "h": 4,
+          "rev": 22.24
+        },
         {
           "id": "#4043",
           "items": {
