@@ -1,38 +1,11 @@
 {
-  "lastUpdated": "2026-05-06T23:27:33.630Z",
+  "lastUpdated": "2026-05-07T08:48:45.974Z",
   "daily": [
-    {
-      "date": "2026-04-06",
-      "label": "04/06",
-      "orders": 2,
-      "revenue": 58.45,
-      "spend": 186.73,
-      "cmds": [
-        {
-          "id": "#3419",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "AU",
-          "h": 22,
-          "rev": 34.38
-        },
-        {
-          "id": "#3418",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "AU",
-          "h": 20,
-          "rev": 24.07
-        }
-      ]
-    },
     {
       "date": "2026-04-07",
       "label": "04/07",
-      "orders": 4,
-      "revenue": 104.55,
+      "orders": 3,
+      "revenue": 83.75,
       "spend": 60.62,
       "cmds": [
         {
@@ -61,15 +34,6 @@
           "country": "GB",
           "h": 8,
           "rev": 30.2
-        },
-        {
-          "id": "#3420",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 4,
-          "rev": 20.8
         }
       ]
     },
@@ -4684,7 +4648,7 @@
       "label": "05/05",
       "orders": 36,
       "revenue": 878.9,
-      "spend": 405.01,
+      "spend": 405.05,
       "cmds": [
         {
           "id": "#3941",
@@ -5016,10 +4980,19 @@
     {
       "date": "2026-05-06",
       "label": "05/06",
-      "orders": 92,
-      "revenue": 2326.04,
-      "spend": 975.96,
+      "orders": 93,
+      "revenue": 2347.89,
+      "spend": 1010.22,
       "cmds": [
+        {
+          "id": "#4034",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "CA",
+          "h": 21,
+          "rev": 21.85
+        },
         {
           "id": "#4033",
           "items": {
@@ -5849,6 +5822,96 @@
           "country": "GB",
           "h": 24,
           "rev": 18.72
+        }
+      ]
+    },
+    {
+      "date": "2026-05-07",
+      "label": "05/07",
+      "orders": 9,
+      "revenue": 210.6,
+      "spend": 106.4,
+      "cmds": [
+        {
+          "id": "#4043",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 3,
+          "rev": 18.76
+        },
+        {
+          "id": "#4042",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 3,
+          "rev": 18.76
+        },
+        {
+          "id": "#4041",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 3,
+          "rev": 18.76
+        },
+        {
+          "id": "#4040",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "AU",
+          "h": 2,
+          "rev": 36.08
+        },
+        {
+          "id": "#4039",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 2,
+          "rev": 18.76
+        },
+        {
+          "id": "#4038",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 1,
+          "rev": 20.8
+        },
+        {
+          "id": "#4037",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "AU",
+          "h": 1,
+          "rev": 25.22
+        },
+        {
+          "id": "#4036",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "US",
+          "h": 1,
+          "rev": 34.7
+        },
+        {
+          "id": "#4035",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 24,
+          "rev": 18.76
         }
       ]
     }
