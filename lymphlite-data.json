@@ -1,32 +1,13 @@
 {
-  "lastUpdated": "2026-05-07T13:23:57.167Z",
+  "lastUpdated": "2026-05-07T20:06:00.708Z",
   "daily": [
     {
       "date": "2026-04-07",
       "label": "04/07",
-      "orders": 2,
-      "revenue": 53.55,
+      "orders": 0,
+      "revenue": 0,
       "spend": 60.62,
-      "cmds": [
-        {
-          "id": "#3423",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "GB",
-          "h": 15,
-          "rev": 32.75
-        },
-        {
-          "id": "#3422",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "MX",
-          "h": 15,
-          "rev": 20.8
-        }
-      ]
+      "cmds": []
     },
     {
       "date": "2026-04-08",
@@ -4973,7 +4954,7 @@
       "label": "05/06",
       "orders": 93,
       "revenue": 2347.89,
-      "spend": 1011.97,
+      "spend": 1012.98,
       "cmds": [
         {
           "id": "#4034",
@@ -5819,10 +5800,118 @@
     {
       "date": "2026-05-07",
       "label": "05/07",
-      "orders": 15,
-      "revenue": 348.56,
-      "spend": 185.33,
+      "orders": 27,
+      "revenue": 690.25,
+      "spend": 354.69,
       "cmds": [
+        {
+          "id": "#4061",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "US",
+          "h": 15,
+          "rev": 34.7
+        },
+        {
+          "id": "#4060",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "HK",
+          "h": 15,
+          "rev": 42.51
+        },
+        {
+          "id": "#4059",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 15,
+          "rev": 20.8
+        },
+        {
+          "id": "#4058",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 33.58
+        },
+        {
+          "id": "#4057",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 18.79
+        },
+        {
+          "id": "#4056",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 18.81
+        },
+        {
+          "id": "#4055",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 18.81
+        },
+        {
+          "id": "#4054",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 33.67
+        },
+        {
+          "id": "#4053",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "IE",
+          "h": 10,
+          "rev": 45.72
+        },
+        {
+          "id": "#4052",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 10,
+          "rev": 18.8
+        },
+        {
+          "id": "#4051",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "US",
+          "h": 9,
+          "rev": 34.7
+        },
+        {
+          "id": "#4050",
+          "items": {
+            "LL-DRP-60-HNY-V2": 1
+          },
+          "country": "US",
+          "h": 9,
+          "rev": 20.8
+        },
         {
           "id": "#4049",
           "items": {
@@ -5970,6 +6059,7 @@
     "Anti-Cellulite Body Oil",
     "Gua Sha Massage",
     "LL-DRP-60-HNY-V1",
+    "LL-DRP-60-HNY-V2",
     "LL-OIL-CEL",
     "LL-OIL-LEG",
     "Leg Comfort Oil",
