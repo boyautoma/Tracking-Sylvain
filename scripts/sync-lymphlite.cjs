@@ -71,6 +71,9 @@ async function fetchShopifyOrders() {
   return byDate;
 }
 
+// Only fetch last 3 days from Meta (older days are frozen in cache)
+const FRESH_DAYS = 3;
+
 async function fetchMetaSpend() {
   if (!META_ACCESS_TOKEN || !META_AD_ACCOUNT_ID) {
     console.log('Lymphlite Meta credentials not configured, skipping Meta spend');
@@ -78,13 +81,13 @@ async function fetchMetaSpend() {
   }
 
   const since = new Date();
-  since.setDate(since.getDate() - DAYS_BACK);
+  since.setDate(since.getDate() - FRESH_DAYS);
   const sinceStr = dateStr(since);
   const untilStr = dateStr(new Date());
 
-  const url = `https://graph.facebook.com/v21.0/${META_AD_ACCOUNT_ID}/insights?fields=spend,date_start&time_increment=1&time_range={"since":"${sinceStr}","until":"${untilStr}"}&limit=400&access_token=${META_ACCESS_TOKEN}`;
+  const url = `https://graph.facebook.com/v21.0/${META_AD_ACCOUNT_ID}/insights?fields=spend,date_start&time_increment=1&time_range={"since":"${sinceStr}","until":"${untilStr}"}&limit=10&access_token=${META_ACCESS_TOKEN}`;
 
-  console.log('Fetching Lymphlite Meta spend...');
+  console.log(`Fetching Lymphlite Meta spend (last ${FRESH_DAYS} days)...`);
   const res = await httpGet(url);
 
   if (res.body.error) {
@@ -104,18 +107,32 @@ async function fetchMetaSpend() {
 async function main() {
   console.log('Starting Lymphlite sync...');
 
+  // Load cached spend from existing lymphlite-data.json
+  let cachedSpend = {};
+  try {
+    const existing = JSON.parse(fs.readFileSync('lymphlite-data.json', 'utf8'));
+    (existing.daily || []).forEach(d => {
+      if (d.spend > 0) cachedSpend[d.date] = d.spend;
+    });
+    console.log(`Loaded ${Object.keys(cachedSpend).length} cached spend days from lymphlite-data.json`);
+  } catch(e) { console.log('No existing lymphlite-data.json, starting fresh'); }
+
   let shopifyData = {};
   try { shopifyData = await fetchShopifyOrders(); }
   catch (e) { console.log('Shopify fetch failed (non-blocking):', e.message); }
 
-  const metaSpend = await fetchMetaSpend();
+  const freshSpend = await fetchMetaSpend();
 
-  const allDates = new Set([...Object.keys(shopifyData), ...Object.keys(metaSpend)]);
+  // Merge: fresh API (last 3 days) > cached > 0
+  const allDates = new Set([...Object.keys(shopifyData), ...Object.keys(freshSpend), ...Object.keys(cachedSpend)]);
   const sorted = [...allDates].sort();
 
   const daily = sorted.map(date => {
     const shop = shopifyData[date] || { revenue: 0, cmds: [] };
-    const spend = metaSpend[date] || 0;
+    let spend;
+    if (freshSpend[date] !== undefined) spend = freshSpend[date];
+    else if (cachedSpend[date] !== undefined) spend = cachedSpend[date];
+    else spend = 0;
     return {
       date,
       label: date.slice(5).replace('-', '/'),
