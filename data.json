@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-08T12:34:01.510Z",
+  "lastUpdated": "2026-05-08T19:58:08.929Z",
   "daily": [
     {
       "date": "2026-01-10",
@@ -3104,7 +3104,7 @@
       "label": "05/07",
       "orders": 9,
       "revenue": 622.96,
-      "spend": 376.74,
+      "spend": 377.67,
       "cmds": [
         {
           "id": "#VVD1286",
@@ -3199,10 +3199,21 @@
     {
       "date": "2026-05-08",
       "label": "05/08",
-      "orders": 0,
-      "revenue": 0,
-      "spend": 108.89,
-      "cmds": []
+      "orders": 1,
+      "revenue": 69.99,
+      "spend": 221.81,
+      "cmds": [
+        {
+          "id": "#VVD1287",
+          "items": {
+            "VC_GLITTERMARKER_96": 1,
+            "VC_EBOOK": 1,
+            "VC_MIXGUIDE": 1
+          },
+          "h": 12,
+          "rev": 69.99
+        }
+      ]
     }
   ],
   "skusSeen": [
