@@ -696,8 +696,8 @@ function calcDayCOGS(cmds){
 // ─── DASHBOARD INIT ───
 function initDashboard(){
   if(DAILY.length){
-    dateFrom.min=DAILY[0].date;dateFrom.max=DAILY[DAILY.length-1].date;
-    dateTo.min=DAILY[0].date;dateTo.max=DAILY[DAILY.length-1].date;
+    dateFrom.min='2026-01-01';dateFrom.max=todayEST();
+    dateTo.min='2026-01-01';dateTo.max=todayEST();
     document.getElementById("badgeOrders").textContent=DAILY[DAILY.length-1].orders;
     applyPeriod();
   } else {
