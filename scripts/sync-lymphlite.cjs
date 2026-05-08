@@ -5,7 +5,7 @@ const SHOPIFY_TOKEN = process.env.LYMPHLITE_SHOPIFY_TOKEN;
 const SHOPIFY_DOMAIN = process.env.LYMPHLITE_SHOPIFY_DOMAIN;
 const META_ACCESS_TOKEN = process.env.LYMPHLITE_META_ACCESS_TOKEN;
 const META_AD_ACCOUNT_ID = process.env.LYMPHLITE_META_AD_ACCOUNT_ID;
-const DAYS_BACK = 30;
+const DAYS_BACK = Math.ceil((Date.now() - new Date(new Date().getFullYear(),0,1).getTime()) / 86400000) + 1;
 
 function httpGet(url, headers = {}) {
   return new Promise((resolve, reject) => {
