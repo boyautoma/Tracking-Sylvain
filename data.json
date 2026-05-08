@@ -1,6 +1,339 @@
 {
-  "lastUpdated": "2026-05-08T08:00:19.824Z",
+  "lastUpdated": "2026-05-08T12:26:57.170Z",
   "daily": [
+    {
+      "date": "2026-01-10",
+      "label": "01/10",
+      "orders": 1,
+      "revenue": 59.9,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1002",
+          "items": {
+            "WRMR-Black_LampForBottle": 3
+          },
+          "h": 13,
+          "rev": 59.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-11",
+      "label": "01/11",
+      "orders": 5,
+      "revenue": 219.5,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1007",
+          "items": {
+            "WRMR-White_LampForBottle": 1,
+            "WRMR-Argent_LampForBottle": 1
+          },
+          "h": 14,
+          "rev": 49.9
+        },
+        {
+          "id": "#WRM1006",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1
+          },
+          "h": 13,
+          "rev": 29.9
+        },
+        {
+          "id": "#WRM1005",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1
+          },
+          "h": 8,
+          "rev": 29.9
+        },
+        {
+          "id": "#WRM1004",
+          "items": {
+            "WRMR-White_LampForBottle": 3
+          },
+          "h": 5,
+          "rev": 59.9
+        },
+        {
+          "id": "#WRM1003",
+          "items": {
+            "WRMR-Black_LampForBottle": 2
+          },
+          "h": 5,
+          "rev": 49.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-12",
+      "label": "01/12",
+      "orders": 3,
+      "revenue": 179.7,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1010",
+          "items": {
+            "WRMR-Gold_LampForBottle": 1,
+            "WRMR-White_LampForBottle": 1,
+            "WRMR-Argent_LampForBottle": 1
+          },
+          "h": 7,
+          "rev": 59.9
+        },
+        {
+          "id": "#WRM1009",
+          "items": {
+            "WRMR-Black_LampForBottle": 1,
+            "WRMR-Argent_LampForBottle": 1,
+            "WRMR-Gold_LampForBottle": 1
+          },
+          "h": 4,
+          "rev": 59.9
+        },
+        {
+          "id": "#WRM1008",
+          "items": {
+            "WRMR-Black_LampForBottle": 3
+          },
+          "h": 4,
+          "rev": 59.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-13",
+      "label": "01/13",
+      "orders": 2,
+      "revenue": 109.8,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1012",
+          "items": {
+            "WRMR-White_LampForBottle": 2
+          },
+          "h": 15,
+          "rev": 49.9
+        },
+        {
+          "id": "#WRM1011",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1,
+            "WRMR-Argent_LampForBottle": 1,
+            "WRMR-Black_LampForBottle": 1
+          },
+          "h": 7,
+          "rev": 59.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-14",
+      "label": "01/14",
+      "orders": 3,
+      "revenue": 129.7,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1015",
+          "items": {
+            "WRMR-Black_LampForBottle": 2
+          },
+          "h": 11,
+          "rev": 49.9
+        },
+        {
+          "id": "#WRM1014",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1
+          },
+          "h": 6,
+          "rev": 29.9
+        },
+        {
+          "id": "#WRM1013",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1,
+            "WRMR-Gold_LampForBottle": 1
+          },
+          "h": 3,
+          "rev": 49.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-15",
+      "label": "01/15",
+      "orders": 1,
+      "revenue": 29.9,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1016",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1
+          },
+          "h": 12,
+          "rev": 29.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-18",
+      "label": "01/18",
+      "orders": 2,
+      "revenue": 89.8,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1018",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1
+          },
+          "h": 13,
+          "rev": 29.9
+        },
+        {
+          "id": "#WRM1017",
+          "items": {
+            "WRMR-White_LampForBottle": 1,
+            "WRMR-Copper_LampForBottle": 1,
+            "WRMR-Gold_LampForBottle": 1
+          },
+          "h": 5,
+          "rev": 59.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "label": "01/19",
+      "orders": 4,
+      "revenue": 209.6,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1022",
+          "items": {
+            "WRMR-Argent_LampForBottle": 1
+          },
+          "h": 16,
+          "rev": 29.9
+        },
+        {
+          "id": "#WRM1021",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1,
+            "WRMR-Gold_LampForBottle": 1,
+            "WRMR-Argent_LampForBottle": 1
+          },
+          "h": 11,
+          "rev": 59.9
+        },
+        {
+          "id": "#WRM1020",
+          "items": {
+            "WRMR-Gold_LampForBottle": 1,
+            "WRMR-Copper_LampForBottle": 1,
+            "WRMR-Argent_LampForBottle": 1
+          },
+          "h": 10,
+          "rev": 59.9
+        },
+        {
+          "id": "#WRM1019",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1,
+            "WRMR-Black_LampForBottle": 1,
+            "WRMR-Argent_LampForBottle": 1
+          },
+          "h": 3,
+          "rev": 59.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "label": "01/20",
+      "orders": 2,
+      "revenue": 79.8,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1024",
+          "items": {
+            "WRMR-Gold_LampForBottle": 2
+          },
+          "h": 8,
+          "rev": 49.9
+        },
+        {
+          "id": "#WRM1023",
+          "items": {
+            "WRMR-Gold_LampForBottle": 1
+          },
+          "h": 1,
+          "rev": 29.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-21",
+      "label": "01/21",
+      "orders": 3,
+      "revenue": 109.7,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1027",
+          "items": {
+            "WRMR-Gold_LampForBottle": 1
+          },
+          "h": 7,
+          "rev": 29.9
+        },
+        {
+          "id": "#WRM1026",
+          "items": {
+            "WRMR-Black_LampForBottle": 1
+          },
+          "h": 7,
+          "rev": 29.9
+        },
+        {
+          "id": "#WRM1025",
+          "items": {
+            "WRMR-Copper_LampForBottle": 1,
+            "WRMR-Gold_LampForBottle": 1
+          },
+          "h": 7,
+          "rev": 49.9
+        }
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "label": "01/22",
+      "orders": 1,
+      "revenue": 49.9,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#WRM1028",
+          "items": {
+            "WRMR-Gold_LampForBottle": 1,
+            "WRMR-Copper_LampForBottle": 1
+          },
+          "h": 3,
+          "rev": 49.9
+        }
+      ]
+    },
     {
       "date": "2026-03-28",
       "label": "03/28",
@@ -2771,7 +3104,7 @@
       "label": "05/07",
       "orders": 9,
       "revenue": 622.96,
-      "spend": 375.74,
+      "spend": 376.71,
       "cmds": [
         {
           "id": "#VVD1286",
@@ -2868,7 +3201,7 @@
       "label": "05/08",
       "orders": 0,
       "revenue": 0,
-      "spend": 53.82,
+      "spend": 107.79,
       "cmds": []
     }
   ],
