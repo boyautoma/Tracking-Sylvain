@@ -100,7 +100,7 @@ async function fetchMetaSpend() {
   const sinceStr = dateStr(since);
   const untilStr = dateStr(new Date());
 
-  const url = `https://graph.facebook.com/v21.0/${META_AD_ACCOUNT_ID}/insights?fields=spend,date_start&time_increment=1&time_range={"since":"${sinceStr}","until":"${untilStr}"}&limit=100&access_token=${META_ACCESS_TOKEN}`;
+  const url = `https://graph.facebook.com/v21.0/${META_AD_ACCOUNT_ID}/insights?fields=spend,date_start&time_increment=1&time_range={"since":"${sinceStr}","until":"${untilStr}"}&limit=400&access_token=${META_ACCESS_TOKEN}`;
 
   console.log('Fetching Meta spend...');
   const res = await httpGet(url);
