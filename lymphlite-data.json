@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-08T19:58:20.400Z",
+  "lastUpdated": "2026-05-09T08:13:33.237Z",
   "daily": [
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 11,
-      "revenue": 461.06,
+      "orders": 19,
+      "revenue": 735.72,
       "spend": 507.2,
       "cmds": [
         {
@@ -106,6 +106,78 @@
           "country": "US",
           "h": 15,
           "rev": 24.8
+        },
+        {
+          "id": "#1270",
+          "items": {
+            "Lymphatic Support Drops": 2
+          },
+          "country": "US",
+          "h": 14,
+          "rev": 39.8
+        },
+        {
+          "id": "#1269",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 40.44
+        },
+        {
+          "id": "#1268",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 11,
+          "rev": 39.8
+        },
+        {
+          "id": "#1267",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 40.42
+        },
+        {
+          "id": "#1266",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1265",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1264",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1263",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 8,
+          "rev": 39.8
         }
       ]
     },
@@ -26523,7 +26595,7 @@
       "label": "05/07",
       "orders": 44,
       "revenue": 1271.53,
-      "spend": 494.54,
+      "spend": 494.75,
       "cmds": [
         {
           "id": "#4078",
@@ -26926,10 +26998,136 @@
     {
       "date": "2026-05-08",
       "label": "05/08",
-      "orders": 34,
-      "revenue": 837.2,
-      "spend": 311.21,
+      "orders": 48,
+      "revenue": 1188.17,
+      "spend": 483.92,
       "cmds": [
+        {
+          "id": "#4126",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "CA",
+          "h": 23,
+          "rev": 29.1
+        },
+        {
+          "id": "#4125",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 23,
+          "rev": 20.8
+        },
+        {
+          "id": "#4124",
+          "items": {
+            "LL-DRP-60-FACE": 1
+          },
+          "country": "CA",
+          "h": 23,
+          "rev": 25.6
+        },
+        {
+          "id": "#4123",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 23,
+          "rev": 20.8
+        },
+        {
+          "id": "#4122",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "US",
+          "h": 22,
+          "rev": 34.7
+        },
+        {
+          "id": "#4121",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "CA",
+          "h": 19,
+          "rev": 43.65
+        },
+        {
+          "id": "#4120",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 19,
+          "rev": 20.8
+        },
+        {
+          "id": "#4119",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "NZ",
+          "h": 18,
+          "rev": 21.42
+        },
+        {
+          "id": "#4118",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "AU",
+          "h": 18,
+          "rev": 36.08
+        },
+        {
+          "id": "#4117",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 18.81
+        },
+        {
+          "id": "#4116",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 18.81
+        },
+        {
+          "id": "#4115",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 18.8
+        },
+        {
+          "id": "#4114",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 16,
+          "rev": 20.8
+        },
+        {
+          "id": "#4113",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 16,
+          "rev": 20.8
+        },
         {
           "id": "#4112",
           "items": {
@@ -27237,6 +27435,106 @@
           "rev": 18.71
         }
       ]
+    },
+    {
+      "date": "2026-05-09",
+      "label": "05/09",
+      "orders": 10,
+      "revenue": 342.99,
+      "spend": 75.09,
+      "cmds": [
+        {
+          "id": "#4136",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 3,
+          "rev": 18.81
+        },
+        {
+          "id": "#4135",
+          "items": {
+            "LL-TOOL-GUASHA": 1,
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 3,
+          "rev": 35.17
+        },
+        {
+          "id": "#4134",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "AU",
+          "h": 3,
+          "rev": 25.21
+        },
+        {
+          "id": "#4133",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "GB",
+          "h": 3,
+          "rev": 59.44
+        },
+        {
+          "id": "#4132",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "AU",
+          "h": 3,
+          "rev": 25.21
+        },
+        {
+          "id": "#4131",
+          "items": {
+            "LL-TOOL-BRUSH": 2
+          },
+          "country": "US",
+          "h": 2,
+          "rev": 41.87
+        },
+        {
+          "id": "#4130",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "US",
+          "h": 2,
+          "rev": 61.59
+        },
+        {
+          "id": "#4129",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 2,
+          "rev": 18.81
+        },
+        {
+          "id": "#4128",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 24,
+          "rev": 20.8
+        },
+        {
+          "id": "#4127",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "AU",
+          "h": 24,
+          "rev": 36.08
+        }
+      ]
     }
   ],
   "skusSeen": [
@@ -27248,10 +27546,13 @@
     "Anti-Bloating Protocol E-book",
     "Anti-Cellulite Body Oil",
     "Gua Sha Massage",
+    "LL-DRP-60-FACE",
     "LL-DRP-60-HNY-V1",
     "LL-DRP-60-HNY-V2",
     "LL-OIL-CEL",
     "LL-OIL-LEG",
+    "LL-TOOL-BRUSH",
+    "LL-TOOL-GUASHA",
     "Leg Comfort Oil",
     "Lighter legs. Less puffiness. One drop every morning.",
     "Lymphatic Face Brush",
