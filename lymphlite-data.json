@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-13T09:21:09.305Z",
+  "lastUpdated": "2026-05-13T15:07:23.665Z",
   "daily": [
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 19,
-      "revenue": 735.72,
+      "orders": 18,
+      "revenue": 695.92,
       "spend": 507.2,
       "cmds": [
         {
@@ -169,15 +169,6 @@
           "country": "US",
           "h": 10,
           "rev": 24.8
-        },
-        {
-          "id": "#1263",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "US",
-          "h": 8,
-          "rev": 39.8
         }
       ]
     },
@@ -28587,7 +28578,7 @@
       "label": "05/12",
       "orders": 47,
       "revenue": 1111.1,
-      "spend": 476.25,
+      "spend": 477.67,
       "cmds": [
         {
           "id": "#4297",
@@ -29019,10 +29010,74 @@
     {
       "date": "2026-05-13",
       "label": "05/13",
-      "orders": 11,
-      "revenue": 301.57,
-      "spend": 96.21,
+      "orders": 18,
+      "revenue": 491.44,
+      "spend": 195.38,
       "cmds": [
+        {
+          "id": "#4315",
+          "items": {
+            "LL-TOOL-GUASHA": 1,
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "IE",
+          "h": 10,
+          "rev": 45.51
+        },
+        {
+          "id": "#4314",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "NZ",
+          "h": 8,
+          "rev": 21.29
+        },
+        {
+          "id": "#4313",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "IE",
+          "h": 7,
+          "rev": 23.31
+        },
+        {
+          "id": "#4312",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.65
+        },
+        {
+          "id": "#4311",
+          "items": {
+            "LL-DRP-60-HNY-V2": 2
+          },
+          "country": "CA",
+          "h": 6,
+          "rev": 29.06
+        },
+        {
+          "id": "#4310",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.65
+        },
+        {
+          "id": "#4309",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 33.4
+        },
         {
           "id": "#4308",
           "items": {
