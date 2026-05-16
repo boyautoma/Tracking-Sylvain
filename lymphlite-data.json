@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-16T17:32:21.947Z",
+  "lastUpdated": "2026-05-16T19:46:38.712Z",
   "daily": [
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 13,
-      "revenue": 541.3,
+      "orders": 11,
+      "revenue": 461.06,
       "spend": 507.2,
       "cmds": [
         {
@@ -106,24 +106,6 @@
           "country": "US",
           "h": 15,
           "rev": 24.8
-        },
-        {
-          "id": "#1270",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "US",
-          "h": 14,
-          "rev": 39.8
-        },
-        {
-          "id": "#1269",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "GB",
-          "h": 12,
-          "rev": 40.44
         }
       ]
     },
@@ -29653,7 +29635,7 @@
       "label": "05/15",
       "orders": 44,
       "revenue": 986.96,
-      "spend": 459.5,
+      "spend": 459.59,
       "cmds": [
         {
           "id": "#4415",
@@ -30056,10 +30038,46 @@
     {
       "date": "2026-05-16",
       "label": "05/16",
-      "orders": 37,
-      "revenue": 885.93,
-      "spend": 264.84,
+      "orders": 41,
+      "revenue": 980.55,
+      "spend": 321.59,
       "cmds": [
+        {
+          "id": "#4456",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "IE",
+          "h": 15,
+          "rev": 23.14
+        },
+        {
+          "id": "#4455",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "US",
+          "h": 14,
+          "rev": 34.7
+        },
+        {
+          "id": "#4454",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 18.39
+        },
+        {
+          "id": "#4453",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 18.39
+        },
         {
           "id": "#4452",
           "items": {
