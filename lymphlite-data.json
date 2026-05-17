@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-05-17T14:42:25.294Z",
+  "lastUpdated": "2026-05-17T19:48:42.430Z",
   "daily": [
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 18,
-      "revenue": 695.92,
+      "orders": 11,
+      "revenue": 461.06,
       "spend": 507.2,
       "cmds": [
         {
@@ -105,69 +105,6 @@
           },
           "country": "US",
           "h": 15,
-          "rev": 24.8
-        },
-        {
-          "id": "#1270",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "US",
-          "h": 14,
-          "rev": 39.8
-        },
-        {
-          "id": "#1269",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "GB",
-          "h": 12,
-          "rev": 40.44
-        },
-        {
-          "id": "#1268",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "US",
-          "h": 11,
-          "rev": 39.8
-        },
-        {
-          "id": "#1267",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "GB",
-          "h": 11,
-          "rev": 40.42
-        },
-        {
-          "id": "#1266",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 10,
-          "rev": 24.8
-        },
-        {
-          "id": "#1265",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 10,
-          "rev": 24.8
-        },
-        {
-          "id": "#1264",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 10,
           "rev": 24.8
         }
       ]
@@ -30103,7 +30040,7 @@
       "label": "05/16",
       "orders": 53,
       "revenue": 1240.01,
-      "spend": 602.59,
+      "spend": 602.91,
       "cmds": [
         {
           "id": "#4468",
@@ -30588,10 +30525,19 @@
     {
       "date": "2026-05-17",
       "label": "05/17",
-      "orders": 25,
-      "revenue": 599.57,
-      "spend": 271.6,
+      "orders": 26,
+      "revenue": 635.86,
+      "spend": 453.77,
       "cmds": [
+        {
+          "id": "#4494",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "CA",
+          "h": 12,
+          "rev": 36.29
+        },
         {
           "id": "#4493",
           "items": {
