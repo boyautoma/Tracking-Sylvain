@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-20T08:09:25.184Z",
+  "lastUpdated": "2026-05-20T08:30:15.622Z",
   "daily": [
     {
       "date": "2025-12-30",
@@ -31414,7 +31414,7 @@
       "label": "05/19",
       "orders": 40,
       "revenue": 881.54,
-      "spend": 516.27,
+      "spend": 516.34,
       "cmds": [
         {
           "id": "#4596",
@@ -31782,10 +31782,20 @@
     {
       "date": "2026-05-20",
       "label": "05/20",
-      "orders": 19,
-      "revenue": 402.11,
-      "spend": 147.56,
+      "orders": 20,
+      "revenue": 436.64,
+      "spend": 158.92,
       "cmds": [
+        {
+          "id": "#4616",
+          "items": {
+            "LL-TOOL-GUASHA": 1,
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 34.53
+        },
         {
           "id": "#4615",
           "items": {

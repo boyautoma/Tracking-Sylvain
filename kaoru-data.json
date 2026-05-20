@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-20T08:09:17.198Z",
+  "lastUpdated": "2026-05-20T08:30:07.764Z",
   "daily": [
     {
       "date": "2026-05-19",
@@ -16,7 +16,9 @@
           },
           "country": "US",
           "h": 23,
-          "rev": 82.99
+          "rev": 82.99,
+          "sub": true,
+          "subFirst": true
         },
         {
           "id": "#POWDY1059",
@@ -26,7 +28,9 @@
           },
           "country": "AU",
           "h": 20,
-          "rev": 51.45
+          "rev": 51.45,
+          "sub": true,
+          "subFirst": true
         }
       ]
     },
@@ -35,7 +39,7 @@
       "label": "05/20",
       "orders": 0,
       "revenue": 0,
-      "spend": 20.3,
+      "spend": 20.9,
       "cmds": []
     }
   ],
