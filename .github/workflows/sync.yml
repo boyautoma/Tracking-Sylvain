@@ -9,8 +9,6 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,13 +18,13 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Sync VividCraft (Shopify + Meta)
-        run: node scripts/sync.cjs
+      - name: Sync Kaoru (Shopify + Meta)
+        run: node scripts/sync-kaoru.cjs
         env:
-          SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
-          SHOPIFY_DOMAIN: ${{ secrets.SHOPIFY_DOMAIN }}
-          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-          META_AD_ACCOUNT_ID: ${{ secrets.META_AD_ACCOUNT_ID }}
+          KAORU_SHOPIFY_TOKEN: ${{ secrets.KAORU_SHOPIFY_TOKEN }}
+          KAORU_SHOPIFY_DOMAIN: ${{ secrets.KAORU_SHOPIFY_DOMAIN }}
+          KAORU_META_ACCESS_TOKEN: ${{ secrets.KAORU_META_ACCESS_TOKEN }}
+          KAORU_META_AD_ACCOUNT_ID: ${{ secrets.KAORU_META_AD_ACCOUNT_ID }}
 
       - name: Sync Lymphlite (Shopify + Meta)
         run: node scripts/sync-lymphlite.cjs
@@ -40,4 +38,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'auto-sync dashboard data'
-          file_pattern: 'data.json lymphlite-data.json'
+          file_pattern: 'kaoru-data.json lymphlite-data.json'
