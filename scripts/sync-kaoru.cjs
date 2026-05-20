@@ -68,7 +68,12 @@ async function fetchShopifyOrders() {
     });
     const country = (o.shipping_address && o.shipping_address.country_code) || 'US';
     const h = parseInt(new Date(o.created_at).toLocaleString('en-US',{timeZone:'America/New_York',hour:'numeric',hour12:false}))||0;
-    byDate[date].cmds.push({ id: o.name || o.order_number, items, country, h, rev: parseFloat(o.total_price)||0 });
+    const tags = (o.tags || '').toLowerCase();
+    const isSub = tags.includes('subscription');
+    const isFirstSub = tags.includes('subscription first order');
+    const cmd = { id: o.name || o.order_number, items, country, h, rev: parseFloat(o.total_price)||0 };
+    if (isSub) { cmd.sub = true; if (isFirstSub) cmd.subFirst = true; }
+    byDate[date].cmds.push(cmd);
   });
 
   return byDate;
