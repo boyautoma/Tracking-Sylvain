@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-20T09:55:10.014Z",
+  "lastUpdated": "2026-05-20T10:18:48.747Z",
   "daily": [
     {
       "date": "2025-12-30",
@@ -31414,7 +31414,7 @@
       "label": "05/19",
       "orders": 40,
       "revenue": 881.54,
-      "spend": 517.05,
+      "spend": 517.13,
       "cmds": [
         {
           "id": "#4596",
@@ -31782,10 +31782,28 @@
     {
       "date": "2026-05-20",
       "label": "05/20",
-      "orders": 21,
-      "revenue": 465.54,
-      "spend": 189.94,
+      "orders": 23,
+      "revenue": 502.48,
+      "spend": 196.61,
       "cmds": [
+        {
+          "id": "#4619",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.47
+        },
+        {
+          "id": "#4618",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.47
+        },
         {
           "id": "#4617",
           "items": {
