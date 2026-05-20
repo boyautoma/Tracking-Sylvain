@@ -302,43 +302,17 @@ const GH_RAW="https://raw.githubusercontent.com/"+GH_REPO+"/"+GH_BRANCH+"/";
 
 // ─── SHOP CONFIGURATION ───
 const SHOPS = {
-  vividcraft: {
-    name: 'VividCraft',
+  kaoru: {
+    name: 'Kaoru',
     color: '#f97316',
     colorLight: '#fff7ed',
     colorBorder: '#fdba74',
-    icon: 'V',
-    dataFile: 'data.json',
-    cogsFile: 'cogs.json',
-    invoicesFile: 'invoices.json',
-    defaultSkus: [
-      {sku:"VIVIDCRAFT_ACRYLICMARKER_24COLORS",name:"Acrylic Markers 24 Colors"},
-      {sku:"VIVIDCRAFT_ACRYLICMARKER_72COLORS",name:"Acrylic Markers 72 Colors"},
-      {sku:"VIVIDCRAFT_ACRYLICMARKER_168COLORS",name:"Acrylic Markers 168 Colors"},
-      {sku:"VC_GLITTERMARKER_24",name:"Glitter Markers 24 Colors"},
-      {sku:"VC_GLITTERMARKER_48",name:"Glitter Markers 48 Colors"},
-      {sku:"VC_GLITTERMARKER_96",name:"Glitter Markers 96 Colors"},
-      {sku:"VC_EBOOK",name:"Coloring eBook (digital)"},
-      {sku:"VC_MIXGUIDE",name:"Digital Color Mixing Guide"},
-      {sku:"VC_FREESHIP",name:"Free Shipping"},
-      {sku:"VC_COLORBOOK_JAPAN",name:"Cozy Japan Coloring Book"},
-      {sku:"VC_COLORBOOK_CORNERS",name:"Little Corners Coloring Book"},
-      {sku:"VC_ARTBOOK_STEPBYSTEP",name:"Step-by-Step Art Book"}
-    ],
-    skuNames: {
-      "VIVIDCRAFT_ACRYLICMARKER_24COLORS":"Acrylic Markers 24 Colors",
-      "VIVIDCRAFT_ACRYLICMARKER_72COLORS":"Acrylic Markers 72 Colors",
-      "VIVIDCRAFT_ACRYLICMARKER_168COLORS":"Acrylic Markers 168 Colors",
-      "VC_GLITTERMARKER_24":"Glitter Markers 24 Colors",
-      "VC_GLITTERMARKER_48":"Glitter Markers 48 Colors",
-      "VC_GLITTERMARKER_96":"Glitter Markers 96 Colors",
-      "VC_EBOOK":"Coloring eBook (digital)",
-      "VC_MIXGUIDE":"Digital Color Mixing Guide",
-      "VC_FREESHIP":"Free Shipping",
-      "VC_COLORBOOK_JAPAN":"Cozy Japan Coloring Book",
-      "VC_COLORBOOK_CORNERS":"Little Corners Coloring Book",
-      "VC_ARTBOOK_STEPBYSTEP":"Step-by-Step Art Book"
-    }
+    icon: 'K',
+    dataFile: 'kaoru-data.json',
+    cogsFile: 'kaoru-cogs.json',
+    invoicesFile: 'kaoru-invoices.json',
+    defaultSkus: [],
+    skuNames: {}
   },
   lymphlite: {
     name: 'Lymphlite',
@@ -357,7 +331,7 @@ const SHOPS = {
   }
 };
 
-let currentShop = 'vividcraft';
+let currentShop = 'kaoru';
 let currentUser = null;
 let usersData = null;
 let usersSha = null;
