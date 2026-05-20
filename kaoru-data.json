@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-20T14:58:12.840Z",
+  "lastUpdated": "2026-05-20T15:38:25.633Z",
   "daily": [
     {
       "date": "2026-05-19",
       "label": "05/19",
       "orders": 2,
       "revenue": 134.44,
-      "spend": 59.1,
+      "spend": 59.13,
       "cmds": [
         {
           "id": "#POWDY1060",
@@ -39,7 +39,7 @@
       "label": "05/20",
       "orders": 1,
       "revenue": 38.83,
-      "spend": 42.81,
+      "spend": 43.42,
       "cmds": [
         {
           "id": "#K1061",
