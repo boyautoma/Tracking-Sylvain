@@ -819,11 +819,21 @@ function renderKPIs(el,data){
       '<div class="mc-value">$0.00</div>'+
       '<div class="mc-sub">0.0% of revenue</div>'+
     '</div>'+
-    '<div class="metric-card">'+
-      '<div class="mc-label"><span class="mc-emoji">👤</span> CUSTOMER LTV</div>'+
-      '<div class="mc-value">$0</div>'+
-      '<div class="mc-sub">No data yet</div>'+
-    '</div>'+
+    (function(){
+      // MRR: count unique active subscribers (subFirst) × their avg order value
+      const allCmds=data.flatMap(d=>d.cmds||[]);
+      const subCmds=allCmds.filter(c=>c.sub);
+      const subFirstCmds=allCmds.filter(c=>c.subFirst);
+      const activeSubs=subFirstCmds.length;
+      const avgSubRev=subCmds.length>0?subCmds.reduce((a,c)=>a+(c.rev||0),0)/subCmds.length:0;
+      const mrr=activeSubs*avgSubRev;
+      const mrrColor=mrr>0?'var(--green-dark)':'var(--text-muted)';
+      return '<div class="metric-card tinted" style="background:linear-gradient(135deg,#eff6ff,#fff)">'+
+        '<div class="mc-label"><span class="mc-emoji">🔄</span> MRR</div>'+
+        '<div class="mc-value" style="color:'+mrrColor+'">'+fmtShort(mrr)+'</div>'+
+        '<div class="mc-sub">'+activeSubs+' abo'+(activeSubs>1?'s':'')+' actif'+(activeSubs>1?'s':'')+(avgSubRev>0?' · moy '+fmt(avgSubRev):'')+'</div>'+
+      '</div>';
+    })()+
   '</div>';
 
   // Interactive ROAS chart tooltips
