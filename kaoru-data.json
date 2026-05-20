@@ -1,0 +1,46 @@
+{
+  "lastUpdated": "2026-05-20T08:08:19.692Z",
+  "daily": [
+    {
+      "date": "2026-05-19",
+      "label": "05/19",
+      "orders": 2,
+      "revenue": 134.44,
+      "spend": 58.58,
+      "cmds": [
+        {
+          "id": "#POWDY1060",
+          "items": {
+            "KAORU-SOAP-100": 12,
+            "KAORU-DISH-BAMBOO": 1
+          },
+          "country": "US",
+          "h": 23,
+          "rev": 82.99
+        },
+        {
+          "id": "#POWDY1059",
+          "items": {
+            "KAORU-SOAP-100": 6,
+            "KAORU-DISH-BAMBOO": 1
+          },
+          "country": "AU",
+          "h": 20,
+          "rev": 51.45
+        }
+      ]
+    },
+    {
+      "date": "2026-05-20",
+      "label": "05/20",
+      "orders": 0,
+      "revenue": 0,
+      "spend": 20.08,
+      "cmds": []
+    }
+  ],
+  "skusSeen": [
+    "KAORU-DISH-BAMBOO",
+    "KAORU-SOAP-100"
+  ]
+}
