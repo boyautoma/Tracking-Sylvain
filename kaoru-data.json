@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-21T07:43:12.144Z",
+  "lastUpdated": "2026-05-21T10:05:13.059Z",
   "daily": [
     {
       "date": "2026-05-19",
@@ -39,7 +39,7 @@
       "label": "05/20",
       "orders": 1,
       "revenue": 38.83,
-      "spend": 62.68,
+      "spend": 63.06,
       "cmds": [
         {
           "id": "#K1061",
@@ -55,10 +55,20 @@
     {
       "date": "2026-05-21",
       "label": "05/21",
-      "orders": 0,
-      "revenue": 0,
-      "spend": 4.89,
-      "cmds": []
+      "orders": 1,
+      "revenue": 38.2,
+      "spend": 9.83,
+      "cmds": [
+        {
+          "id": "#K1062",
+          "items": {
+            "KAORU-SOAP-100": 2
+          },
+          "country": "AU",
+          "h": 6,
+          "rev": 38.2
+        }
+      ]
     }
   ],
   "skusSeen": [
