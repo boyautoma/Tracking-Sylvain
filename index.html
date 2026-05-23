@@ -339,7 +339,7 @@ const SHOPS = {
     defaultSkus: [],
     skuNames: {},
     cogsMode: 'country-qty',
-    countries: ['US','GB','CA','AU1','AU2','AU3','IE','NZ','FR','DK','NL'],
+    countries: ['US','GB','CA','AU','IE','NZ','FR','DK','NL','ES','NO','MX','HK','CH','ZA','DE','FI','PT'],
     maxQty: 6
   }
 };
@@ -643,21 +643,52 @@ function calcOrderCOGS(cmd){
   if(invoicePrices&&invoicePrices._orderTotal!==undefined){
     return Number(invoicePrices._orderTotal)||0;
   }
+  const shop=SHOPS[currentShop];
+  const isCountryQty=shop&&shop.cogsMode==='country-qty';
+  // Country-qty mode: supplier charges by TOTAL items in shipment, not per-SKU
+  if(isCountryQty&&!invoicePrices){
+    const totalQty=Object.values(items).reduce((a,q)=>a+(Number(q)||0),0);
+    if(totalQty===0) return 0;
+    // Find the primary SKU (highest qty) to use its cost table
+    let primarySku=null, primaryQty=0;
+    for(const[sku,qty]of Object.entries(items)){
+      const q=Number(qty)||0;
+      if(q>primaryQty||(q===primaryQty&&skuCosts[sku]&&skuCosts[sku][country])){primarySku=sku;primaryQty=q;}
+    }
+    // Fallback: try any SKU that has costs for this country
+    if(!primarySku||!skuCosts[primarySku]||!skuCosts[primarySku][country]){
+      for(const sku of Object.keys(items)){
+        if(skuCosts[sku]&&skuCosts[sku][country]){primarySku=sku;break;}
+      }
+    }
+    if(!primarySku) return 0;
+    const costs=skuCosts[primarySku]||{};
+    if(country&&costs[country]){
+      const maxKey=Object.keys(costs[country]).filter(k=>k!=='_estimated').map(Number).sort((a,b)=>b-a)[0]||1;
+      const qtyKey=String(Math.min(totalQty,maxKey));
+      const totalCost=Number(costs[country][qtyKey])||Number(costs[country]['1'])||0;
+      if(totalQty>maxKey&&maxKey>0){
+        const maxTotal=Number(costs[country][String(maxKey)])||0;
+        const perUnit=maxTotal/maxKey;
+        return maxTotal+perUnit*(totalQty-maxKey);
+      }
+      return totalCost;
+    }
+    return 0;
+  }
+  // Per-SKU mode (Kaoru) or invoice-based
   let prodTotal=0,maxShip=0;
   for(const[sku,qty]of Object.entries(items)){
     const q=Number(qty)||0;
     if(invoicePrices){
-      // VividCraft: per-SKU unit price from invoice
       const cost=Number(invoicePrices[sku])||0;
       prodTotal+=cost*q;
     } else {
       const costs=skuCosts[sku]||{};
-      // Country-qty mode: costs = { "US": { "1": 6.07, "2": 9.50 }, ... } (total cost for qty)
       if(country&&costs[country]){
         const maxKey=Object.keys(costs[country]).filter(k=>k!=='_estimated').map(Number).sort((a,b)=>b-a)[0]||1;
         const qtyKey=String(Math.min(q,maxKey));
         const totalCost=Number(costs[country][qtyKey])||Number(costs[country]['1'])||0;
-        // If qty exceeds max key, extrapolate: use max total + per-unit cost of max for extra units
         if(q>maxKey&&maxKey>0){
           const maxTotal=Number(costs[country][String(maxKey)])||0;
           const perUnit=maxTotal/maxKey;
@@ -666,7 +697,6 @@ function calcOrderCOGS(cmd){
           prodTotal+=totalCost;
         }
       } else if(costs.product!==undefined){
-        // Simple mode: { product: X, shipping: Y }
         prodTotal+=q*(Number(costs.product)||0);
         const ship=Number(costs.shipping)||0;
         if(ship>maxShip) maxShip=ship;
