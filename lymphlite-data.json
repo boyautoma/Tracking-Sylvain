@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-23T08:32:41.513Z",
+  "lastUpdated": "2026-05-23T10:53:21.125Z",
   "daily": [
     {
       "date": "2025-12-30",
@@ -33088,7 +33088,7 @@
       "label": "05/22",
       "orders": 98,
       "revenue": 2268.29,
-      "spend": 788.86,
+      "spend": 789.25,
       "cmds": [
         {
           "id": "#4836",
@@ -33983,10 +33983,137 @@
     {
       "date": "2026-05-23",
       "label": "05/23",
-      "orders": 17,
-      "revenue": 352.19,
-      "spend": 187.36,
+      "orders": 31,
+      "revenue": 671.87,
+      "spend": 267.81,
       "cmds": [
+        {
+          "id": "#4867",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.54
+        },
+        {
+          "id": "#4866",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.54
+        },
+        {
+          "id": "#4865",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.54
+        },
+        {
+          "id": "#4864",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 31.71
+        },
+        {
+          "id": "#4863",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 18.53
+        },
+        {
+          "id": "#4862",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 17.8
+        },
+        {
+          "id": "#4861",
+          "items": {
+            "LL-TOOL-GUASHA": 1,
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 34.65
+        },
+        {
+          "id": "#4860",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 18.53
+        },
+        {
+          "id": "#4859",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "AU",
+          "h": 5,
+          "rev": 35.5
+        },
+        {
+          "id": "#4858",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 18.54
+        },
+        {
+          "id": "#4857",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 33.18
+        },
+        {
+          "id": "#4856",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 18.54
+        },
+        {
+          "id": "#4855",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 18.54
+        },
+        {
+          "id": "#4854",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 18.54
+        },
         {
           "id": "#4853",
           "items": {
