@@ -301,32 +301,8 @@ const GH_BRANCH="gh-pages";
 const GH_RAW="https://raw.githubusercontent.com/"+GH_REPO+"/"+GH_BRANCH+"/";
 
 // ─── SHOP CONFIGURATION ───
+// NOTE: Kaoru archivé (données conservées sur GitHub: kaoru-data.json / kaoru-cogs.json)
 const SHOPS = {
-  kaoru: {
-    name: 'Kaoru',
-    color: '#f97316',
-    colorLight: '#fff7ed',
-    colorBorder: '#fdba74',
-    icon: 'K',
-    dataFile: 'kaoru-data.json',
-    cogsFile: 'kaoru-cogs.json',
-    invoicesFile: 'kaoru-invoices.json',
-    defaultSkus: [
-      {sku:"KAORU-SOAP-100",name:"Persimmon Soap Bar"},
-      {sku:"KAORU-DISH-BAMBOO",name:"Bamboo Soap Dish"},
-      {sku:"KAORU-WASH-250",name:"Persimmon Body Wash"},
-      {sku:"KAORU-DEO-60",name:"Persimmon Deodorant"}
-    ],
-    skuNames: {
-      "KAORU-SOAP-100":"Persimmon Soap Bar",
-      "KAORU-DISH-BAMBOO":"Bamboo Soap Dish",
-      "KAORU-WASH-250":"Persimmon Body Wash",
-      "KAORU-DEO-60":"Persimmon Deodorant"
-    },
-    cogsMode: 'country-qty',
-    countries: ['US','CA','AU'],
-    maxQty: 12
-  },
   lymphlite: {
     name: 'Lymphlite',
     color: '#2f6b4a',
@@ -344,7 +320,7 @@ const SHOPS = {
   }
 };
 
-let currentShop = 'kaoru';
+let currentShop = 'lymphlite';
 let currentUser = null;
 let usersData = null;
 let usersSha = null;
