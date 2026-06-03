@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-06-02T21:37:17.168Z",
+  "lastUpdated": "2026-06-03T11:25:09.617Z",
   "daily": [
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 10,
-      "revenue": 436.26,
+      "orders": 19,
+      "revenue": 735.72,
       "spend": 507.2,
       "cmds": [
         {
@@ -97,6 +97,87 @@
           "country": "GB",
           "h": 17,
           "rev": 40.4
+        },
+        {
+          "id": "#1271",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 15,
+          "rev": 24.8
+        },
+        {
+          "id": "#1270",
+          "items": {
+            "Lymphatic Support Drops": 2
+          },
+          "country": "US",
+          "h": 14,
+          "rev": 39.8
+        },
+        {
+          "id": "#1269",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 40.44
+        },
+        {
+          "id": "#1268",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 11,
+          "rev": 39.8
+        },
+        {
+          "id": "#1267",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 40.42
+        },
+        {
+          "id": "#1266",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1265",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1264",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1263",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 8,
+          "rev": 39.8
         }
       ]
     },
@@ -40770,7 +40851,7 @@
       "label": "06/01",
       "orders": 99,
       "revenue": 2990.46,
-      "spend": 1222.88,
+      "spend": 1223.15,
       "cmds": [
         {
           "id": "#5684",
@@ -41681,10 +41762,73 @@
     {
       "date": "2026-06-02",
       "label": "06/02",
-      "orders": 79,
-      "revenue": 2127.56,
-      "spend": 837.89,
+      "orders": 86,
+      "revenue": 2294.75,
+      "spend": 1005.84,
       "cmds": [
+        {
+          "id": "#5770",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 23,
+          "rev": 22.62
+        },
+        {
+          "id": "#5769",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "CA",
+          "h": 22,
+          "rev": 21.53
+        },
+        {
+          "id": "#5768",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 22,
+          "rev": 21.8
+        },
+        {
+          "id": "#5767",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "NZ",
+          "h": 20,
+          "rev": 22.44
+        },
+        {
+          "id": "#5766",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 2
+          },
+          "country": "US",
+          "h": 20,
+          "rev": 33.72
+        },
+        {
+          "id": "#5765",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "NZ",
+          "h": 20,
+          "rev": 22.46
+        },
+        {
+          "id": "#5764",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 18,
+          "rev": 22.62
+        },
         {
           "id": "#5763",
           "items": {
@@ -42398,6 +42542,259 @@
           "country": "AU",
           "h": 24,
           "rev": 24.92
+        }
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "label": "06/03",
+      "orders": 27,
+      "revenue": 684.03,
+      "spend": 267.32,
+      "cmds": [
+        {
+          "id": "#5797",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "IE",
+          "h": 7,
+          "rev": 24.27
+        },
+        {
+          "id": "#5796",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 7,
+          "rev": 22.6
+        },
+        {
+          "id": "#5795",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "IE",
+          "h": 6,
+          "rev": 24.26
+        },
+        {
+          "id": "#5794",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 22.58
+        },
+        {
+          "id": "#5793",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 22.58
+        },
+        {
+          "id": "#5792",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 37.23
+        },
+        {
+          "id": "#5791",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 22.58
+        },
+        {
+          "id": "#5790",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 22.58
+        },
+        {
+          "id": "#5789",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 22.58
+        },
+        {
+          "id": "#5788",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 37.23
+        },
+        {
+          "id": "#5787",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 5,
+          "rev": 22.61
+        },
+        {
+          "id": "#5786",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 22.61
+        },
+        {
+          "id": "#5785",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 4,
+          "rev": 22.61
+        },
+        {
+          "id": "#5784",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "US",
+          "h": 3,
+          "rev": 21.8
+        },
+        {
+          "id": "#5783",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 3,
+          "rev": 22.59
+        },
+        {
+          "id": "#5782",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 2,
+          "rev": 22.6
+        },
+        {
+          "id": "#5781",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 2,
+          "rev": 22.6
+        },
+        {
+          "id": "#5780",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 2,
+          "rev": 22.6
+        },
+        {
+          "id": "#5779",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "NZ",
+          "h": 2,
+          "rev": 22.39
+        },
+        {
+          "id": "#5778",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "GB",
+          "h": 2,
+          "rev": 22.61
+        },
+        {
+          "id": "#5777",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1,
+            "LL-OIL-CEL": 1
+          },
+          "country": "GB",
+          "h": 1,
+          "rev": 38.1
+        },
+        {
+          "id": "#5776",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 1,
+          "rev": 37.28
+        },
+        {
+          "id": "#5775",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "NZ",
+          "h": 24,
+          "rev": 30.8
+        },
+        {
+          "id": "#5774",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 24,
+          "rev": 22.62
+        },
+        {
+          "id": "#5773",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 1
+          },
+          "country": "US",
+          "h": 24,
+          "rev": 21.8
+        },
+        {
+          "id": "#5772",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "AU",
+          "h": 24,
+          "rev": 24.96
+        },
+        {
+          "id": "#5771",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "AU",
+          "h": 24,
+          "rev": 24.96
         }
       ]
     }
