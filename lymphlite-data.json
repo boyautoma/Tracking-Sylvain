@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-06-23T10:07:05.714Z",
+  "lastUpdated": "2026-06-23T20:56:43.005Z",
   "daily": [
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 19,
-      "revenue": 735.72,
+      "orders": 10,
+      "revenue": 436.26,
       "spend": 507.2,
       "cmds": [
         {
@@ -97,87 +97,6 @@
           "country": "GB",
           "h": 17,
           "rev": 40.4
-        },
-        {
-          "id": "#1271",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 15,
-          "rev": 24.8
-        },
-        {
-          "id": "#1270",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "US",
-          "h": 14,
-          "rev": 39.8
-        },
-        {
-          "id": "#1269",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "GB",
-          "h": 12,
-          "rev": 40.44
-        },
-        {
-          "id": "#1268",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "US",
-          "h": 11,
-          "rev": 39.8
-        },
-        {
-          "id": "#1267",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "GB",
-          "h": 11,
-          "rev": 40.42
-        },
-        {
-          "id": "#1266",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 10,
-          "rev": 24.8
-        },
-        {
-          "id": "#1265",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 10,
-          "rev": 24.8
-        },
-        {
-          "id": "#1264",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 10,
-          "rev": 24.8
-        },
-        {
-          "id": "#1263",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "US",
-          "h": 8,
-          "rev": 39.8
         }
       ]
     },
@@ -49033,7 +48952,7 @@
       "label": "06/22",
       "orders": 15,
       "revenue": 439.64,
-      "spend": 193.06,
+      "spend": 194.79,
       "cmds": [
         {
           "id": "#6480",
@@ -49178,10 +49097,82 @@
     {
       "date": "2026-06-23",
       "label": "06/23",
-      "orders": 5,
-      "revenue": 156.29,
-      "spend": 43.73,
+      "orders": 13,
+      "revenue": 437.8,
+      "spend": 130.84,
       "cmds": [
+        {
+          "id": "#6493",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 50.93
+        },
+        {
+          "id": "#6492",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 36.52
+        },
+        {
+          "id": "#6491",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 22.16
+        },
+        {
+          "id": "#6490",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 22.16
+        },
+        {
+          "id": "#6489",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 10,
+          "rev": 22.21
+        },
+        {
+          "id": "#6488",
+          "items": {
+            "LL-DRP-60-HNY-CEL": 3
+          },
+          "country": "IE",
+          "h": 8,
+          "rev": 47.67
+        },
+        {
+          "id": "#6487",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "GB",
+          "h": 7,
+          "rev": 57.64
+        },
+        {
+          "id": "#6486",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 6,
+          "rev": 22.22
+        },
         {
           "id": "#6485",
           "items": {
