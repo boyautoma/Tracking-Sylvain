@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T20:28:40.340Z",
+  "lastUpdated": "2026-07-02T09:36:05.766Z",
   "daily": [
     {
       "date": "2026-05-19",
@@ -112,10 +112,38 @@
           "sub": true
         }
       ]
+    },
+    {
+      "date": "2026-07-01",
+      "label": "07/01",
+      "orders": 2,
+      "revenue": 239.94,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#K1065",
+          "items": {
+            "Korea's #1 Hair Growth Serum": 3
+          },
+          "country": "FR",
+          "h": 18,
+          "rev": 79.98
+        },
+        {
+          "id": "#K1064",
+          "items": {
+            "Korea's #1 Hair Growth Serum": 6
+          },
+          "country": "FR",
+          "h": 18,
+          "rev": 159.96
+        }
+      ]
     }
   ],
   "skusSeen": [
     "KAORU-DISH-BAMBOO",
-    "KAORU-SOAP-100"
+    "KAORU-SOAP-100",
+    "Korea's #1 Hair Growth Serum"
   ]
 }
