@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-05T19:55:57.752Z",
+  "lastUpdated": "2026-07-06T11:06:24.172Z",
   "daily": [
     {
       "date": "2026-05-19",
@@ -207,10 +207,28 @@
     {
       "date": "2026-07-05",
       "label": "07/05",
-      "orders": 3,
-      "revenue": 125.7,
+      "orders": 5,
+      "revenue": 239.5,
       "spend": 0,
       "cmds": [
+        {
+          "id": "#K1075",
+          "items": {
+            "Korea's #1 Hair Growth Serum": 5
+          },
+          "country": "AU",
+          "h": 19,
+          "rev": 71.9
+        },
+        {
+          "id": "#K1074",
+          "items": {
+            "Korea's #1 Hair Growth Serum": 2
+          },
+          "country": "AU",
+          "h": 19,
+          "rev": 41.9
+        },
         {
           "id": "#K1073",
           "items": {
