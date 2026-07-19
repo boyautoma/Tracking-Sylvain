@@ -1,38 +1,13 @@
 {
-  "lastUpdated": "2026-07-18T19:49:07.676Z",
+  "lastUpdated": "2026-07-19T08:36:00.456Z",
   "daily": [
     {
       "date": "2026-05-19",
       "label": "05/19",
-      "orders": 2,
-      "revenue": 134.44,
+      "orders": 0,
+      "revenue": 0,
       "spend": 59.16,
-      "cmds": [
-        {
-          "id": "#POWDY1060",
-          "items": {
-            "KAORU-SOAP-100": 12,
-            "KAORU-DISH-BAMBOO": 1
-          },
-          "country": "US",
-          "h": 23,
-          "rev": 82.99,
-          "sub": true,
-          "subFirst": true
-        },
-        {
-          "id": "#POWDY1059",
-          "items": {
-            "KAORU-SOAP-100": 6,
-            "KAORU-DISH-BAMBOO": 1
-          },
-          "country": "AU",
-          "h": 20,
-          "rev": 51.45,
-          "sub": true,
-          "subFirst": true
-        }
-      ]
+      "cmds": []
     },
     {
       "date": "2026-05-20",
@@ -377,7 +352,6 @@
     }
   ],
   "skusSeen": [
-    "KAORU-DISH-BAMBOO",
     "KAORU-SOAP-100",
     "Korea's #1 Hair Growth Serum",
     "Shipping Protection"
