@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19T08:36:00.456Z",
+  "lastUpdated": "2026-07-19T19:50:38.966Z",
   "daily": [
     {
       "date": "2026-05-19",
@@ -12,20 +12,10 @@
     {
       "date": "2026-05-20",
       "label": "05/20",
-      "orders": 1,
-      "revenue": 38.83,
+      "orders": 0,
+      "revenue": 0,
       "spend": 63.1,
-      "cmds": [
-        {
-          "id": "#K1061",
-          "items": {
-            "KAORU-SOAP-100": 2
-          },
-          "country": "CA",
-          "h": 6,
-          "rev": 38.83
-        }
-      ]
+      "cmds": []
     },
     {
       "date": "2026-05-21",
