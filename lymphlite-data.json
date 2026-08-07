@@ -1,65 +1,11 @@
 {
-  "lastUpdated": "2026-08-07T00:33:17.492Z",
+  "lastUpdated": "2026-08-07T07:45:26.690Z",
   "daily": [
-    {
-      "date": "2025-12-29",
-      "label": "12/29",
-      "orders": 5,
-      "revenue": 140.98,
-      "spend": 0,
-      "cmds": [
-        {
-          "id": "#1259",
-          "items": {
-            "Lymphatic Support Drops": 2
-          },
-          "country": "US",
-          "h": 23,
-          "rev": 39.8
-        },
-        {
-          "id": "#1258",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 22,
-          "rev": 24.8
-        },
-        {
-          "id": "#1257",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 22,
-          "rev": 24.8
-        },
-        {
-          "id": "#1256",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 21,
-          "rev": 24.8
-        },
-        {
-          "id": "#1255",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 19,
-          "rev": 26.78
-        }
-      ]
-    },
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 22,
-      "revenue": 825.12,
+      "orders": 19,
+      "revenue": 735.72,
       "spend": 507.2,
       "cmds": [
         {
@@ -232,33 +178,6 @@
           "country": "US",
           "h": 8,
           "rev": 39.8
-        },
-        {
-          "id": "#1262",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 2,
-          "rev": 24.8
-        },
-        {
-          "id": "#1261",
-          "items": {
-            "Lymphatic Support Drops": 3
-          },
-          "country": "US",
-          "h": 1,
-          "rev": 39.8
-        },
-        {
-          "id": "#1260",
-          "items": {
-            "Lymphatic Support Drops": 1
-          },
-          "country": "US",
-          "h": 1,
-          "rev": 24.8
         }
       ]
     },
