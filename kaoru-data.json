@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-17T19:15:03.926Z",
+  "lastUpdated": "2026-08-18T07:07:29.196Z",
   "daily": [
     {
       "date": "2026-05-19",
@@ -48,25 +48,6 @@
       "revenue": 0,
       "spend": 15.46,
       "cmds": []
-    },
-    {
-      "date": "2026-06-19",
-      "label": "06/19",
-      "orders": 1,
-      "revenue": 100.8,
-      "spend": 0,
-      "cmds": [
-        {
-          "id": "#K1063",
-          "items": {
-            "KAORU-SOAP-100": 6
-          },
-          "country": "AU",
-          "h": 24,
-          "rev": 100.8,
-          "sub": true
-        }
-      ]
     },
     {
       "date": "2026-07-01",
@@ -332,7 +313,6 @@
     }
   ],
   "skusSeen": [
-    "KAORU-SOAP-100",
     "Korea's #1 Hair Growth Serum",
     "Shipping Protection"
   ]
