@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-08-24T19:19:23.485Z",
+  "lastUpdated": "2026-08-25T07:14:46.319Z",
   "daily": [
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 11,
-      "revenue": 461.06,
+      "orders": 20,
+      "revenue": 760.52,
       "spend": 507.2,
       "cmds": [
         {
@@ -105,6 +105,87 @@
           },
           "country": "US",
           "h": 15,
+          "rev": 24.8
+        },
+        {
+          "id": "#1270",
+          "items": {
+            "Lymphatic Support Drops": 2
+          },
+          "country": "US",
+          "h": 14,
+          "rev": 39.8
+        },
+        {
+          "id": "#1269",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 40.44
+        },
+        {
+          "id": "#1268",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 11,
+          "rev": 39.8
+        },
+        {
+          "id": "#1267",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 40.42
+        },
+        {
+          "id": "#1266",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1265",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1264",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1263",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 8,
+          "rev": 39.8
+        },
+        {
+          "id": "#1262",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 2,
           "rev": 24.8
         }
       ]
@@ -69010,10 +69091,37 @@
     {
       "date": "2026-08-24",
       "label": "08/24",
-      "orders": 8,
-      "revenue": 199.27,
+      "orders": 11,
+      "revenue": 261.04,
       "spend": 0,
       "cmds": [
+        {
+          "id": "#8629",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "NZ",
+          "h": 18,
+          "rev": 29.8
+        },
+        {
+          "id": "#8628",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 18,
+          "rev": 16.8
+        },
+        {
+          "id": "#8627",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 15.17
+        },
         {
           "id": "#8626",
           "items": {
@@ -69085,6 +69193,33 @@
           "country": "GB",
           "h": 4,
           "rev": 32.7
+        }
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "label": "08/25",
+      "orders": 2,
+      "revenue": 44.5,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#8631",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 2,
+          "rev": 16.8
+        },
+        {
+          "id": "#8630",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 1,
+          "rev": 27.7
         }
       ]
     }
