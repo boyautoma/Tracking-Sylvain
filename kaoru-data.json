@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-13T21:07:28.836Z",
+  "lastUpdated": "2026-09-14T12:58:05.557Z",
   "daily": [
     {
       "date": "2026-05-19",
@@ -48,7 +48,27 @@
       "revenue": 0,
       "spend": 15.46,
       "cmds": []
+    },
+    {
+      "date": "2026-09-13",
+      "label": "09/13",
+      "orders": 1,
+      "revenue": 71.9,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#K1084",
+          "items": {
+            "Longer, Stronger, Fuller Hair in 6 Weeks": 4
+          },
+          "country": "US",
+          "h": 20,
+          "rev": 71.9
+        }
+      ]
     }
   ],
-  "skusSeen": []
+  "skusSeen": [
+    "Longer, Stronger, Fuller Hair in 6 Weeks"
+  ]
 }
