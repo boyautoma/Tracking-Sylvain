@@ -1,11 +1,65 @@
 {
-  "lastUpdated": "2026-10-05T14:58:03.941Z",
+  "lastUpdated": "2026-10-06T00:21:51.414Z",
   "daily": [
+    {
+      "date": "2025-12-29",
+      "label": "12/29",
+      "orders": 5,
+      "revenue": 140.98,
+      "spend": 0,
+      "cmds": [
+        {
+          "id": "#1259",
+          "items": {
+            "Lymphatic Support Drops": 2
+          },
+          "country": "US",
+          "h": 23,
+          "rev": 39.8
+        },
+        {
+          "id": "#1258",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 22,
+          "rev": 24.8
+        },
+        {
+          "id": "#1257",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 22,
+          "rev": 24.8
+        },
+        {
+          "id": "#1256",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 21,
+          "rev": 24.8
+        },
+        {
+          "id": "#1255",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 19,
+          "rev": 26.78
+        }
+      ]
+    },
     {
       "date": "2025-12-30",
       "label": "12/30",
-      "orders": 18,
-      "revenue": 695.92,
+      "orders": 22,
+      "revenue": 825.12,
       "spend": 507.2,
       "cmds": [
         {
@@ -168,6 +222,42 @@
           },
           "country": "US",
           "h": 10,
+          "rev": 24.8
+        },
+        {
+          "id": "#1263",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 8,
+          "rev": 39.8
+        },
+        {
+          "id": "#1262",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 2,
+          "rev": 24.8
+        },
+        {
+          "id": "#1261",
+          "items": {
+            "Lymphatic Support Drops": 3
+          },
+          "country": "US",
+          "h": 1,
+          "rev": 39.8
+        },
+        {
+          "id": "#1260",
+          "items": {
+            "Lymphatic Support Drops": 1
+          },
+          "country": "US",
+          "h": 1,
           "rev": 24.8
         }
       ]
@@ -113333,10 +113423,660 @@
     {
       "date": "2026-10-05",
       "label": "10/05",
-      "orders": 101,
-      "revenue": 2339.86,
+      "orders": 173,
+      "revenue": 3993.35,
       "spend": 0,
       "cmds": [
+        {
+          "id": "#13641",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "GB",
+          "h": 20,
+          "rev": 38.6
+        },
+        {
+          "id": "#13640",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 19,
+          "rev": 27.7
+        },
+        {
+          "id": "#13639",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "NZ",
+          "h": 18,
+          "rev": 44.7
+        },
+        {
+          "id": "#13638",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 18,
+          "rev": 16.8
+        },
+        {
+          "id": "#13637",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 18,
+          "rev": 16.26
+        },
+        {
+          "id": "#13636",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 18,
+          "rev": 27.7
+        },
+        {
+          "id": "#13635",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 27.7
+        },
+        {
+          "id": "#13634",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 16.8
+        },
+        {
+          "id": "#13633",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 16.8
+        },
+        {
+          "id": "#13632",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 17,
+          "rev": 27.7
+        },
+        {
+          "id": "#13631",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 16.8
+        },
+        {
+          "id": "#13630",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 16.8
+        },
+        {
+          "id": "#13629",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 16.8
+        },
+        {
+          "id": "#13628",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 16.8
+        },
+        {
+          "id": "#13627",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 16.8
+        },
+        {
+          "id": "#13626",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 27.7
+        },
+        {
+          "id": "#13625",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 16.8
+        },
+        {
+          "id": "#13624",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 16,
+          "rev": 16.8
+        },
+        {
+          "id": "#13623",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 32.7
+        },
+        {
+          "id": "#13622",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 38.6
+        },
+        {
+          "id": "#13621",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 27.7
+        },
+        {
+          "id": "#13620",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 24.11
+        },
+        {
+          "id": "#13619",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 16.8
+        },
+        {
+          "id": "#13618",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 16.8
+        },
+        {
+          "id": "#13617",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 27.7
+        },
+        {
+          "id": "#13616",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 16.8
+        },
+        {
+          "id": "#13615",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 15,
+          "rev": 27.7
+        },
+        {
+          "id": "#13614",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13613",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 27.7
+        },
+        {
+          "id": "#13612",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13611",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 27.7
+        },
+        {
+          "id": "#13610",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13609",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13608",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13607",
+          "items": {
+            "LL-DIG-EBK-BLT": 1,
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 19.79
+        },
+        {
+          "id": "#13606",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13605",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 27.7
+        },
+        {
+          "id": "#13604",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 27.7
+        },
+        {
+          "id": "#13603",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13602",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13601",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13600",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 14,
+          "rev": 16.8
+        },
+        {
+          "id": "#13599",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 16.8
+        },
+        {
+          "id": "#13598",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 16.8
+        },
+        {
+          "id": "#13597",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 27.7
+        },
+        {
+          "id": "#13596",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 38.6
+        },
+        {
+          "id": "#13595",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 27.7
+        },
+        {
+          "id": "#13594",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 27.7
+        },
+        {
+          "id": "#13593",
+          "items": {
+            "LL-DRP-60-HNY-V3": 1,
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 30.7
+        },
+        {
+          "id": "#13592",
+          "items": {
+            "LL-DRP-60-HNY-V1": 4
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 38.6
+        },
+        {
+          "id": "#13591",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 13,
+          "rev": 16.8
+        },
+        {
+          "id": "#13590",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 16.8
+        },
+        {
+          "id": "#13589",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 16.8
+        },
+        {
+          "id": "#13588",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 32.7
+        },
+        {
+          "id": "#13587",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 16.8
+        },
+        {
+          "id": "#13586",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 27.7
+        },
+        {
+          "id": "#13585",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 16.8
+        },
+        {
+          "id": "#13584",
+          "items": {
+            "LL-DRP-60-HNY-V1": 5
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 43.6
+        },
+        {
+          "id": "#13583",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 29.43
+        },
+        {
+          "id": "#13582",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 16.8
+        },
+        {
+          "id": "#13581",
+          "items": {
+            "LL-DRP-60-HNY-V1": 5
+          },
+          "country": "GB",
+          "h": 12,
+          "rev": 43.6
+        },
+        {
+          "id": "#13580",
+          "items": {
+            "LL-DRP-60-HNY-V1": 2
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 27.7
+        },
+        {
+          "id": "#13579",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 16.8
+        },
+        {
+          "id": "#13578",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 16.8
+        },
+        {
+          "id": "#13577",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 16.8
+        },
+        {
+          "id": "#13576",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 16.8
+        },
+        {
+          "id": "#13575",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 27.7
+        },
+        {
+          "id": "#13574",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 16.8
+        },
+        {
+          "id": "#13573",
+          "items": {
+            "LL-DRP-60-HNY-V1": 3
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 27.7
+        },
+        {
+          "id": "#13572",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 16.8
+        },
+        {
+          "id": "#13571",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 11,
+          "rev": 16.8
+        },
+        {
+          "id": "#13570",
+          "items": {
+            "LL-DRP-60-HNY-V1": 1
+          },
+          "country": "GB",
+          "h": 10,
+          "rev": 16.8
+        },
         {
           "id": "#13569",
           "items": {
